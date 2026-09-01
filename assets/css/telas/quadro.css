@@ -1,1 +1,124 @@
-/* quadro.css — estilos da tela "quadro". Preenchido pela task dona desta tela. */
+/* quadro.css — estilos da tela "quadro" e do quadro horario completo.
+   Prefixado por .tela-quadro / .quadro-completo / .quadro__* para nao vazar
+   para as outras telas (a mesma funcao e reaproveitada dentro da tela
+   "linha", via TASK-06, dentro de um contentor proprio). */
+
+.tela-quadro {
+  padding-block: var(--espaco);
+}
+
+.tela-quadro h2 {
+  margin-bottom: var(--espaco);
+  color: var(--cor-evento-azul);
+}
+
+.quadro-completo {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--espaco) * 1.5);
+}
+
+.quadro__turno {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco);
+}
+
+.quadro__turno-nome {
+  font-size: 1rem;
+  color: var(--cor-evento-azul);
+}
+
+.quadro__tabelas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco);
+}
+
+.quadro__tab {
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+}
+
+.quadro__tab-cabecalho {
+  padding: 8px var(--espaco);
+  background: var(--cor-superficie);
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.quadro__tab-nome {
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.quadro__tab-meta {
+  margin-top: 2px;
+  color: var(--cor-texto-suave);
+  font-size: 0.8125rem;
+}
+
+/* Rolagem horizontal ISOLADA a este contentor — o body/#tela nunca rolam
+   na horizontal (RNF-03). Necessario porque uma linha pode ter 10 TABs no
+   mesmo turno, e cada TAB tem sua propria tabela larga. */
+.quadro__rolagem {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.quadro__tabela {
+  width: 100%;
+  min-width: 420px;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.quadro__tabela th,
+.quadro__tabela td {
+  padding: 8px 10px;
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.quadro__tabela th {
+  background: var(--cor-fundo);
+  color: var(--cor-texto-suave);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.quadro__tabela tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.quadro__vazia {
+  color: var(--cor-texto-suave);
+  cursor: help;
+}
+
+.linha-viagem--continuacao,
+.linha-viagem--baixada {
+  background: var(--cor-superficie);
+}
+
+.quadro__frequencia {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quadro__frequencia h3 {
+  font-size: 0.9375rem;
+  color: var(--cor-evento-azul);
+}
+
+.quadro__legenda {
+  padding: 8px var(--espaco);
+  border-left: 4px solid var(--cor-borda);
+  color: var(--cor-texto-suave);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
