@@ -1,7 +1,7 @@
 # Tasks: Site de Apoio Operacional — Sou Manaus Passo a Paço 2026
 
 > **Spec:** docs/specs/apoio-operacional-passo-a-paco.md
-> **Status:** 1/13 tasks concluídas | 1/6 ondas concluídas
+> **Status:** 2/13 tasks concluídas | 2/6 ondas concluídas
 > **Criado em:** 01/09/2026
 
 ---
@@ -209,14 +209,25 @@ export function renderizarQuadroCompleto(elemento, objetoLinha, diaISO)
 **Referência:** nenhuma
 
 **Critério de conclusão:**
-- [ ] `node ferramentas/verificar_contrato.mjs` sai com código 0 e imprime as asserções
-- [ ] `diaVigente(new Date('2026-09-06T01:20:00-04:00'))` retorna `2026-09-05`
-- [ ] `diaVigente(new Date('2026-09-20T10:00:00-04:00'))` retorna `2026-09-05` com `foraDoEvento: true`
-- [ ] `hora('25:52')` retorna `'01:52 (+1)'`
-- [ ] A aba Avisos renderiza no navegador e muda de conteúdo ao trocar para 07/09
-- [ ] Os 6 stubs registram suas chaves e o `chaves()` devolve as 7
+- [x] `node ferramentas/verificar_contrato.mjs` sai com código 0 e imprime as asserções
+- [x] `diaVigente(new Date('2026-09-06T01:20:00-04:00'))` retorna `2026-09-05`
+- [x] `diaVigente(new Date('2026-09-20T10:00:00-04:00'))` retorna `2026-09-05` com `foraDoEvento: true`
+- [x] `hora('25:52')` retorna `'01:52 (+1)'`
+- [x] A aba Avisos renderiza no navegador e muda de conteúdo ao trocar para 07/09 (9 → 11 avisos)
+- [x] Os 6 stubs registram suas chaves e o `chaves()` devolve as 7
 
-**Status:** [ ] Pendente
+**Status:** [x] Concluída
+
+---
+
+**Bug encontrado (TASK-02):** os rótulos dos botões de dia em `index.html` estão com o dia da semana errado — dizem `sexta / sábado / domingo`, mas 05, 06 e 07/09/2026 são **sábado, domingo e segunda** (confere com `tipoDia` no `dados.json`: `SÁBADO`, `DOMINGO`, `SEGUNDA (PASSO A PAÇO)`). `index.html` é da TASK-01 e não está na lista exclusiva de nenhuma task pendente — precisa de correção própria. Enquanto isso, o subtítulo da tela Avisos, que calcula o dia da semana, contradiz visivelmente os botões.
+
+**Desvio (TASK-02):** as classes `.estado-vazio`, `.estado-erro`, `.fora-do-evento` e `.rodape__versao` foram escritas em `assets/css/base.css`, que não está na lista exclusiva desta task. Motivo: são usadas por `app/telas.js` e pelos 7 arquivos de tela; deixá-las indefinidas faria as 6 tasks da ONDA 3 definirem, cada uma, a sua versão da mesma classe. `base.css` não pertence a nenhuma task pendente.
+
+**Contrato adicional congelado na TASK-02** (além dos que o ticket já listava), para a ONDA 3:
+- **Campo de busca → TASK-04:** `principal.js` liga o `input` de `#busca` a `irPara('busca', { termo })` a cada digitação; termo vazio volta para a tela `mapa`. O campo vive no `<header>`, fora do `<main>`, então re-renderizar não tira o foco nem o cursor (verificado com digitação real).
+- **`proximaPassagem()` → TASK-06:** o campo `hora` do retorno é o valor **bruto** de `passagens[]` (pode ser `'25:47'`). Quem exibe passa por `formato.hora()`.
+- **`avisosDe(numero, dia)`:** filtra por dia e por linha, e já devolve ordenado por severidade. O campo `linha.avisos` do JSON é dia-agnóstico e não deve ser usado direto.
 
 ---
 
