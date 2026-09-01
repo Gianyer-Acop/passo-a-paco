@@ -1,1 +1,127 @@
-/* mapa.css — estilos da tela "mapa". Preenchido pela task dona desta tela. */
+/* mapa.css — estilos da tela "mapa".
+   Referencia de CSS de tela: tudo aqui e prefixado por .tela-mapa, .mapa-imagem,
+   .mapa-hotspot ou .cartao-ponto, para nao vazar para as outras seis telas. */
+
+.tela-mapa {
+  padding-block: var(--espaco);
+}
+
+.tela-mapa h2 {
+  font-size: 1.25rem;
+  color: var(--cor-evento-azul);
+  margin-bottom: 4px;
+}
+
+.tela-mapa__intro {
+  margin-bottom: var(--espaco);
+  color: var(--cor-texto-suave);
+  font-size: 0.875rem;
+}
+
+/* ------------------------------------------------------------- mapa/hotspots */
+
+.mapa-imagem {
+  position: relative;
+  width: 100%;
+  margin-bottom: calc(var(--espaco) * 1.5);
+  border-radius: var(--raio);
+  overflow: hidden;
+  background: var(--cor-superficie);
+}
+
+.mapa-imagem__img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Hotspot: botao redondo sobre a imagem, posicionado em % via left/top
+   (definidos inline pelo JS a partir de ponto.hotspot). O tamanho vem da
+   variavel --tamanho-hotspot (default 44px = --alvo-toque), reduzida em
+   runtime quando dois pontos estao proximos demais no eixo vertical para
+   caberem 44px sem se sobrepor (ver comentario em mapa.js).
+
+   min-height precisa ser zerado aqui: base.css forca min-height:44px em todo
+   <button>, o que impediria o encolhimento no caso de sobreposicao. */
+.mapa-hotspot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  min-height: 0;
+  width: var(--tamanho-hotspot, 44px);
+  height: var(--tamanho-hotspot, 44px);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  background: var(--cor-ponto);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+}
+
+.mapa-hotspot:hover,
+.mapa-hotspot:focus-visible {
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.7), 0 1px 4px rgba(0, 0, 0, 0.45);
+}
+
+/* ------------------------------------------------------------------ cartoes */
+
+.lista-pontos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco);
+}
+
+/* Cada cartao tem borda colorida E numero/zona em texto:
+   a cor nunca e o unico indicador (RNF-06). */
+.cartao-ponto {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco);
+  width: 100%;
+  padding: var(--espaco);
+  border: 1px solid var(--cor-borda);
+  border-left: 6px solid var(--cor-ponto);
+  border-radius: var(--raio);
+  background: var(--cor-fundo);
+  text-align: left;
+  cursor: pointer;
+}
+
+.cartao-ponto__numero {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--cor-ponto);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 1.0625rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.cartao-ponto__corpo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.cartao-ponto__zonas {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.cartao-ponto__linhas {
+  margin-top: 4px;
+  color: var(--cor-texto-suave);
+  font-size: 0.8125rem;
+}
