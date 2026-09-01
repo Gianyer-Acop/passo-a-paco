@@ -1,0 +1,164 @@
+RELATÓRIO DE CONVERSÃO — 2026-09-01T15:30:58-04:00
+
+Linhas na base: 77
+  com programação do evento: 34 (102 blocos linha-dia)
+  só escala regular, sem evento: 43 -> 002, 004, 110, 111, 112, 119, 123, 127, 129, 203, 205, 207, 211, 221, 223, 306, 319, 324, 330, 403, 427, 439, 447, 452, 454, 455, 457, 461, 507, 515, 517, 600, 602, 606, 609, 611, 619, 625, 651, 704, 706, 708, 711
+Passagens pelo ponto (VOLTA, publicadas): 2960
+Saídas do terminal de origem (IDA, referência): 2963
+Viagens no quadro completo: 3695
+
+LINHA  DIA           DECL  ORIG PASSA  VIAG 1ªPASSAG ÚLTIMA  
+011    2026-09-05      18    18    18    24 05:47    25:27   
+011    2026-09-06      18    18    18    24 05:47    25:27   
+011    2026-09-07      18    18    18    24 05:47    25:27   
+101    2026-09-05      27    27    27    31 05:17    26:30   
+101    2026-09-06      27    27    27    31 05:17    26:30   
+101    2026-09-07      27    27    27    31 05:17    26:30   
+113    2026-09-05      32    32    32    36 05:19    25:52   
+113    2026-09-06      32    32    32    36 05:19    25:52   
+113    2026-09-07      32    32    32    36 05:19    25:52   
+120    2026-09-05      38    38    38    46 05:41    26:45   
+120    2026-09-06      38    38    38    46 05:41    26:45   
+120    2026-09-07      38    38    38    46 05:41    26:45   
+121    2026-09-05      26    26    26    32 05:17    25:32   
+121    2026-09-06      26    26    26    32 05:17    25:32   
+121    2026-09-07      26    26    26    32 05:17    25:32   
+126    2026-09-05      32    32    32    44 05:47    25:59   
+126    2026-09-06      32    32    32    44 05:47    25:59   
+126    2026-09-07      32    32    32    44 05:47    25:59   
+214    2026-09-05      20    20    20    25 06:02    26:31   
+214    2026-09-06      20    20    20    25 06:02    26:31   
+214    2026-09-07      20    20    20    25 06:02    26:31   
+219    2026-09-05      32    32    32    38 05:33    25:45   
+219    2026-09-06      32    32    32    38 05:33    25:45   
+219    2026-09-07      32    32    32    38 05:33    25:45   
+227    2026-09-05      31    31    31    37 05:36    26:18   
+227    2026-09-06      31    31    31    37 05:36    26:18   
+227    2026-09-07      31    31    31    37 05:36    26:18   
+302    2026-09-05      11    11    11    15 04:55    23:11   
+302    2026-09-06      11    11    11    15 04:55    23:11   
+302    2026-09-07      11    11    11    15 04:55    23:11   
+305    2026-09-05      15    15    14    20 04:30    24:23   
+305    2026-09-06      15    15    14    20 04:30    24:23   
+305    2026-09-07      15    15    14    20 04:30    24:23   
+315    2026-09-05      28    28    28    36 06:00    27:03   
+315    2026-09-06      28    28    28    36 06:00    27:03   
+315    2026-09-07      28    28    28    36 06:00    27:03   
+320    2026-09-05      31    31    31    39 05:51    24:58   
+320    2026-09-06      31    31    31    39 05:51    24:58   
+320    2026-09-07      31    31    31    39 05:51    24:58   
+321    2026-09-05      22    22    22    28 05:29    25:43   
+321    2026-09-06      22    22    22    28 05:29    25:43   
+321    2026-09-07      22    22    22    28 05:29    25:43   
+340    2026-09-05      49    49    49    61 05:22    27:43   
+340    2026-09-06      49    49    49    61 05:22    27:43   
+340    2026-09-07      49    49    49    61 05:22    27:43   
+356    2026-09-05      36    36    36    47 05:09    26:16   
+356    2026-09-06      29    29    29    38 06:24    26:00   
+356    2026-09-07      36    36    36    47 05:09    26:16   
+357    2026-09-05      20    20    20    26 06:10    25:00   
+357    2026-09-06      20    20    20    26 06:10    25:00   
+357    2026-09-07      20    20    20    26 06:10    25:00   
+422    2026-09-05      28    28    28    36 05:45    26:02   
+422    2026-09-06      28    28    28    36 05:45    26:02   
+422    2026-09-07      28    28    28    36 05:45    26:02   
+440    2026-09-05      19    19    19    24 06:26    25:24   
+440    2026-09-06      19    19    19    24 06:26    25:24   
+440    2026-09-07      19    19    19    24 06:26    25:24   
+443    2026-09-05      27    27    27    35 05:52    26:50   
+443    2026-09-06      20    20    20    26 06:07    26:55   
+443    2026-09-07      27    27    27    35 05:52    26:50   
+448    2026-09-05      32    32    32    40 05:49    25:05   
+448    2026-09-06      32    32    32    40 05:49    25:05   
+448    2026-09-07      32    32    32    40 05:49    25:05   
+500    2026-09-05      42    42    42    52 05:41    25:35   
+500    2026-09-06      42    42    42    52 05:41    25:35   
+500    2026-09-07      42    42    42    52 05:41    25:35   
+535    2026-09-05      22    22    22    26 05:29    26:25   
+535    2026-09-06      22    22    22    26 05:29    26:25   
+535    2026-09-07      22    22    22    26 05:29    25:30   
+540    2026-09-05      34    34    34    41 05:25    25:04   
+540    2026-09-06      34    34    34    41 05:25    25:04   
+540    2026-09-07      34    34    34    41 05:25    25:04   
+560    2026-09-05      30    30    30    40 06:01    25:45   
+560    2026-09-06      30    30    30    40 06:01    25:45   
+560    2026-09-07      30    30    30    40 06:01    25:45   
+604    2026-09-05      35    35    35    46 04:54    27:10   
+604    2026-09-06      16    16    16    20 18:08    27:05   
+604    2026-09-07      12    12    12    15 16:46    26:10   
+608    2026-09-05      29    29    29    35 05:32    26:04   
+608    2026-09-06      29    29    29    35 05:32    26:04   
+608    2026-09-07      29    29    29    35 05:32    26:04   
+612    2026-09-05      29    29    29    35 05:28    26:00   
+612    2026-09-06      29    29    29    35 05:28    26:00   
+612    2026-09-07      29    29    29    35 05:28    26:00   
+621    2026-09-05      24    24    24    28 05:29    26:20   
+621    2026-09-06      24    24    24    28 05:29    26:20   
+621    2026-09-07      24    24    24    28 05:29    26:20   
+640    2026-09-05      75    75    75    93 05:34    26:55   
+640    2026-09-06      59    59    59    73 05:28    25:33   
+640    2026-09-07      70    70    70    87 05:34    26:01   
+650    2026-09-05      34    34    34    42 05:44    25:42   
+650    2026-09-06      34    34    34    42 05:44    25:42   
+650    2026-09-07      34    34    34    42 05:44    25:42   
+652    2026-09-05      42    42    42    52 05:59    26:07   
+652    2026-09-06      42    42    42    52 05:59    26:07   
+652    2026-09-07      42    42    42    52 05:59    26:07   
+676    2026-09-05      35    35    35    45 05:42    25:37   
+676    2026-09-06      16    16    16    20 16:12    25:27   
+676    2026-09-07      16    16    16    20 16:12    25:27   
+713    2026-09-05      21    21    21    27 05:55    25:29   
+713    2026-09-06      21    21    21    27 05:55    25:29   
+713    2026-09-07      21    21    21    27 05:55    25:29   
+
+AVISOS DE CONVERSÃO (47):
+  004: aba e escala regular (ref. 2024-04-21, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  203: aba e escala regular (ref. 2025-05-10, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  205: aba e escala regular (ref. 2026-04-25, SÁBADO E DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  207: aba e escala regular (ref. 2026-06-14, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  223: aba e escala regular (ref. 2025-03-16, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  403: aba e escala regular (ref. 2024-06-08, SÁBADO E DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  427: aba e escala regular (ref. 2025-11-08, SÁBADO E DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  452: aba e escala regular (ref. 2025-01-18, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  507: aba e escala regular (ref. 2024-01-28, FREQUÊNCIA DA LINHA 507), sem programacao do evento; publicada so com o ponto de embarque
+  606: aba e escala regular (ref. 2025-03-15, SÁBADO E DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  609: aba e escala regular (ref. 2023-06-20, FREQUÊNCIA DA LINHA 609), sem programacao do evento; publicada so com o ponto de embarque
+  611: aba e escala regular (ref. 2024-10-05, SÁBADO E DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  625: aba e escala regular (ref. 2021-05-09, FREQUENCIA DA LINHA  625), sem programacao do evento; publicada so com o ponto de embarque
+  704: aba e escala regular (ref. 2024-01-07, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  706: aba e escala regular (ref. 2026-08-29, SÁBADO E  DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  708: aba e escala regular (ref. 2026-02-15, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  711: aba e escala regular (ref. 2025-03-16, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  110: aba e escala regular (ref. 2025-03-16, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  111: aba e escala regular (ref. 2025-03-01, SÁBADO E DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  112: aba e escala regular (ref. 2025-02-09, FREQUÊNCIA DA LINHA 112), sem programacao do evento; publicada so com o ponto de embarque
+  119: aba e escala regular (ref. 2026-06-20, SÁBADO E DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  123: aba e escala regular (ref. 2026-08-15, SÁBADO E DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  127: aba e escala regular (ref. 2025-04-06, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  129: aba e escala regular (ref. 2025-07-06, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  211: aba e escala regular (ref. 2026-04-25, SÁBADO E DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  221: aba e escala regular (ref. 2024-06-09, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  306: aba e escala regular (ref. 2026-04-12, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  324: aba e escala regular (ref. 2026-06-21, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  002: aba e escala regular (ref. 2022-09-25, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  515: aba e escala regular (ref. 2026-03-29, FREQUÊNCIA DA LINHA 515), sem programacao do evento; publicada so com o ponto de embarque
+  517: aba e escala regular (ref. 2025-03-16, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  600: aba e escala regular (ref. 2026-08-23, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  602: aba e escala regular (ref. 2025-05-17, SÁBADO), sem programacao do evento; publicada so com o ponto de embarque
+  619: aba e escala regular (ref. 2026-06-13, SÁBADO), sem programacao do evento; publicada so com o ponto de embarque
+  651: aba e escala regular (ref. 2024-11-24, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  319: aba e escala regular (ref. 2025-01-12, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  330: aba e escala regular (ref. 2025-09-13, SÁBADO E DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  439: aba e escala regular (ref. 2022-10-02, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  447: aba e escala regular (ref. 2021-01-22, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  454: aba e escala regular (ref. 2025-01-11, SÁBADO E DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  455: aba e escala regular (ref. 2026-08-23, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  457: aba e escala regular (ref. 2025-05-18, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  448: bloco 3 rotulado 2026-09-05 na planilha; usando 2026-09-07 (posição)
+  461: aba e escala regular (ref. 2024-02-11, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  P1: linhas da arte sem aba nenhuma: 209, 502, 610
+  P3: linhas da arte sem aba nenhuma: 616, 690
+  P4: linhas da arte sem aba nenhuma: 442
+
+ERROS DE VALIDAÇÃO (0):
+  nenhum

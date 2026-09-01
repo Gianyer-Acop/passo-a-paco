@@ -1,0 +1,6 @@
+# Saída antiga do gerador — a partir da TASK-01 o JSON vai para /dados.
+Passo a paço/dados/
+
+# Python
+__pycache__/
+*.pyc
