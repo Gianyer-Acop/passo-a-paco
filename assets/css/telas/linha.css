@@ -1,1 +1,201 @@
-/* linha.css — estilos da tela "linha". Preenchido pela task dona desta tela. */
+/* linha.css — estilos da tela "linha" (a tela mais importante do site).
+   Tudo aqui e prefixado por .tela-linha ou pelas classes .linha__*, para nao
+   vazar para as outras seis telas. Reaproveita tokens de base.css. */
+
+.tela-linha {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco);
+  padding-block: var(--espaco);
+}
+
+.linha__identificacao {
+  display: flex;
+  align-items: baseline;
+  gap: var(--espaco);
+  flex-wrap: wrap;
+}
+
+.linha__nome {
+  color: var(--cor-evento-azul);
+}
+
+.linha__empresa {
+  color: var(--cor-texto-suave);
+  font-size: 0.9375rem;
+}
+
+.linha__dia {
+  color: var(--cor-texto-suave);
+  font-size: 0.875rem;
+  text-transform: capitalize;
+}
+
+/* --------------------------------------------------------------- ponto */
+
+.linha__ponto {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: var(--raio);
+  border: 2px solid var(--cor-ponto, var(--cor-borda));
+  color: var(--cor-ponto, var(--cor-texto));
+  font-weight: 700;
+}
+
+.linha__ponto::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--cor-ponto, var(--cor-borda));
+}
+
+/* ------------------------------------------------------- caso A: simples */
+
+.tela-linha--simples {
+  align-items: flex-start;
+}
+
+.linha__mensagem-regular {
+  padding: var(--espaco);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  background: var(--cor-superficie);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+/* ------------------------------------------------------ caso B: completa */
+
+.linha__cabecalho {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: var(--espaco);
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.linha__avisos .lista-avisos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco);
+}
+
+.linha__observacoes h3,
+.linha__legenda h3 {
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+
+.linha__observacoes ul,
+.linha__legenda ul {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.linha__observacoes li,
+.linha__legenda li {
+  padding: 8px 10px;
+  border-radius: var(--raio);
+  background: var(--cor-superficie);
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+
+/* ------------------------------------------------------------- grade */
+
+.linha__grade h3 {
+  margin-bottom: 4px;
+}
+
+.linha__grade-aviso {
+  margin-bottom: var(--espaco);
+  color: var(--cor-texto-suave);
+  font-size: 0.8125rem;
+  font-style: italic;
+}
+
+.linha__proxima-passagem {
+  margin-bottom: var(--espaco);
+  padding: 10px 12px;
+  border-radius: var(--raio);
+  border: 2px solid var(--cor-evento-laranja);
+  background: #FFF4E8;
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+
+.grade-passagens {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.grade-passagens__linha {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.grade-passagens__hora {
+  flex: 0 0 auto;
+  min-width: 2.5em;
+  padding-top: 6px;
+  font-weight: 700;
+  color: var(--cor-evento-azul);
+  font-variant-numeric: tabular-nums;
+}
+
+.grade-passagens__minutos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.badge-passagem {
+  padding: 6px 10px;
+  border-radius: var(--raio);
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  font-size: 1rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.badge-passagem--proxima {
+  border-color: var(--cor-evento-laranja);
+  background: var(--cor-evento-laranja);
+  color: #1A1A1A;
+}
+
+/* -------------------------------------------------------- quadro completo */
+
+.linha__quadro {
+  padding-top: var(--espaco);
+  border-top: 1px solid var(--cor-borda);
+}
+
+.botao-quadro-completo {
+  width: 100%;
+  padding: 10px 16px;
+  border: 2px solid var(--cor-evento-azul);
+  border-radius: var(--raio);
+  background: #FFFFFF;
+  color: var(--cor-evento-azul);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.botao-quadro-completo[aria-expanded="true"] {
+  background: var(--cor-evento-azul);
+  color: #FFFFFF;
+}
+
+.linha__quadro-conteudo {
+  margin-top: var(--espaco);
+}
