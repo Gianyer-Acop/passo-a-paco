@@ -1,7 +1,7 @@
 # Tasks: Site de Apoio Operacional — Sou Manaus Passo a Paço 2026
 
 > **Spec:** docs/specs/apoio-operacional-passo-a-paco.md
-> **Status:** 8/13 tasks concluídas | 3/6 ondas concluídas
+> **Status:** 10/13 tasks concluídas | 4/6 ondas concluídas
 > **Criado em:** 01/09/2026
 
 ---
@@ -487,12 +487,12 @@ Rodapé: `Dados de <versaoDados>` (campo do JSON). Quando a revalidação trouxe
 **Referência:** nenhuma
 
 **Critério de conclusão:**
-- [ ] Com modo avião após o primeiro acesso, o site abre e navega entre telas
-- [ ] O rodapé mostra a data de `versaoDados`
-- [ ] Regerar o `dados.json` e recarregar faz aparecer o botão "Atualizar"
-- [ ] Primeiro acesso offline mostra mensagem, não tela branca
+- [x] Com modo avião após o primeiro acesso, o site abre e navega entre telas
+- [x] O rodapé mostra a data de `versaoDados`
+- [x] Regerar o `dados.json` e recarregar faz aparecer o botão "Atualizar"
+- [x] Primeiro acesso offline mostra mensagem, não tela branca
 
-**Status:** [ ] Pendente
+**Status:** [x] Concluída
 
 ---
 
@@ -520,12 +520,23 @@ Gravar o passo de conversão em `ferramentas/otimizar_imagens.py`, para ser repe
 **Referência:** nenhuma
 
 **Critério de conclusão:**
-- [ ] Ambos os WebP abaixo de 400 KB
-- [ ] Os PNG continuam servindo de fallback
-- [ ] Os 4 hotspots seguem alinhados com os pins após a troca
-- [ ] `node ferramentas/verificar_contrato.mjs` passa
+- [x] Ambos os WebP abaixo de 400 KB
+- [x] Os PNG continuam servindo de fallback
+- [x] Os 4 hotspots seguem alinhados com os pins após a troca
+- [x] `node ferramentas/verificar_contrato.mjs` passa
 
-**Status:** [ ] Pendente
+**Status:** [x] Concluída
+
+---
+
+**Desvios (ONDA 4):** três arquivos fora das listas exclusivas dos tickets, todos necessários e nenhum conflitante:
+- `ferramentas/gerar_icones.py` e `assets/img/icone-{192,512,maskable-512}.png` — o manifesto exige ícones e nenhum ticket os previa.
+- `app/principal.js` e `assets/css/base.css` — a TASK-09 manda criar `app/rodape.js`, que precisa ser importado e estilizado.
+- `ferramentas/verificar_contrato.mjs` — recebeu as asserções das duas tasks (é o único harness de teste do projeto).
+
+**Bug encontrado (TASK-09):** três defeitos no `sw.js`/`rodape.js` que passavam por qualquer verificação estática e falhavam em silêncio (botão "Atualizar" nunca aparecia): falta de `navigator.serviceWorker.startMessages()`; revalidação sem `evento.waitUntil()`; e `emCache.clone()` depois de a resposta já ter sido consumida pelo `respondWith`. Todos corrigidos e cobertos por asserção. Registrado aqui porque a lição vale para a ONDA 6: **guarda estático verde não é prova de comportamento de service worker.**
+
+**Nota (ONDA 4):** o Browser pane não reexecuta o `install` de um service worker depois da primeira registração da sessão — registra e pula direto para `activated`, sem criar cache. A verificação de SW deste projeto precisa ser feita no Chrome real.
 
 ---
 
