@@ -1,1 +1,83 @@
-/* ponto.css — estilos da tela "ponto". Preenchido pela task dona desta tela. */
+/* ponto.css — estilos da tela "ponto".
+   Referencia de CSS de tela: tudo aqui e prefixado por .tela-ponto ou pelo
+   bloco .linha, para nao vazar para as outras telas. */
+
+.tela-ponto {
+  padding-block: var(--espaco);
+}
+
+.tela-ponto h2 {
+  font-size: 1.25rem;
+  color: var(--cor-ponto, var(--cor-evento-azul));
+}
+
+.tela-ponto__cabecalho {
+  margin-bottom: var(--espaco);
+  padding: var(--espaco);
+  border-radius: var(--raio);
+  background: var(--cor-superficie);
+}
+
+.tela-ponto__zonas {
+  margin: 0;
+  font-size: var(--fonte-corpo);
+  font-weight: 600;
+}
+
+.tela-ponto__dia {
+  margin: 6px 0 0 0;
+  color: var(--cor-texto-suave);
+  font-size: 0.875rem;
+  text-transform: capitalize;
+}
+
+.lista-linhas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco);
+}
+
+.linha {
+  display: flex;
+  flex-direction: column;
+  padding: var(--espaco);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  background: var(--cor-fundo);
+  cursor: pointer;
+  min-height: var(--alvo-toque);
+  justify-content: center;
+}
+
+.linha:active {
+  background: var(--cor-superficie);
+}
+
+.linha:focus-visible {
+  outline: 3px solid var(--cor-evento-azul);
+  outline-offset: 2px;
+}
+
+.linha__numero {
+  color: var(--cor-ponto, var(--cor-evento-azul));
+  margin-bottom: 4px;
+}
+
+.linha__nome {
+  font-size: var(--fonte-corpo);
+  color: var(--cor-texto);
+  line-height: 1.4;
+}
+
+.linha__marcador {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--cor-superficie);
+  color: var(--cor-texto-suave);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+}
