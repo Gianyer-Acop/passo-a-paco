@@ -1,1 +1,73 @@
-/* busca.css — estilos da tela "busca". Preenchido pela task dona desta tela. */
+/* busca.css — estilos da tela "busca".
+   Tudo aqui e prefixado por .tela-busca ou pelo bloco .resultado-busca, para
+   nao vazar para as outras seis telas. */
+
+.tela-busca {
+  padding-block: var(--espaco);
+}
+
+.tela-busca h2 {
+  font-size: 1.25rem;
+  color: var(--cor-evento-azul);
+  margin-bottom: var(--espaco);
+}
+
+.lista-busca {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.resultado-busca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px var(--espaco);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  background: var(--cor-fundo);
+  text-align: left;
+  cursor: pointer;
+}
+
+.resultado-busca:hover {
+  background: var(--cor-superficie);
+}
+
+/* O ponto de embarque nunca e o unico indicador: a cor vem sempre ao lado
+   do numero e do nome da linha (RNF-06). */
+.resultado-busca__ponto {
+  flex: 0 0 auto;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--cor-ponto);
+}
+
+.resultado-busca__textos {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.resultado-busca__numero {
+  color: var(--cor-texto);
+}
+
+.resultado-busca__nome {
+  font-size: 0.875rem;
+  color: var(--cor-texto-suave);
+  overflow-wrap: anywhere;
+}
+
+.resultado-busca__sem-alteracao {
+  flex: 0 0 auto;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--cor-superficie);
+  color: var(--cor-texto-suave);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
