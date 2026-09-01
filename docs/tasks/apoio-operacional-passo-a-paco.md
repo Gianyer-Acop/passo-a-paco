@@ -1,7 +1,7 @@
 # Tasks: Site de Apoio Operacional — Sou Manaus Passo a Paço 2026
 
 > **Spec:** docs/specs/apoio-operacional-passo-a-paco.md
-> **Status:** 2/13 tasks concluídas | 2/6 ondas concluídas
+> **Status:** 8/13 tasks concluídas | 3/6 ondas concluídas
 > **Criado em:** 01/09/2026
 
 ---
@@ -266,12 +266,12 @@ Abaixo do mapa, um cartão por ponto com: número, cor (`--ponto-pN`), zonas ate
 **Referência:** `app/telas/avisos.js` (padrão de tela)
 
 **Critério de conclusão:**
-- [ ] Os 4 hotspots caem sobre os pins da arte em 360px e em 1280px de largura
-- [ ] Clicar no pin do Ponto 03 abre a lista com as 14 linhas do ponto
-- [ ] Navegação por Tab alcança os 4 cartões, com foco visível
-- [ ] `node ferramentas/verificar_contrato.mjs` passa
+- [x] Os 4 hotspots caem sobre os pins da arte em 360px e em 1280px de largura
+- [x] Clicar no pin do Ponto 03 abre a lista com as 14 linhas do ponto
+- [x] Navegação por Tab alcança os 4 cartões, com foco visível
+- [x] `node ferramentas/verificar_contrato.mjs` passa
 
-**Status:** [ ] Pendente
+**Status:** [x] Concluída
 
 ---
 
@@ -299,13 +299,13 @@ Sem resultado: mensagem orientando consultar a escala regular. Vale tanto para n
 **Referência:** `app/telas/avisos.js` (padrão de tela)
 
 **Critério de conclusão:**
-- [ ] Digitar `608` chega à linha em no máximo 2 toques
-- [ ] Digitar `petropolis` e `PETRÓPOLIS` devolvem o mesmo resultado
-- [ ] Digitar `999` e `442` mostram a mensagem de não encontrado
-- [ ] Buscar `011` exibe só o número, sem "null"
-- [ ] `node ferramentas/verificar_contrato.mjs` passa
+- [x] Digitar `608` chega à linha em no máximo 2 toques
+- [x] Digitar `petropolis` e `PETRÓPOLIS` devolvem o mesmo resultado
+- [x] Digitar `999` e `442` mostram a mensagem de não encontrado
+- [x] Buscar `011` exibe só o número, sem "null"
+- [x] `node ferramentas/verificar_contrato.mjs` passa
 
-**Status:** [ ] Pendente
+**Status:** [x] Concluída
 
 ---
 
@@ -329,12 +329,12 @@ Estruturalmente é a mesma coisa que `avisos.js`: lê estado, lê dados, monta l
 **Referência:** `app/telas/avisos.js` — replicar o padrão de tela com outra fonte de dados
 
 **Critério de conclusão:**
-- [ ] Ponto 03 lista 14 linhas: 7 com quadro e 7 marcadas "sem alteração"
-- [ ] Ordem numérica crescente
-- [ ] Trocar o dia no topo atualiza o cabeçalho sem sair da lista
-- [ ] `node ferramentas/verificar_contrato.mjs` passa
+- [x] Ponto 03 lista 14 linhas: 7 com quadro e 7 marcadas "sem alteração"
+- [x] Ordem numérica crescente
+- [x] Trocar o dia no topo atualiza o cabeçalho sem sair da lista
+- [x] `node ferramentas/verificar_contrato.mjs` passa
 
-**Status:** [ ] Pendente
+**Status:** [x] Concluída
 
 ---
 
@@ -366,17 +366,17 @@ Estruturalmente é a mesma coisa que `avisos.js`: lê estado, lê dados, monta l
 **Referência:** `app/telas/avisos.js` (padrão de tela)
 
 **Critério de conclusão:**
-- [ ] **Linha 604 em 07/09 mostra a primeira passagem às `16:46`.** Se aparecer `15:46`, a implementação usou `saidasOrigem` e está errada
-- [ ] **Linha 214 em 05/09 mostra `06:02`, não `05:20`**
-- [ ] Linha 113 em 05/09 lista 32 passagens, de `05:19` a `01:52 (+1)`
-- [ ] Linha 305 em 05/09 lista 14 passagens, de `04:30` a `00:23 (+1)`
-- [ ] Buscar `447` abre a tela reduzida, com o Ponto 04 em destaque e **nenhum horário**
-- [ ] Linha 604 em 07/09 exibe o aviso das 18h; em 05/09 não exibe
-- [ ] A tela usa a palavra "passagem" e sinaliza que o horário é aproximado
-- [ ] `grep -c saidasOrigem app/telas/linha.js` retorna 0
-- [ ] `node ferramentas/verificar_contrato.mjs` passa
+- [x] **Linha 604 em 07/09 mostra a primeira passagem às `16:46`.** Se aparecer `15:46`, a implementação usou `saidasOrigem` e está errada
+- [x] **Linha 214 em 05/09 mostra `06:02`, não `05:20`**
+- [x] Linha 113 em 05/09 lista 32 passagens, de `05:19` a `01:52 (+1)`
+- [x] Linha 305 em 05/09 lista 14 passagens, de `04:30` a `00:23 (+1)`
+- [x] Buscar `447` abre a tela reduzida, com o Ponto 04 em destaque e **nenhum horário**
+- [x] Linha 604 em 07/09 exibe o aviso das 18h; em 05/09 não exibe
+- [x] A tela usa a palavra "passagem" e sinaliza que o horário é aproximado
+- [x] `grep -c saidasOrigem app/telas/linha.js` retorna 0
+- [x] `node ferramentas/verificar_contrato.mjs` passa
 
-**Status:** [ ] Pendente
+**Status:** [x] Concluída
 
 ---
 
@@ -409,14 +409,14 @@ Renderiza, por turno, uma tabela por TAB com: TAB, veículo, jornada, e as colun
 **Referência:** `app/telas/avisos.js` (padrão de tela)
 
 **Critério de conclusão:**
-- [ ] A assinatura exportada é exatamente `renderizarQuadroCompleto(elemento, objetoLinha, diaISO)`
-- [ ] Linha 640 em 05/09 rola horizontalmente dentro do contêiner; o `body` não rola
-- [ ] Linha 305 em 05/09 renderiza as 6 baixadas sem quebrar
-- [ ] Célula vazia de continuação tem legenda
-- [ ] Em 360×640 a página não rola na horizontal
-- [ ] `node ferramentas/verificar_contrato.mjs` passa
+- [x] A assinatura exportada é exatamente `renderizarQuadroCompleto(elemento, objetoLinha, diaISO)`
+- [x] Linha 640 em 05/09 rola horizontalmente dentro do contêiner; o `body` não rola
+- [x] Linha 305 em 05/09 renderiza as 6 baixadas sem quebrar
+- [x] Célula vazia de continuação tem legenda
+- [x] Em 360×640 a página não rola na horizontal
+- [x] `node ferramentas/verificar_contrato.mjs` passa
 
-**Status:** [ ] Pendente
+**Status:** [x] Concluída
 
 ---
 
@@ -440,12 +440,12 @@ Estruturalmente é a mesma coisa que `avisos.js`: uma imagem mais uma lista de t
 **Referência:** `app/telas/avisos.js` — replicar o padrão de tela, trocando a lista de avisos por imagem + texto estático
 
 **Critério de conclusão:**
-- [ ] A imagem amplia em tela cheia ao toque e fecha
-- [ ] Os 8 itens aparecem em texto, legíveis sem zoom em 360px
-- [ ] Imagem com `alt` descritivo
-- [ ] `node ferramentas/verificar_contrato.mjs` passa
+- [x] A imagem amplia em tela cheia ao toque e fecha
+- [x] Os 8 itens aparecem em texto, legíveis sem zoom em 360px
+- [x] Imagem com `alt` descritivo
+- [x] `node ferramentas/verificar_contrato.mjs` passa
 
-**Status:** [ ] Pendente
+**Status:** [x] Concluída
 
 ---
 
