@@ -252,3 +252,57 @@ input {
 }
 
 .rodape__versao { margin: 0; }
+
+/* Aviso de programacao nova (rodape.js). Aparece so quando o service worker
+   detecta um versaoDados diferente do que esta em cache — no uso normal o
+   rodape e uma linha de texto e mais nada. */
+.rodape__aviso {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espaco);
+  margin-top: var(--espaco);
+  padding: 10px 12px;
+  border: 2px solid var(--cor-evento-laranja);
+  border-radius: var(--raio);
+  background: #FFF4E8;
+}
+
+.rodape__aviso-texto {
+  flex: 1 1 12rem;
+  margin: 0;
+  color: var(--cor-texto);
+  font-weight: 600;
+}
+
+.rodape__atualizar {
+  flex: 0 0 auto;
+  min-height: var(--alvo-toque);
+  padding-inline: calc(var(--espaco) * 1.25);
+  border: 0;
+  border-radius: var(--raio);
+  background: var(--cor-evento-laranja);
+  color: #FFFFFF;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.rodape__atualizar:hover { filter: brightness(0.94); }
+
+.rodape__atualizar:focus-visible {
+  outline: 3px solid var(--cor-evento-azul);
+  outline-offset: 2px;
+}
+
+/* Sem JavaScript o <main> fica vazio — esta mensagem e o que impede a tela
+   branca nesse caso. */
+.sem-script {
+  max-width: var(--largura-maxima, 60rem);
+  margin: var(--espaco) auto;
+  padding: var(--espaco);
+  border: 2px solid var(--ponto-p4);
+  border-radius: var(--raio);
+  background: #FDECEC;
+  font-weight: 600;
+}

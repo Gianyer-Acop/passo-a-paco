@@ -7,6 +7,10 @@
 <meta name="theme-color" content="#312783">
 <title>Apoio Operacional — Sou Manaus Passo a Paço 2026</title>
 
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/img/icone-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/icone-192.png">
+
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/telas/mapa.css">
 <link rel="stylesheet" href="assets/css/telas/busca.css">
@@ -56,6 +60,13 @@
   </div>
 </nav>
 
+<noscript>
+  <p class="sem-script">
+    Este site precisa de JavaScript para mostrar a programação das linhas.
+    Ative o JavaScript no navegador e recarregue a página.
+  </p>
+</noscript>
+
 <main id="tela" class="envolve" tabindex="-1"></main>
 
 <footer id="rodape">
@@ -63,5 +74,18 @@
 </footer>
 
 <script type="module" src="app/principal.js"></script>
+
+<script>
+  // Registro do service worker (TASK-09). Fora do modulo de proposito: nao
+  // depende de nada do app e nao deve atrasar a primeira renderizacao.
+  // Uma falha aqui e sempre nao-fatal — o site continua funcionando online.
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js').catch(function (erro) {
+        console.warn('Service worker nao registrado:', erro);
+      });
+    });
+  }
+</script>
 </body>
 </html>

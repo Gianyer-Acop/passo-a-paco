@@ -1,0 +1,33 @@
+{
+  "name": "Apoio Operacional — Sou Manaus Passo a Paço 2026",
+  "short_name": "Passo a Paço",
+  "description": "Ponto de embarque, passagem prevista pelo ponto e avisos por linha. ACOP/IMMU — OS Urbano nº 057/2025.",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#312783",
+  "background_color": "#FFFFFF",
+  "icons": [
+    {
+      "src": "assets/img/icone-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/img/icone-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/img/icone-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

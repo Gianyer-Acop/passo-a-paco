@@ -248,6 +248,67 @@ for (const [arquivo, base] of [['mapa.js', 'mapa-pontos'], ['circulacao.js', 'ma
   ok(arquivo + ' mantem o PNG como fallback no <img>', fonte.includes(base + '.png'));
 }
 
+
+// --------------------------------------------- 6. offline: SW e manifesto
+
+secao('sw.js / manifest.webmanifest — funcionamento offline (RF-23..25)');
+
+const caminhoSw = join(RAIZ, 'sw.js');
+ok('sw.js existe', existsSync(caminhoSw));
+const fonteSw = existsSync(caminhoSw) ? readFileSync(caminhoSw, 'utf8') : '';
+
+ok('sw.js versiona o nome do cache', /const\s+VERSAO\s*=\s*'[^']+'/.test(fonteSw));
+ok('sw.js precacheia o app shell no install', fonteSw.includes("addEventListener('install'") && fonteSw.includes('addAll'));
+ok('sw.js limpa caches antigos no activate', fonteSw.includes("addEventListener('activate'") && fonteSw.includes('caches.delete'));
+ok('sw.js trata dados.json em stale-while-revalidate', fonteSw.includes('dados.json') && fonteSw.includes('MENSAGEM_ATUALIZACAO'));
+ok('sw.js cacheia .webp junto do .png', fonteSw.includes('.webp'));
+// A revalidacao roda depois de respondWith resolver. Sem waitUntil o worker
+// pode ser encerrado no meio dela: o cache nunca avanca, o botao nunca
+// aparece, e nenhum erro e emitido.
+ok('sw.js prende a revalidacao em waitUntil', /evento\.waitUntil\(daRede\)/.test(fonteSw));
+
+const caminhoManifesto = join(RAIZ, 'manifest.webmanifest');
+ok('manifest.webmanifest existe', existsSync(caminhoManifesto));
+if (existsSync(caminhoManifesto)) {
+  const manifesto = JSON.parse(readFileSync(caminhoManifesto, 'utf8'));
+  igual('manifesto: display standalone', manifesto.display, 'standalone');
+  ok('manifesto: name e short_name', Boolean(manifesto.name && manifesto.short_name));
+  ok('manifesto: theme_color e background_color', Boolean(manifesto.theme_color && manifesto.background_color));
+  ok('manifesto: pelo menos um icone', Array.isArray(manifesto.icons) && manifesto.icons.length > 0);
+  for (const icone of manifesto.icons ?? []) {
+    ok('manifesto: icone ' + icone.src + ' existe', existsSync(join(RAIZ, icone.src)));
+  }
+}
+
+const caminhoRodape = join(RAIZ, 'app', 'rodape.js');
+ok('app/rodape.js existe', existsSync(caminhoRodape));
+const fonteRodape = existsSync(caminhoRodape) ? readFileSync(caminhoRodape, 'utf8') : '';
+ok('rodape.js exporta montarRodape', /export function montarRodape/.test(fonteRodape));
+ok('rodape.js escuta a mensagem do service worker', fonteRodape.includes('MENSAGEM_ATUALIZACAO'));
+ok('rodape.js oferece o botao Atualizar', fonteRodape.includes('Atualizar'));
+// addEventListener('message') no ServiceWorkerContainer so entrega mensagens
+// depois de startMessages(). Sem a chamada, o botao nunca aparece e nao ha
+// nenhum erro — falha exatamente do jeito que ninguem percebe.
+ok('rodape.js chama startMessages()', fonteRodape.includes('startMessages()'));
+
+// O tipo da mensagem e o unico contrato entre sw.js e rodape.js: os dois
+// precisam concordar no literal, senao o botao nunca aparece e nada falha.
+const tipoNoSw = /MENSAGEM_ATUALIZACAO\s*=\s*'([^']+)'/.exec(fonteSw)?.[1];
+const tipoNoRodape = /MENSAGEM_ATUALIZACAO\s*=\s*'([^']+)'/.exec(fonteRodape)?.[1];
+ok(
+  'sw.js e rodape.js usam o mesmo tipo de mensagem',
+  Boolean(tipoNoSw) && tipoNoSw === tipoNoRodape,
+  'sw=' + tipoNoSw + ' rodape=' + tipoNoRodape,
+);
+
+const fonteIndex = readFileSync(join(RAIZ, 'index.html'), 'utf8');
+ok('index.html linka o manifesto', /rel="manifest"/.test(fonteIndex));
+ok('index.html registra o service worker', fonteIndex.includes('serviceWorker'));
+ok('index.html tem <noscript> — nunca tela branca sem JS', fonteIndex.includes('<noscript>'));
+
+const fontePrincipal = readFileSync(join(RAIZ, 'app', 'principal.js'), 'utf8');
+ok('principal.js delega o rodape para rodape.js', fontePrincipal.includes("from './rodape.js'"));
+
 // ------------------------------------------------------------- resultado
 
 console.log('\n' + passes + ' asserções ok, ' + falhas + ' falha(s).');

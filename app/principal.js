@@ -4,9 +4,10 @@
 // Os imports de app/telas/*.js sao por efeito colateral: cada modulo se
 // registra em telas.js ao ser importado. Tela nova = import novo aqui.
 
-import { carregar, versaoDados } from './dados.js';
+import { carregar } from './dados.js';
 import { diaVigente } from './formato.js';
 import { diaSelecionado, selecionarDia, irPara, telaAtual, aoMudar } from './estado.js';
+import { montarRodape } from './rodape.js';
 
 import './telas/mapa.js';
 import './telas/busca.js';
@@ -72,33 +73,6 @@ function ligarBusca() {
   });
 }
 
-/** Rodape: 'Dados de DD/MM/AAAA às HH:MM'. */
-function preencherRodape() {
-  const alvo = document.querySelector('#rodape .envolve');
-  if (!alvo) return;
-
-  const carimbo = versaoDados();
-  const texto = document.createElement('p');
-  texto.className = 'rodape__versao';
-  texto.textContent = carimbo ? 'Dados de ' + formatarCarimbo(carimbo) : 'Versão dos dados indisponível';
-  alvo.replaceChildren(texto);
-}
-
-/**
- * '2026-09-01T15:30:58-04:00' -> '01/09/2026 às 15:30'.
- * Le direto da string ISO: o carimbo ja vem no fuso de Manaus e reinterpretar
- * como Date so reintroduziria conversao de fuso sem necessidade.
- *
- * @param {string} iso
- * @returns {string}
- */
-function formatarCarimbo(iso) {
-  const m = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/.exec(iso);
-  if (!m) return iso;
-  const [, ano, mes, dia, hora, minuto] = m;
-  return dia + '/' + mes + '/' + ano + ' às ' + hora + ':' + minuto;
-}
-
 /** Aviso persistente de que hoje esta fora dos tres dias do evento. */
 function avisarForaDoEvento() {
   const alvo = document.querySelector('#cabecalho .envolve');
@@ -148,7 +122,7 @@ async function iniciar() {
   selecionarDia(dia);
   if (foraDoEvento) avisarForaDoEvento();
 
-  preencherRodape();
+  montarRodape();
   irPara(TELA_INICIAL);
 }
 
