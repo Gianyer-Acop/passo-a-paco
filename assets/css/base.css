@@ -218,3 +218,37 @@ input {
 .ponto-p2 { --cor-ponto: var(--ponto-p2); }
 .ponto-p3 { --cor-ponto: var(--ponto-p3); }
 .ponto-p4 { --cor-ponto: var(--ponto-p4); }
+
+/* --------------------------------------- estados compartilhados de tela
+   Usados por app/telas.js e por TODAS as telas. Ficam aqui, e nao no CSS de
+   uma tela, para as 6 telas da ONDA 3 nao redefinirem cada uma a sua versao. */
+
+.estado-vazio {
+  padding: calc(var(--espaco) * 2) var(--espaco);
+  color: var(--cor-texto-suave);
+  text-align: center;
+}
+
+.estado-erro {
+  margin-block: var(--espaco);
+  padding: var(--espaco);
+  border: 2px solid var(--ponto-p4);
+  border-radius: var(--raio);
+  background: #FDECEC;
+}
+
+.estado-erro h2 {
+  margin-bottom: 4px;
+  font-size: 1.125rem;
+  color: var(--ponto-p4);
+}
+
+.fora-do-evento {
+  margin-top: var(--espaco);
+  padding: 8px 10px;
+  border-radius: var(--raio);
+  background: rgba(255, 255, 255, 0.15);
+  font-size: 0.875rem;
+}
+
+.rodape__versao { margin: 0; }

@@ -1,1 +1,64 @@
-/* avisos.css — estilos da tela "avisos". Preenchido pela task dona desta tela. */
+/* avisos.css — estilos da tela "avisos".
+   Referencia de CSS de tela: tudo aqui e prefixado por .tela-avisos ou pelo
+   bloco .aviso, para nao vazar para as outras seis telas. */
+
+.tela-avisos {
+  padding-block: var(--espaco);
+}
+
+.tela-avisos h2 {
+  font-size: 1.25rem;
+  color: var(--cor-evento-azul);
+}
+
+.tela-avisos__dia {
+  margin-bottom: var(--espaco);
+  color: var(--cor-texto-suave);
+  font-size: 0.875rem;
+  text-transform: capitalize;
+}
+
+.lista-avisos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco);
+}
+
+/* Cada aviso tem borda colorida E rotulo textual de severidade:
+   a cor nunca e o unico indicador (RNF-06). */
+.aviso {
+  padding: var(--espaco);
+  border: 1px solid var(--cor-borda);
+  border-left: 6px solid var(--cor-severidade, var(--cor-borda));
+  border-radius: var(--raio);
+  background: var(--cor-fundo);
+}
+
+.aviso--alta  { --cor-severidade: var(--ponto-p4); }
+.aviso--media { --cor-severidade: var(--ponto-p3); }
+.aviso--info  { --cor-severidade: var(--ponto-p2); }
+
+.aviso__severidade {
+  display: inline-block;
+  margin-bottom: 6px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--cor-severidade, var(--cor-superficie));
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.aviso__texto {
+  font-size: var(--fonte-corpo);
+  line-height: 1.5;
+}
+
+.aviso__alcance {
+  margin-top: 6px;
+  color: var(--cor-texto-suave);
+  font-size: 0.8125rem;
+  overflow-wrap: anywhere;
+}
