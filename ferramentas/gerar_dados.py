@@ -31,7 +31,7 @@ import openpyxl
 
 RAIZ = Path(__file__).resolve().parent.parent
 PLANILHAS = RAIZ / "Passo a paço"
-SAIDA = PLANILHAS / "dados" / "dados.json"
+SAIDA = RAIZ / "dados" / "dados.json"
 RELATORIO = RAIZ / "ferramentas" / "relatorio_conversao.txt"
 
 DIAS = ["2026-09-05", "2026-09-06", "2026-09-07"]

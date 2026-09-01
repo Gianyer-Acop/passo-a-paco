@@ -1,0 +1,220 @@
+/* base.css — reset mínimo, tokens, tipografia e layout de coluna única.
+   Site de Apoio Operacional — Sou Manaus Passo a Paço 2026.
+   Mobile-first (validado em 360x640). Sem dependências externas (RNF-02). */
+
+:root {
+  --cor-evento-laranja: #F5821F;
+  --cor-evento-azul: #312783;
+  --cor-fundo: #FFFFFF;
+  --cor-texto: #1A1A1A;
+
+  /* cores funcionais dos 4 pontos — NÃO alterar por estética */
+  --ponto-p1: #3FA45B;   /* verde   */
+  --ponto-p2: #2B3990;   /* azul    */
+  --ponto-p3: #F5821F;   /* laranja */
+  --ponto-p4: #E31E24;   /* vermelho*/
+
+  --fonte-corpo: 1rem;      /* >= 16px */
+  --fonte-linha: 1.5rem;    /* >= 24px, número da linha */
+  --alvo-toque: 44px;
+
+  /* derivados — livres para ajuste estético */
+  --cor-texto-suave: #5A5A5A;
+  --cor-borda: #D8D8D8;
+  --cor-superficie: #F4F4F6;
+  --raio: 8px;
+  --espaco: 12px;
+  --largura-max: 720px;
+}
+
+/* ---------------------------------------------------------------- reset */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body,
+h1, h2, h3, h4,
+p, ul, ol, li, figure, dl, dd {
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol { list-style: none; }
+
+img { display: block; max-width: 100%; height: auto; }
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+a { color: var(--cor-evento-azul); }
+
+/* ------------------------------------------------------------ tipografia */
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: var(--fonte-corpo);
+  line-height: 1.5;
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
+}
+
+h1 { font-size: 1.125rem; line-height: 1.3; }
+h2 { font-size: 1.25rem; line-height: 1.3; }
+h3 { font-size: 1.0625rem; line-height: 1.3; }
+
+.numero-linha {
+  font-size: var(--fonte-linha);
+  font-weight: 700;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --------------------------------------------------- layout coluna única */
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.envolve {
+  width: 100%;
+  max-width: var(--largura-max);
+  margin-inline: auto;
+  padding-inline: var(--espaco);
+}
+
+#tela {
+  flex: 1 0 auto;
+  padding-block: var(--espaco);
+  overflow-x: hidden;   /* RNF-03: nenhuma tela rola horizontalmente */
+}
+
+/* ---------------------------------------------------------- alvos e foco */
+
+button,
+[role="button"],
+[role="tab"],
+input {
+  min-height: var(--alvo-toque);
+}
+
+:focus-visible {
+  outline: 3px solid var(--cor-evento-azul);
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------- cabeçalho */
+
+#cabecalho {
+  background: var(--cor-evento-azul);
+  color: #FFFFFF;
+  padding-block: var(--espaco);
+}
+
+#cabecalho h1 { font-weight: 700; }
+
+#cabecalho .sublinha {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ------------------------------------------------------------- busca */
+
+#busca {
+  width: 100%;
+  margin-top: var(--espaco);
+  padding: 10px 12px;
+  border: 2px solid transparent;
+  border-radius: var(--raio);
+  background: #FFFFFF;
+  color: var(--cor-texto);
+}
+
+#busca::placeholder { color: var(--cor-texto-suave); }
+
+/* -------------------------------------------------------- botões de dia */
+
+#dias {
+  display: flex;
+  gap: 8px;
+  margin-top: var(--espaco);
+}
+
+.botao-dia {
+  flex: 1 1 0;
+  padding: 8px 4px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--raio);
+  background: transparent;
+  color: #FFFFFF;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+
+.botao-dia[aria-pressed="true"] {
+  background: var(--cor-evento-laranja);
+  border-color: var(--cor-evento-laranja);
+  color: #1A1A1A;
+}
+
+.botao-dia .dia-numero { display: block; font-size: 1.125rem; font-weight: 700; }
+.botao-dia .dia-nome   { display: block; font-size: 0.8125rem; }
+
+/* ---------------------------------------------------------- barra de abas */
+
+#abas {
+  display: flex;
+  gap: 0;
+  background: var(--cor-superficie);
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+#abas .envolve { display: flex; gap: 0; }
+
+.aba {
+  flex: 1 1 0;
+  padding: 10px 4px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  font-weight: 600;
+  color: var(--cor-texto-suave);
+  cursor: pointer;
+}
+
+.aba[aria-selected="true"] {
+  color: var(--cor-evento-azul);
+  border-bottom-color: var(--cor-evento-laranja);
+}
+
+/* ----------------------------------------------------------- rodapé */
+
+#rodape {
+  flex: 0 0 auto;
+  padding-block: var(--espaco);
+  border-top: 1px solid var(--cor-borda);
+  background: var(--cor-superficie);
+  font-size: 0.875rem;
+  color: var(--cor-texto-suave);
+}
+
+/* -------------------------------------------------------- utilitários */
+
+.oculto-visual {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.ponto-p1 { --cor-ponto: var(--ponto-p1); }
+.ponto-p2 { --cor-ponto: var(--ponto-p2); }
+.ponto-p3 { --cor-ponto: var(--ponto-p3); }
+.ponto-p4 { --cor-ponto: var(--ponto-p4); }

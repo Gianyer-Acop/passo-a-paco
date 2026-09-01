@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Apoio operacional ACOP/IMMU para o Sou Manaus Passo a Paço 2026: ponto de embarque, passagem prevista pelo ponto e avisos por linha.">
+<meta name="theme-color" content="#312783">
+<title>Apoio Operacional — Sou Manaus Passo a Paço 2026</title>
+
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/telas/mapa.css">
+<link rel="stylesheet" href="assets/css/telas/busca.css">
+<link rel="stylesheet" href="assets/css/telas/ponto.css">
+<link rel="stylesheet" href="assets/css/telas/linha.css">
+<link rel="stylesheet" href="assets/css/telas/quadro.css">
+<link rel="stylesheet" href="assets/css/telas/avisos.css">
+<link rel="stylesheet" href="assets/css/telas/circulacao.css">
+</head>
+<body>
+
+<header id="cabecalho">
+  <div class="envolve">
+    <h1>Sou Manaus Passo a Paço 2026</h1>
+    <p class="sublinha">Apoio operacional — ACOP / IMMU · OS Urbano nº 057/2025</p>
+
+    <label class="oculto-visual" for="busca">Buscar linha por número ou nome</label>
+    <input
+      id="busca"
+      type="search"
+      inputmode="search"
+      autocomplete="off"
+      placeholder="Buscar linha: 608 ou petrópolis">
+
+    <div id="dias" role="group" aria-label="Dia do evento">
+      <button type="button" class="botao-dia" data-dia="2026-09-05" aria-pressed="false">
+        <span class="dia-numero">05/09</span>
+        <span class="dia-nome">sexta</span>
+      </button>
+      <button type="button" class="botao-dia" data-dia="2026-09-06" aria-pressed="false">
+        <span class="dia-numero">06/09</span>
+        <span class="dia-nome">sábado</span>
+      </button>
+      <button type="button" class="botao-dia" data-dia="2026-09-07" aria-pressed="false">
+        <span class="dia-numero">07/09</span>
+        <span class="dia-nome">domingo</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav id="abas" aria-label="Seções">
+  <div class="envolve" role="tablist">
+    <button type="button" class="aba" role="tab" data-tela="mapa" aria-selected="false">Mapa</button>
+    <button type="button" class="aba" role="tab" data-tela="circulacao" aria-selected="false">Circulação</button>
+    <button type="button" class="aba" role="tab" data-tela="avisos" aria-selected="false">Avisos</button>
+  </div>
+</nav>
+
+<main id="tela" class="envolve" tabindex="-1"></main>
+
+<footer id="rodape">
+  <div class="envolve"></div>
+</footer>
+
+<script type="module" src="app/principal.js"></script>
+</body>
+</html>
