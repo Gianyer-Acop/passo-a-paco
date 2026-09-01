@@ -8,7 +8,7 @@
 //   3. que nenhuma tela le `saidasOrigem` (a partida do bairro, que nunca pode ser exibida);
 //   4. as assinaturas congeladas de app/formato.js.
 
-import { readFileSync, readdirSync, existsSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -37,6 +37,32 @@ function igual(descricao, obtido, esperado) {
 
 function secao(titulo) {
   console.log('\n' + titulo);
+}
+
+
+/** Largura/altura do IHDR de um PNG, sem dependencia externa. */
+function dimensoesPng(caminho) {
+  const buf = readFileSync(caminho);
+  if (buf.length < 24 || buf.toString('ascii', 12, 16) !== 'IHDR') return null;
+  return { largura: buf.readUInt32BE(16), altura: buf.readUInt32BE(20) };
+}
+
+/** Largura/altura de um WebP (VP8L ou VP8X; Pillow grava VP8L em lossless). */
+function dimensoesWebp(caminho) {
+  const buf = readFileSync(caminho);
+  if (buf.toString('ascii', 0, 4) !== 'RIFF' || buf.toString('ascii', 8, 12) !== 'WEBP') return null;
+  const tipo = buf.toString('ascii', 12, 16);
+  if (tipo === 'VP8X') {
+    return { largura: buf.readUIntLE(24, 3) + 1, altura: buf.readUIntLE(27, 3) + 1 };
+  }
+  if (tipo === 'VP8L') {
+    const b = buf.readUInt32LE(21);
+    return { largura: (b & 0x3fff) + 1, altura: ((b >> 14) & 0x3fff) + 1 };
+  }
+  if (tipo === 'VP8 ') {
+    return { largura: buf.readUInt16LE(26) & 0x3fff, altura: buf.readUInt16LE(28) & 0x3fff };
+  }
+  return null;
 }
 
 function paraMinutos(hhmm) {
@@ -179,6 +205,48 @@ igual('proximaPassagem 05/09 06:00 -> emMinutos', formato.proximaPassagem?.(p113
 igual('proximaPassagem na madrugada (25:47)', formato.proximaPassagem?.(p113, new Date('2026-09-06T01:00:00-04:00'))?.hora, '25:47');
 igual('proximaPassagem depois da ultima -> null', formato.proximaPassagem?.(p113, new Date('2026-09-06T02:30:00-04:00')), null);
 igual('proximaPassagem com lista vazia -> null', formato.proximaPassagem?.([], new Date('2026-09-05T06:00:00-04:00')), null);
+
+
+// ------------------------------------------------- 5. peso e formato das artes
+
+secao('assets/img/ — WebP com fallback PNG (RNF-01)');
+
+const LIMITE_BYTES = 400 * 1024;
+for (const nome of ['mapa-pontos', 'mapa-circulacao']) {
+  const png = join(RAIZ, 'assets', 'img', nome + '.png');
+  const webp = join(RAIZ, 'assets', 'img', nome + '.webp');
+
+  ok(nome + '.webp existe', existsSync(webp));
+  ok(nome + '.png continua existindo (fallback)', existsSync(png));
+
+  if (existsSync(webp)) {
+    const bytes = statSync(webp).size;
+    ok(
+      nome + '.webp abaixo de 400 KB',
+      bytes < LIMITE_BYTES,
+      Math.round(bytes / 1024) + ' KB',
+    );
+  }
+
+  // Trocar o formato nao pode mudar as dimensoes: os hotspots da TASK-03 sao
+  // posicionados em % sobre a imagem renderizada.
+  if (existsSync(png) && existsSync(webp)) {
+    const dimPng = dimensoesPng(png);
+    const dimWebp = dimensoesWebp(webp);
+    ok(
+      nome + ': WebP mantem as dimensoes do PNG',
+      dimPng && dimWebp && dimPng.largura === dimWebp.largura && dimPng.altura === dimWebp.altura,
+      JSON.stringify(dimPng) + ' vs ' + JSON.stringify(dimWebp),
+    );
+  }
+}
+
+// As duas telas de imagem precisam servir o WebP com <picture> e manter o <img> PNG.
+for (const [arquivo, base] of [['mapa.js', 'mapa-pontos'], ['circulacao.js', 'mapa-circulacao']]) {
+  const fonte = fontes.get(arquivo) ?? '';
+  ok(arquivo + ' usa <picture> com source WebP', fonte.includes("'picture'") && fonte.includes('image/webp'));
+  ok(arquivo + ' mantem o PNG como fallback no <img>', fonte.includes(base + '.png'));
+}
 
 // ------------------------------------------------------------- resultado
 

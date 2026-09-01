@@ -29,6 +29,7 @@ import { pontos } from '../dados.js';
 import { irPara } from '../estado.js';
 
 const URL_IMAGEM = new URL('../../assets/img/mapa-pontos.png', import.meta.url);
+const URL_IMAGEM_WEBP = new URL('../../assets/img/mapa-pontos.webp', import.meta.url);
 
 const TAMANHO_ALVO_PADRAO = 44; // == --alvo-toque
 const TAMANHO_ALVO_MINIMO = 24; // piso WCAG 2.2 AA (2.5.8 Target Size Minimum)
@@ -147,11 +148,25 @@ function render(elemento) {
   const contentor = document.createElement('div');
   contentor.className = 'mapa-imagem';
 
+  // <picture> serve o WebP (~259 KB) e cai no PNG em navegador sem suporte.
+  // As duas versoes tem as MESMAS dimensoes: os hotspots abaixo sao
+  // posicionados em % sobre a imagem renderizada e qualquer diferenca de
+  // tamanho os deslocaria.
+  const figura = document.createElement('picture');
+  figura.className = 'mapa-imagem__figura';
+
+  const fonteWebp = document.createElement('source');
+  fonteWebp.type = 'image/webp';
+  fonteWebp.srcset = URL_IMAGEM_WEBP.href;
+  figura.append(fonteWebp);
+
   const img = document.createElement('img');
   img.className = 'mapa-imagem__img';
   img.src = URL_IMAGEM.href;
   img.alt = 'Mapa aereo da via de embarque com os 4 pontos de onibus numerados, do mais proximo ao mais distante.';
-  contentor.append(img);
+  figura.append(img);
+
+  contentor.append(figura);
 
   const botoesPorId = new Map();
   for (const p of listaPontos) {

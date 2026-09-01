@@ -29,6 +29,14 @@
   background: var(--cor-superficie);
 }
 
+/* <picture> e inline por padrao; o whitespace de linha de base que isso
+   introduz somaria alguns px ao contentor e deslocaria os hotspots, que sao
+   posicionados em % sobre a altura real da imagem. */
+.mapa-imagem__figura {
+  display: block;
+  width: 100%;
+}
+
 .mapa-imagem__img {
   display: block;
   width: 100%;

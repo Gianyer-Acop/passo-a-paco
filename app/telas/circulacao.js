@@ -70,6 +70,30 @@ function montar_item(texto, indice) {
 }
 
 /**
+ * <picture> do mapa de circulacao: WebP com o PNG de fallback no <img>.
+ * As duas versoes tem as mesmas dimensoes.
+ *
+ * @param {string} classe classe aplicada ao <picture>
+ * @returns {HTMLPictureElement}
+ */
+function montar_picture(classe) {
+  const figura = document.createElement('picture');
+  figura.className = classe;
+
+  const fonte = document.createElement('source');
+  fonte.type = 'image/webp';
+  fonte.srcset = 'assets/img/mapa-circulacao.webp';
+  figura.append(fonte);
+
+  const imagem = document.createElement('img');
+  imagem.src = 'assets/img/mapa-circulacao.png';
+  imagem.alt = 'Mapa da circulação das linhas de ônibus: Avenida Epaminondas, Terminal da Matriz, Praça da Saudade, plataforma interditada.';
+  figura.append(imagem);
+
+  return figura;
+}
+
+/**
  * Renderiza o mapa de circulação e os 8 itens de orientação.
  * @param {HTMLElement} elemento <main id="tela">, ja limpo
  */
@@ -81,15 +105,15 @@ function render(elemento) {
   titulo.textContent = 'Circulação';
   secao.append(titulo);
 
-  // Imagem do mapa — clicável para ampliação
-  const imagem = document.createElement('img');
-  imagem.src = 'assets/img/mapa-circulacao.png';
-  imagem.alt = 'Mapa da circulação das linhas de ônibus: Avenida Epaminondas, Terminal da Matriz, Praça da Saudade, plataforma interditada.';
+  // Imagem do mapa — clicável para ampliação.
+  // <picture> serve o WebP (~236 KB) e cai no PNG em navegador sem suporte.
+  const figura = montar_picture('tela-circulacao__figura');
+  const imagem = figura.querySelector('img');
   imagem.className = 'tela-circulacao__imagem';
   imagem.tabIndex = 0;
   imagem.setAttribute('role', 'button');
   imagem.setAttribute('aria-label', 'Ampliar mapa da circulação (Enter ou Espaço)');
-  secao.append(imagem);
+  secao.append(figura);
 
   // Lista dos 8 itens
   const lista = document.createElement('ul');
@@ -105,11 +129,10 @@ function render(elemento) {
   const dialog = document.createElement('dialog');
   dialog.className = 'tela-circulacao__dialog';
 
-  const imagem_ampliada = document.createElement('img');
-  imagem_ampliada.src = imagem.src;
-  imagem_ampliada.alt = imagem.alt;
+  const figura_ampliada = montar_picture('tela-circulacao__figura-ampliada');
+  const imagem_ampliada = figura_ampliada.querySelector('img');
   imagem_ampliada.className = 'tela-circulacao__imagem-ampliada';
-  dialog.append(imagem_ampliada);
+  dialog.append(figura_ampliada);
 
   const botao_fechar = document.createElement('button');
   botao_fechar.className = 'tela-circulacao__fechar';
