@@ -94,7 +94,12 @@ function ligarVoltar() {
     voltar();
     // Devolve o foco ao conteudo: sem isto o leitor de tela continua anunciando
     // o botao, que acabou de sumir.
-    document.getElementById('tela')?.focus();
+    //
+    // `preventScroll` importa: focar um elemento o traz para a viewport, e o
+    // topo do <main> fica ATRAS da barra fixa. Sem isto o foco desfaria o
+    // scrollTo(0,0) que voltar() acabou de fazer e a tela abriria com as
+    // primeiras linhas escondidas sob os controles.
+    document.getElementById('tela')?.focus({ preventScroll: true });
   });
 
   const sincronizar = () => {

@@ -40,6 +40,10 @@
   --cor-superficie: #F4F4F6;
   --raio: 8px;
   --espaco: 12px;
+  /* Margem lateral da página, separada de --espaco: o respiro da borda da tela
+     precisa ser maior que o espaçamento interno dos componentes, senão em
+     celular o conteúdo encosta na moldura e tudo parece amontoado. */
+  --margem-pagina: 16px;
   --largura-max: 720px;
 }
 
@@ -100,13 +104,16 @@ body {
   width: 100%;
   max-width: var(--largura-max);
   margin-inline: auto;
-  padding-inline: var(--espaco);
+  padding-inline: var(--margem-pagina);
 }
 
 #tela {
   flex: 1 0 auto;
   padding-block: var(--espaco);
-  overflow-x: hidden;   /* RNF-03: nenhuma tela rola horizontalmente */
+  /* RNF-03: nenhuma tela rola horizontalmente. `clip` no lugar de `hidden`
+     porque `overflow-x: hidden` promove o eixo Y a `auto` e transforma o <main>
+     num contentor de rolagem proprio; `clip` corta igual sem esse efeito. */
+  overflow-x: clip;
 }
 
 /* ---------------------------------------------------------- alvos e foco */
@@ -123,8 +130,11 @@ input {
   outline-offset: 2px;
 }
 
-/* ---------------------------------------------------------- cabeçalho */
+/* ------------------------------------------------- identificação (rola) */
 
+/* Só o nome do evento e a referência da OS. É contexto de abertura: lido uma
+   vez, some ao rolar e não faz falta depois. Tudo o que o supervisor USA está
+   em #controles, logo abaixo, que fica grudado no topo. */
 #cabecalho {
   background: var(--cor-evento-azul);
   color: #FFFFFF;
@@ -134,15 +144,32 @@ input {
 #cabecalho h1 { font-weight: 700; }
 
 #cabecalho .sublinha {
-  font-size: 0.875rem;
+  margin-top: 2px;
+  font-size: 0.8125rem;
+  line-height: 1.35;
   color: rgba(255, 255, 255, 0.85);
+}
+
+/* -------------------------------------------- barra de trabalho (gruda) */
+
+/* Buscar linha, escolher o dia e trocar de seção acompanham a rolagem: são as
+   três coisas que o supervisor repete o tempo todo. `top: 0` sobre o <body>
+   flex funciona porque nenhum ancestral tem overflow diferente de visible. */
+#controles {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--cor-evento-azul);
+  padding-top: 10px;
+  /* A sombra só aparece depois que a barra descola do topo do documento, o que
+     dá o sinal de profundidade sem sujar a tela inicial. */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
 }
 
 /* ------------------------------------------------------------- busca */
 
 #busca {
   width: 100%;
-  margin-top: var(--espaco);
   padding: 10px 12px;
   border: 2px solid transparent;
   border-radius: var(--raio);
@@ -157,12 +184,19 @@ input {
 #dias {
   display: flex;
   gap: 8px;
-  margin-top: var(--espaco);
+  margin-top: 8px;
+  padding-bottom: 10px;
 }
 
+/* Data e dia da semana lado a lado, e não empilhados: a mesma informação em
+   44px (o mínimo de alvo de toque) em vez de 67px. */
 .botao-dia {
   flex: 1 1 0;
-  padding: 8px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 4px;
   border: 2px solid rgba(255, 255, 255, 0.6);
   border-radius: var(--raio);
   background: transparent;
@@ -178,8 +212,8 @@ input {
   color: #1A1A1A;
 }
 
-.botao-dia .dia-numero { display: block; font-size: 1.125rem; font-weight: 700; }
-.botao-dia .dia-nome   { display: block; font-size: 0.8125rem; }
+.botao-dia .dia-numero { font-size: 1rem; font-weight: 700; }
+.botao-dia .dia-nome   { font-size: 0.8125rem; opacity: 0.9; }
 
 /* ---------------------------------------------------------- barra de abas */
 

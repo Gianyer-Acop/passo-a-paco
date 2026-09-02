@@ -156,7 +156,9 @@ function linkAvisos() {
   link.type = 'button';
   link.className = 'linha__link-avisos';
   link.textContent = 'Ver avisos operacionais do dia';
-  link.addEventListener('click', () => irPara('avisos'));
+  // `empilhar` guarda o caminho: quem sai da linha por aqui volta para ela, e
+  // nao para o mapa como quem clicou na aba Avisos.
+  link.addEventListener('click', () => irPara('avisos', {}, { empilhar: true }));
   return link;
 }
 

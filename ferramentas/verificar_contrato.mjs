@@ -300,6 +300,27 @@ ok(
   'index.html tem o botao de voltar',
   readFileSync(join(RAIZ, 'index.html'), 'utf8').includes('id="voltar"'),
 );
+// Trocar de tela tem de comecar do topo. Sem isto, sair de uma linha longa
+// para a aba Avisos abria a tela nova ja rolada no meio dela.
+ok('estado.js rola ao topo ao trocar de tela', /scrollTo\(\{\s*top: 0/.test(fonteEstado));
+
+secao('cabecalho — barra de trabalho fixa');
+
+const fonteBase = readFileSync(join(RAIZ, 'assets', 'css', 'base.css'), 'utf8');
+const fonteHtml = readFileSync(join(RAIZ, 'index.html'), 'utf8');
+
+// A busca, os dias e as abas acompanham a rolagem; so a identificacao do
+// evento rola embora. Se #controles voltar para dentro de #cabecalho, o
+// supervisor perde a busca ao descer a tela.
+ok('index.html separa identificacao de controles', /<div id="controles">/.test(fonteHtml));
+ok('#controles fica grudado no topo', /#controles\s*\{[^}]*position:\s*sticky/.test(fonteBase));
+for (const id of ['busca', 'dias', 'abas']) {
+  const dentro = fonteHtml.indexOf('id="' + id + '"') > fonteHtml.indexOf('<div id="controles">');
+  ok(id + ' esta dentro da barra fixa', dentro);
+}
+// overflow-x: hidden no <main> promoveria o eixo Y a auto e criaria um
+// contentor de rolagem paralelo ao da pagina.
+ok('#tela usa overflow-x: clip, nao hidden', /#tela\s*\{[^}]*overflow-x:\s*clip/.test(fonteBase));
 
 secao('app/formato.js — assinaturas congeladas');
 

@@ -21,11 +21,27 @@
 </head>
 <body>
 
+<!-- O cabecalho esta partido em dois de proposito.
+
+     IDENTIFICACAO (#cabecalho) e branding: quem le, le uma vez. Rola embora
+     junto com o conteudo e nao volta.
+
+     CONTROLES (#controles) e a barra de trabalho do supervisor: buscar linha,
+     escolher o dia, trocar de secao. Fica grudada no topo, porque e usada o
+     tempo todo e no meio da rua ninguem quer rolar ate o topo para pesquisar
+     a proxima linha.
+
+     Antes os dois eram um bloco so, de 298px + 48px de abas: 43% da tela de um
+     celular gastos antes da primeira linha de conteudo. -->
 <header id="cabecalho">
   <div class="envolve">
     <h1>Sou Manaus Passo a Paço 2026</h1>
     <p class="sublinha">Apoio operacional — ACOP / IMMU · OS Urbano nº 057/2025</p>
+  </div>
+</header>
 
+<div id="controles">
+  <div class="envolve">
     <label class="oculto-visual" for="busca">Buscar linha por número ou nome</label>
     <input
       id="busca"
@@ -37,26 +53,26 @@
     <div id="dias" role="group" aria-label="Dia do evento">
       <button type="button" class="botao-dia" data-dia="2026-09-05" aria-pressed="false">
         <span class="dia-numero">05/09</span>
-        <span class="dia-nome">sábado</span>
+        <span class="dia-nome">sáb</span>
       </button>
       <button type="button" class="botao-dia" data-dia="2026-09-06" aria-pressed="false">
         <span class="dia-numero">06/09</span>
-        <span class="dia-nome">domingo</span>
+        <span class="dia-nome">dom</span>
       </button>
       <button type="button" class="botao-dia" data-dia="2026-09-07" aria-pressed="false">
         <span class="dia-numero">07/09</span>
-        <span class="dia-nome">segunda</span>
+        <span class="dia-nome">seg</span>
       </button>
     </div>
   </div>
-</header>
 
-<nav id="abas" aria-label="Seções">
-  <div class="envolve" role="tablist">
-    <button type="button" class="aba" role="tab" data-tela="mapa" aria-selected="false">Mapa</button>
-    <button type="button" class="aba" role="tab" data-tela="avisos" aria-selected="false">Avisos</button>
-  </div>
-</nav>
+  <nav id="abas" aria-label="Seções">
+    <div class="envolve" role="tablist">
+      <button type="button" class="aba" role="tab" data-tela="mapa" aria-selected="false">Mapa</button>
+      <button type="button" class="aba" role="tab" data-tela="avisos" aria-selected="false">Avisos</button>
+    </div>
+  </nav>
+</div>
 
 <!-- Um botao de voltar para o app inteiro, e nao um por tela: quem sabe o
      caminho percorrido e a pilha de app/estado.js, nao a tela desenhada.

@@ -62,6 +62,22 @@ export function selecionarDia(diaISO) {
 }
 
 /**
+ * Leva a rolagem para o topo depois de TROCAR de tela.
+ *
+ * So na navegacao: `selecionarDia` nao chama isto, porque trocar o dia nao muda
+ * de tela e jogar o operador para o topo no meio da grade seria perda de lugar
+ * (RF-04). Sem esta funcao, sair de uma linha longa para a aba Avisos abria a
+ * tela nova ja rolada para baixo, mostrando o meio dela.
+ *
+ * `behavior: 'instant'` de proposito: a tela nova ja esta montada, e uma
+ * animacao so atrasaria o operador.
+ */
+function irParaOTopo() {
+  if (typeof window === 'undefined') return;
+  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+}
+
+/**
  * Navega para uma tela.
  *
  *   irPara('linha', { numero: '608' })
@@ -70,12 +86,19 @@ export function selecionarDia(diaISO) {
  *
  * @param {string} chaveTela
  * @param {object} [params]
- * @param {{substituir?: boolean}} [opcoes] `substituir: true` troca a tela
- *   corrente sem empilhar — use quando a navegacao e uma correcao da anterior,
- *   como cada tecla digitada na busca.
+ * @param {{substituir?: boolean, empilhar?: boolean}} [opcoes]
+ *   `substituir: true` troca a tela corrente sem empilhar — use quando a
+ *   navegacao e uma correcao da anterior, como cada tecla digitada na busca.
+ *   `empilhar: true` guarda o caminho de volta mesmo indo para uma tela raiz —
+ *   e o caso do link "Ver avisos" dentro de uma linha: quem chegou aos avisos
+ *   por ali quer voltar para a linha, ao contrario de quem clicou na aba.
  */
 export function irPara(chaveTela, params = {}, opcoes = {}) {
-  if (TELAS_RAIZ.includes(chaveTela)) {
+  // Digitar na busca re-renderiza a mesma tela a cada tecla; rolar ao topo ai
+  // brigaria com quem estivesse lendo os resultados enquanto refina o termo.
+  const mesmaTela = atual.chave === chaveTela;
+
+  if (TELAS_RAIZ.includes(chaveTela) && !opcoes.empilhar) {
     pilha = [];
   } else if (!opcoes.substituir && atual.chave) {
     pilha.push({ chave: atual.chave, params: { ...atual.params } });
@@ -84,6 +107,7 @@ export function irPara(chaveTela, params = {}, opcoes = {}) {
   atual = { chave: chaveTela, params };
   notificar();
   renderizar(chaveTela, params);
+  if (!mesmaTela) irParaOTopo();
 }
 
 /**
@@ -116,6 +140,7 @@ export function voltar() {
   atual = { chave: anterior.chave, params: anterior.params };
   notificar();
   renderizar(anterior.chave, anterior.params);
+  irParaOTopo();
   return true;
 }
 
