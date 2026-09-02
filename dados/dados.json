@@ -1,5 +1,5 @@
 {
- "versaoDados": "2026-09-02T08:45:29-04:00",
+ "versaoDados": "2026-09-02T10:22:12-04:00",
  "evento": {
   "nome": "Sou Manaus Passo a Paço 2026",
   "dias": [
@@ -211,6 +211,7 @@
     "439",
     "440",
     "443",
+    "444",
     "447",
     "448",
     "454",
@@ -229,6 +230,7 @@
     "422",
     "440",
     "443",
+    "444",
     "448",
     "500",
     "560",
@@ -245,8 +247,7 @@
     "461"
    ],
    "linhasSemPlanilha": [
-    "442",
-    "444"
+    "442"
    ]
   }
  ],
@@ -65462,6 +65463,1651 @@
     }
    }
   },
+  "444": {
+   "numero": "444",
+   "nome": null,
+   "empresa": null,
+   "grupoOrigem": "Grupo 4.xlsx",
+   "pontoId": "P4",
+   "temProgramacaoEvento": true,
+   "escalaBase": null,
+   "avisos": [
+    "corredor-bb-19h",
+    "desvio-itamaraca",
+    "paradas-inoperantes-00h",
+    "onibus-extras-00h",
+    "frota-apoio-t1",
+    "orientacao-fiscais",
+    "opera-ate-centro"
+   ],
+   "observacoes": [],
+   "legendaViagens": [],
+   "dias": {
+    "2026-09-05": {
+     "tipoDia": "SÁBADO (PASSO A PAÇO)",
+     "totalViagens": 24,
+     "passagens": [
+      "06:10",
+      "07:03",
+      "07:54",
+      "08:33",
+      "09:13",
+      "09:59",
+      "11:43",
+      "12:32",
+      "13:12",
+      "13:57",
+      "14:39",
+      "15:19",
+      "16:22",
+      "17:07",
+      "18:02",
+      "19:03",
+      "19:59",
+      "20:53",
+      "22:16",
+      "23:17",
+      "24:05",
+      "24:35",
+      "25:15",
+      "26:25"
+     ],
+     "passagensCortadas": [],
+     "saidasOrigem": [
+      "05:10",
+      "05:48",
+      "06:34",
+      "07:25",
+      "08:12",
+      "08:59",
+      "10:44",
+      "11:28",
+      "12:13",
+      "12:58",
+      "13:43",
+      "14:23",
+      "15:16",
+      "16:08",
+      "16:57",
+      "17:59",
+      "19:01",
+      "20:03",
+      "21:23",
+      "22:25",
+      "23:15",
+      "23:55",
+      "24:35",
+      "25:45"
+     ],
+     "frequencia": [
+      {
+       "hora": "05:10",
+       "intervalo": null,
+       "origem": null
+      },
+      {
+       "hora": "05:48",
+       "intervalo": "00:38",
+       "origem": null
+      },
+      {
+       "hora": "06:34",
+       "intervalo": "00:46",
+       "origem": null
+      },
+      {
+       "hora": "07:25",
+       "intervalo": "00:51",
+       "origem": null
+      },
+      {
+       "hora": "08:12",
+       "intervalo": "00:47",
+       "origem": null
+      },
+      {
+       "hora": "08:59",
+       "intervalo": "00:47",
+       "origem": null
+      },
+      {
+       "hora": "10:44",
+       "intervalo": "01:45",
+       "origem": null
+      },
+      {
+       "hora": "11:28",
+       "intervalo": "00:44",
+       "origem": null
+      },
+      {
+       "hora": "12:13",
+       "intervalo": "00:45",
+       "origem": null
+      },
+      {
+       "hora": "12:58",
+       "intervalo": "00:45",
+       "origem": null
+      },
+      {
+       "hora": "13:43",
+       "intervalo": "00:45",
+       "origem": null
+      },
+      {
+       "hora": "14:23",
+       "intervalo": "00:40",
+       "origem": null
+      },
+      {
+       "hora": "15:16",
+       "intervalo": "00:53",
+       "origem": null
+      },
+      {
+       "hora": "16:08",
+       "intervalo": "00:52",
+       "origem": null
+      },
+      {
+       "hora": "16:57",
+       "intervalo": "00:49",
+       "origem": null
+      },
+      {
+       "hora": "17:59",
+       "intervalo": "01:02",
+       "origem": null
+      },
+      {
+       "hora": "19:01",
+       "intervalo": "01:02",
+       "origem": null
+      },
+      {
+       "hora": "20:03",
+       "intervalo": "01:02",
+       "origem": null
+      },
+      {
+       "hora": "21:23",
+       "intervalo": "01:20",
+       "origem": null
+      },
+      {
+       "hora": "22:25",
+       "intervalo": "01:02",
+       "origem": null
+      },
+      {
+       "hora": "23:15",
+       "intervalo": "00:50",
+       "origem": null
+      },
+      {
+       "hora": "23:55",
+       "intervalo": "00:40",
+       "origem": null
+      },
+      {
+       "hora": "24:35",
+       "intervalo": "00:40",
+       "origem": null
+      },
+      {
+       "hora": "25:45",
+       "intervalo": "01:10",
+       "origem": null
+      }
+     ],
+     "origemMista": false,
+     "turnos": [
+      {
+       "nome": "1º TURNO",
+       "tabelas": [
+        {
+         "tab": "TAB - 0101",
+         "veiculo": "1",
+         "tipoVeiculo": "CONVENCIONAL AR P.E",
+         "jornada": "08:50",
+         "viagens": [
+          {
+           "ida": "05:10",
+           "volta": "06:10",
+           "termino": "07:15",
+           "tempoViagem": "02:05",
+           "linha": "444",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "07:25",
+           "volta": "08:33",
+           "termino": "09:34",
+           "tempoViagem": "02:09",
+           "linha": "444",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "09:34",
+           "volta": null,
+           "termino": "10:44",
+           "tempoViagem": "01:10",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "10:44",
+           "volta": "11:43",
+           "termino": "12:47",
+           "tempoViagem": "02:03",
+           "linha": "444",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "12:58",
+           "volta": "13:57",
+           "termino": "14:55",
+           "tempoViagem": "01:57",
+           "linha": "444",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        },
+        {
+         "tab": "TAB - 0102",
+         "veiculo": "2",
+         "tipoVeiculo": "CONVENCIONAL AR P.E",
+         "jornada": "08:47",
+         "viagens": [
+          {
+           "ida": "05:48",
+           "volta": "07:03",
+           "termino": "08:00",
+           "tempoViagem": "02:12",
+           "linha": "444",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "08:12",
+           "volta": "09:13",
+           "termino": "10:08",
+           "tempoViagem": "01:56",
+           "linha": "444",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "10:08",
+           "volta": null,
+           "termino": "11:28",
+           "tempoViagem": "01:20",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "11:28",
+           "volta": "12:32",
+           "termino": "13:30",
+           "tempoViagem": "02:02",
+           "linha": "444",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "13:43",
+           "volta": "14:39",
+           "termino": "15:40",
+           "tempoViagem": "01:57",
+           "linha": "444",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        },
+        {
+         "tab": "TAB - 0103",
+         "veiculo": "3",
+         "tipoVeiculo": "CONVENCIONAL AR P.E",
+         "jornada": "08:39",
+         "viagens": [
+          {
+           "ida": "06:34",
+           "volta": "07:54",
+           "termino": "08:49",
+           "tempoViagem": "02:15",
+           "linha": "444",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "08:59",
+           "volta": "09:59",
+           "termino": "10:56",
+           "tempoViagem": "01:57",
+           "linha": "444",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "10:56",
+           "volta": null,
+           "termino": "12:13",
+           "tempoViagem": "01:17",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "12:13",
+           "volta": "13:12",
+           "termino": "14:10",
+           "tempoViagem": "01:57",
+           "linha": "444",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "14:23",
+           "volta": "15:19",
+           "termino": "16:15",
+           "tempoViagem": "01:52",
+           "linha": "444",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "nome": "2º TURNO",
+       "tabelas": [
+        {
+         "tab": "TAB - 0201",
+         "veiculo": "1",
+         "tipoVeiculo": "CONVENCIONAL AR P.E",
+         "jornada": "08:32",
+         "viagens": [
+          {
+           "ida": "15:16",
+           "volta": "16:22",
+           "termino": "17:49",
+           "tempoViagem": "02:33",
+           "linha": "444",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "17:59",
+           "volta": "19:03",
+           "termino": "20:06",
+           "tempoViagem": "02:07",
+           "linha": "444",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "20:06",
+           "volta": null,
+           "termino": "21:23",
+           "tempoViagem": "01:17",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "21:23",
+           "volta": "22:16",
+           "termino": "23:05",
+           "tempoViagem": "01:42",
+           "linha": "444",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "23:15",
+           "volta": "24:05",
+           "termino": "24:50",
+           "tempoViagem": "01:35",
+           "linha": "444",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        },
+        {
+         "tab": "TAB - 0202",
+         "veiculo": "2",
+         "tipoVeiculo": "CONVENCIONAL AR P.E",
+         "jornada": "08:45",
+         "viagens": [
+          {
+           "ida": "16:08",
+           "volta": "17:07",
+           "termino": "18:45",
+           "tempoViagem": "02:37",
+           "linha": "444",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "19:01",
+           "volta": "19:59",
+           "termino": "21:03",
+           "tempoViagem": "02:02",
+           "linha": "444",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "21:03",
+           "volta": null,
+           "termino": "22:25",
+           "tempoViagem": "01:22",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "22:25",
+           "volta": "23:17",
+           "termino": "24:06",
+           "tempoViagem": "01:41",
+           "linha": "444",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "24:35",
+           "volta": "25:15",
+           "termino": "26:00",
+           "tempoViagem": "01:25",
+           "linha": "444",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        },
+        {
+         "tab": "TAB - 0203",
+         "veiculo": "3",
+         "tipoVeiculo": "CONVENCIONAL AR P.E",
+         "jornada": "08:29",
+         "viagens": [
+          {
+           "ida": "16:57",
+           "volta": "18:02",
+           "termino": "19:22",
+           "tempoViagem": "02:25",
+           "linha": "444",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "20:03",
+           "volta": "20:53",
+           "termino": "21:56",
+           "tempoViagem": "01:53",
+           "linha": "444",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "21:56",
+           "volta": null,
+           "termino": "23:55",
+           "tempoViagem": "01:59",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "23:55",
+           "volta": "24:35",
+           "termino": "25:20",
+           "tempoViagem": "01:25",
+           "linha": "444",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "25:45",
+           "volta": "26:25",
+           "termino": "27:10",
+           "tempoViagem": "01:25",
+           "linha": "444",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "conflitos": []
+    },
+    "2026-09-06": {
+     "tipoDia": "DOMINGO (PASSO A PAÇO)",
+     "totalViagens": 24,
+     "passagens": [
+      "06:10",
+      "07:03",
+      "07:54",
+      "08:33",
+      "09:13",
+      "09:59",
+      "11:43",
+      "12:32",
+      "13:12",
+      "13:57",
+      "14:39",
+      "15:19",
+      "16:22",
+      "17:07",
+      "18:02",
+      "19:03",
+      "19:59",
+      "20:53",
+      "22:16",
+      "23:17",
+      "24:05",
+      "24:35",
+      "25:15",
+      "26:25"
+     ],
+     "passagensCortadas": [],
+     "saidasOrigem": [
+      "05:10",
+      "05:48",
+      "06:34",
+      "07:25",
+      "08:12",
+      "08:59",
+      "10:44",
+      "11:28",
+      "12:13",
+      "12:58",
+      "13:43",
+      "14:23",
+      "15:16",
+      "16:08",
+      "16:57",
+      "17:59",
+      "19:01",
+      "20:03",
+      "21:23",
+      "22:25",
+      "23:15",
+      "23:55",
+      "24:35",
+      "25:45"
+     ],
+     "frequencia": [
+      {
+       "hora": "05:10",
+       "intervalo": null,
+       "origem": null
+      },
+      {
+       "hora": "05:48",
+       "intervalo": "00:38",
+       "origem": null
+      },
+      {
+       "hora": "06:34",
+       "intervalo": "00:46",
+       "origem": null
+      },
+      {
+       "hora": "07:25",
+       "intervalo": "00:51",
+       "origem": null
+      },
+      {
+       "hora": "08:12",
+       "intervalo": "00:47",
+       "origem": null
+      },
+      {
+       "hora": "08:59",
+       "intervalo": "00:47",
+       "origem": null
+      },
+      {
+       "hora": "10:44",
+       "intervalo": "01:45",
+       "origem": null
+      },
+      {
+       "hora": "11:28",
+       "intervalo": "00:44",
+       "origem": null
+      },
+      {
+       "hora": "12:13",
+       "intervalo": "00:45",
+       "origem": null
+      },
+      {
+       "hora": "12:58",
+       "intervalo": "00:45",
+       "origem": null
+      },
+      {
+       "hora": "13:43",
+       "intervalo": "00:45",
+       "origem": null
+      },
+      {
+       "hora": "14:23",
+       "intervalo": "00:40",
+       "origem": null
+      },
+      {
+       "hora": "15:16",
+       "intervalo": "00:53",
+       "origem": null
+      },
+      {
+       "hora": "16:08",
+       "intervalo": "00:52",
+       "origem": null
+      },
+      {
+       "hora": "16:57",
+       "intervalo": "00:49",
+       "origem": null
+      },
+      {
+       "hora": "17:59",
+       "intervalo": "01:02",
+       "origem": null
+      },
+      {
+       "hora": "19:01",
+       "intervalo": "01:02",
+       "origem": null
+      },
+      {
+       "hora": "20:03",
+       "intervalo": "01:02",
+       "origem": null
+      },
+      {
+       "hora": "21:23",
+       "intervalo": "01:20",
+       "origem": null
+      },
+      {
+       "hora": "22:25",
+       "intervalo": "01:02",
+       "origem": null
+      },
+      {
+       "hora": "23:15",
+       "intervalo": "00:50",
+       "origem": null
+      },
+      {
+       "hora": "23:55",
+       "intervalo": "00:40",
+       "origem": null
+      },
+      {
+       "hora": "24:35",
+       "intervalo": "00:40",
+       "origem": null
+      },
+      {
+       "hora": "25:45",
+       "intervalo": "01:10",
+       "origem": null
+      }
+     ],
+     "origemMista": false,
+     "turnos": [
+      {
+       "nome": "1º TURNO",
+       "tabelas": [
+        {
+         "tab": "TAB - 0101",
+         "veiculo": "1",
+         "tipoVeiculo": "CONVENCIONAL AR P.E",
+         "jornada": "08:50",
+         "viagens": [
+          {
+           "ida": "05:10",
+           "volta": "06:10",
+           "termino": "07:15",
+           "tempoViagem": "02:05",
+           "linha": "444",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "07:25",
+           "volta": "08:33",
+           "termino": "09:34",
+           "tempoViagem": "02:09",
+           "linha": "444",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "09:34",
+           "volta": null,
+           "termino": "10:44",
+           "tempoViagem": "01:10",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "10:44",
+           "volta": "11:43",
+           "termino": "12:47",
+           "tempoViagem": "02:03",
+           "linha": "444",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "12:58",
+           "volta": "13:57",
+           "termino": "14:55",
+           "tempoViagem": "01:57",
+           "linha": "444",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        },
+        {
+         "tab": "TAB - 0102",
+         "veiculo": "2",
+         "tipoVeiculo": "CONVENCIONAL AR P.E",
+         "jornada": "08:47",
+         "viagens": [
+          {
+           "ida": "05:48",
+           "volta": "07:03",
+           "termino": "08:00",
+           "tempoViagem": "02:12",
+           "linha": "444",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "08:12",
+           "volta": "09:13",
+           "termino": "10:08",
+           "tempoViagem": "01:56",
+           "linha": "444",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "10:08",
+           "volta": null,
+           "termino": "11:28",
+           "tempoViagem": "01:20",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "11:28",
+           "volta": "12:32",
+           "termino": "13:30",
+           "tempoViagem": "02:02",
+           "linha": "444",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "13:43",
+           "volta": "14:39",
+           "termino": "15:40",
+           "tempoViagem": "01:57",
+           "linha": "444",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        },
+        {
+         "tab": "TAB - 0103",
+         "veiculo": "3",
+         "tipoVeiculo": "CONVENCIONAL AR P.E",
+         "jornada": "08:39",
+         "viagens": [
+          {
+           "ida": "06:34",
+           "volta": "07:54",
+           "termino": "08:49",
+           "tempoViagem": "02:15",
+           "linha": "444",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "08:59",
+           "volta": "09:59",
+           "termino": "10:56",
+           "tempoViagem": "01:57",
+           "linha": "444",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "10:56",
+           "volta": null,
+           "termino": "12:13",
+           "tempoViagem": "01:17",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "12:13",
+           "volta": "13:12",
+           "termino": "14:10",
+           "tempoViagem": "01:57",
+           "linha": "444",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "14:23",
+           "volta": "15:19",
+           "termino": "16:15",
+           "tempoViagem": "01:52",
+           "linha": "444",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "nome": "2º TURNO",
+       "tabelas": [
+        {
+         "tab": "TAB - 0201",
+         "veiculo": "1",
+         "tipoVeiculo": "CONVENCIONAL AR P.E",
+         "jornada": "08:32",
+         "viagens": [
+          {
+           "ida": "15:16",
+           "volta": "16:22",
+           "termino": "17:49",
+           "tempoViagem": "02:33",
+           "linha": "444",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "17:59",
+           "volta": "19:03",
+           "termino": "20:06",
+           "tempoViagem": "02:07",
+           "linha": "444",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "20:06",
+           "volta": null,
+           "termino": "21:23",
+           "tempoViagem": "01:17",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "21:23",
+           "volta": "22:16",
+           "termino": "23:05",
+           "tempoViagem": "01:42",
+           "linha": "444",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "23:15",
+           "volta": "24:05",
+           "termino": "24:50",
+           "tempoViagem": "01:35",
+           "linha": "444",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        },
+        {
+         "tab": "TAB - 0202",
+         "veiculo": "2",
+         "tipoVeiculo": "CONVENCIONAL AR P.E",
+         "jornada": "08:45",
+         "viagens": [
+          {
+           "ida": "16:08",
+           "volta": "17:07",
+           "termino": "18:45",
+           "tempoViagem": "02:37",
+           "linha": "444",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "19:01",
+           "volta": "19:59",
+           "termino": "21:03",
+           "tempoViagem": "02:02",
+           "linha": "444",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "21:03",
+           "volta": null,
+           "termino": "22:25",
+           "tempoViagem": "01:22",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "22:25",
+           "volta": "23:17",
+           "termino": "24:06",
+           "tempoViagem": "01:41",
+           "linha": "444",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "24:35",
+           "volta": "25:15",
+           "termino": "26:00",
+           "tempoViagem": "01:25",
+           "linha": "444",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        },
+        {
+         "tab": "TAB - 0203",
+         "veiculo": "3",
+         "tipoVeiculo": "CONVENCIONAL AR P.E",
+         "jornada": "08:29",
+         "viagens": [
+          {
+           "ida": "16:57",
+           "volta": "18:02",
+           "termino": "19:22",
+           "tempoViagem": "02:25",
+           "linha": "444",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "20:03",
+           "volta": "20:53",
+           "termino": "21:56",
+           "tempoViagem": "01:53",
+           "linha": "444",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "21:56",
+           "volta": null,
+           "termino": "23:55",
+           "tempoViagem": "01:59",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "23:55",
+           "volta": "24:35",
+           "termino": "25:20",
+           "tempoViagem": "01:25",
+           "linha": "444",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "25:45",
+           "volta": "26:25",
+           "termino": "27:10",
+           "tempoViagem": "01:25",
+           "linha": "444",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "conflitos": []
+    },
+    "2026-09-07": {
+     "tipoDia": "SEGUNDA (PASSO A PAÇO)",
+     "totalViagens": 24,
+     "passagens": [
+      "06:10",
+      "07:03",
+      "07:54",
+      "08:33",
+      "09:13",
+      "09:59",
+      "11:43",
+      "12:32",
+      "13:12",
+      "13:57",
+      "14:39",
+      "15:19",
+      "16:22",
+      "17:07",
+      "18:02",
+      "19:03",
+      "19:59",
+      "20:53",
+      "22:16",
+      "23:17",
+      "24:05",
+      "24:35",
+      "25:15",
+      "26:25"
+     ],
+     "passagensCortadas": [],
+     "saidasOrigem": [
+      "05:10",
+      "05:48",
+      "06:34",
+      "07:25",
+      "08:12",
+      "08:59",
+      "10:44",
+      "11:28",
+      "12:13",
+      "12:58",
+      "13:43",
+      "14:23",
+      "15:16",
+      "16:08",
+      "16:57",
+      "17:59",
+      "19:01",
+      "20:03",
+      "21:23",
+      "22:25",
+      "23:15",
+      "23:55",
+      "24:35",
+      "25:45"
+     ],
+     "frequencia": [
+      {
+       "hora": "05:10",
+       "intervalo": null,
+       "origem": null
+      },
+      {
+       "hora": "05:48",
+       "intervalo": "00:38",
+       "origem": null
+      },
+      {
+       "hora": "06:34",
+       "intervalo": "00:46",
+       "origem": null
+      },
+      {
+       "hora": "07:25",
+       "intervalo": "00:51",
+       "origem": null
+      },
+      {
+       "hora": "08:12",
+       "intervalo": "00:47",
+       "origem": null
+      },
+      {
+       "hora": "08:59",
+       "intervalo": "00:47",
+       "origem": null
+      },
+      {
+       "hora": "10:44",
+       "intervalo": "01:45",
+       "origem": null
+      },
+      {
+       "hora": "11:28",
+       "intervalo": "00:44",
+       "origem": null
+      },
+      {
+       "hora": "12:13",
+       "intervalo": "00:45",
+       "origem": null
+      },
+      {
+       "hora": "12:58",
+       "intervalo": "00:45",
+       "origem": null
+      },
+      {
+       "hora": "13:43",
+       "intervalo": "00:45",
+       "origem": null
+      },
+      {
+       "hora": "14:23",
+       "intervalo": "00:40",
+       "origem": null
+      },
+      {
+       "hora": "15:16",
+       "intervalo": "00:53",
+       "origem": null
+      },
+      {
+       "hora": "16:08",
+       "intervalo": "00:52",
+       "origem": null
+      },
+      {
+       "hora": "16:57",
+       "intervalo": "00:49",
+       "origem": null
+      },
+      {
+       "hora": "17:59",
+       "intervalo": "01:02",
+       "origem": null
+      },
+      {
+       "hora": "19:01",
+       "intervalo": "01:02",
+       "origem": null
+      },
+      {
+       "hora": "20:03",
+       "intervalo": "01:02",
+       "origem": null
+      },
+      {
+       "hora": "21:23",
+       "intervalo": "01:20",
+       "origem": null
+      },
+      {
+       "hora": "22:25",
+       "intervalo": "01:02",
+       "origem": null
+      },
+      {
+       "hora": "23:15",
+       "intervalo": "00:50",
+       "origem": null
+      },
+      {
+       "hora": "23:55",
+       "intervalo": "00:40",
+       "origem": null
+      },
+      {
+       "hora": "24:35",
+       "intervalo": "00:40",
+       "origem": null
+      },
+      {
+       "hora": "25:45",
+       "intervalo": "01:10",
+       "origem": null
+      }
+     ],
+     "origemMista": false,
+     "turnos": [
+      {
+       "nome": "1º TURNO",
+       "tabelas": [
+        {
+         "tab": "TAB - 0101",
+         "veiculo": "1",
+         "tipoVeiculo": "CONVENCIONAL AR P.E",
+         "jornada": "08:50",
+         "viagens": [
+          {
+           "ida": "05:10",
+           "volta": "06:10",
+           "termino": "07:15",
+           "tempoViagem": "02:05",
+           "linha": "444",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "07:25",
+           "volta": "08:33",
+           "termino": "09:34",
+           "tempoViagem": "02:09",
+           "linha": "444",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "09:34",
+           "volta": null,
+           "termino": "10:44",
+           "tempoViagem": "01:10",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "10:44",
+           "volta": "11:43",
+           "termino": "12:47",
+           "tempoViagem": "02:03",
+           "linha": "444",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "12:58",
+           "volta": "13:57",
+           "termino": "14:55",
+           "tempoViagem": "01:57",
+           "linha": "444",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        },
+        {
+         "tab": "TAB - 0102",
+         "veiculo": "2",
+         "tipoVeiculo": "CONVENCIONAL AR P.E",
+         "jornada": "08:47",
+         "viagens": [
+          {
+           "ida": "05:48",
+           "volta": "07:03",
+           "termino": "08:00",
+           "tempoViagem": "02:12",
+           "linha": "444",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "08:12",
+           "volta": "09:13",
+           "termino": "10:08",
+           "tempoViagem": "01:56",
+           "linha": "444",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "10:08",
+           "volta": null,
+           "termino": "11:28",
+           "tempoViagem": "01:20",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "11:28",
+           "volta": "12:32",
+           "termino": "13:30",
+           "tempoViagem": "02:02",
+           "linha": "444",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "13:43",
+           "volta": "14:39",
+           "termino": "15:40",
+           "tempoViagem": "01:57",
+           "linha": "444",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        },
+        {
+         "tab": "TAB - 0103",
+         "veiculo": "3",
+         "tipoVeiculo": "CONVENCIONAL AR P.E",
+         "jornada": "08:39",
+         "viagens": [
+          {
+           "ida": "06:34",
+           "volta": "07:54",
+           "termino": "08:49",
+           "tempoViagem": "02:15",
+           "linha": "444",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "08:59",
+           "volta": "09:59",
+           "termino": "10:56",
+           "tempoViagem": "01:57",
+           "linha": "444",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "10:56",
+           "volta": null,
+           "termino": "12:13",
+           "tempoViagem": "01:17",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "12:13",
+           "volta": "13:12",
+           "termino": "14:10",
+           "tempoViagem": "01:57",
+           "linha": "444",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "14:23",
+           "volta": "15:19",
+           "termino": "16:15",
+           "tempoViagem": "01:52",
+           "linha": "444",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "nome": "2º TURNO",
+       "tabelas": [
+        {
+         "tab": "TAB - 0201",
+         "veiculo": "1",
+         "tipoVeiculo": "CONVENCIONAL AR P.E",
+         "jornada": "08:32",
+         "viagens": [
+          {
+           "ida": "15:16",
+           "volta": "16:22",
+           "termino": "17:49",
+           "tempoViagem": "02:33",
+           "linha": "444",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "17:59",
+           "volta": "19:03",
+           "termino": "20:06",
+           "tempoViagem": "02:07",
+           "linha": "444",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "20:06",
+           "volta": null,
+           "termino": "21:23",
+           "tempoViagem": "01:17",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "21:23",
+           "volta": "22:16",
+           "termino": "23:05",
+           "tempoViagem": "01:42",
+           "linha": "444",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "23:15",
+           "volta": "24:05",
+           "termino": "24:50",
+           "tempoViagem": "01:35",
+           "linha": "444",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        },
+        {
+         "tab": "TAB - 0202",
+         "veiculo": "2",
+         "tipoVeiculo": "CONVENCIONAL AR P.E",
+         "jornada": "08:45",
+         "viagens": [
+          {
+           "ida": "16:08",
+           "volta": "17:07",
+           "termino": "18:45",
+           "tempoViagem": "02:37",
+           "linha": "444",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "19:01",
+           "volta": "19:59",
+           "termino": "21:03",
+           "tempoViagem": "02:02",
+           "linha": "444",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "21:03",
+           "volta": null,
+           "termino": "22:25",
+           "tempoViagem": "01:22",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "22:25",
+           "volta": "23:17",
+           "termino": "24:06",
+           "tempoViagem": "01:41",
+           "linha": "444",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "24:35",
+           "volta": "25:15",
+           "termino": "26:00",
+           "tempoViagem": "01:25",
+           "linha": "444",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        },
+        {
+         "tab": "TAB - 0203",
+         "veiculo": "3",
+         "tipoVeiculo": "CONVENCIONAL AR P.E",
+         "jornada": "08:29",
+         "viagens": [
+          {
+           "ida": "16:57",
+           "volta": "18:02",
+           "termino": "19:22",
+           "tempoViagem": "02:25",
+           "linha": "444",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "20:03",
+           "volta": "20:53",
+           "termino": "21:56",
+           "tempoViagem": "01:53",
+           "linha": "444",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "21:56",
+           "volta": null,
+           "termino": "23:55",
+           "tempoViagem": "01:59",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "23:55",
+           "volta": "24:35",
+           "termino": "25:20",
+           "tempoViagem": "01:25",
+           "linha": "444",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "25:45",
+           "volta": "26:25",
+           "termino": "27:10",
+           "tempoViagem": "01:25",
+           "linha": "444",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "conflitos": []
+    }
+   }
+  },
   "447": {
    "numero": "447",
    "nome": null,
@@ -102958,7 +104604,7 @@
   },
   "621": {
    "numero": "621",
-   "nome": null,
+   "nome": "DIST. II / N. VITÓRIA / T2 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 3.xlsx",
    "pontoId": "P3",

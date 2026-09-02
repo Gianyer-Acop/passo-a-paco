@@ -15,8 +15,8 @@
 // observa nada, so le `diaSelecionado()` a cada renderizacao.
 
 import { registrar } from '../telas.js';
-import { avisosDoDia } from '../dados.js';
-import { diaSelecionado } from '../estado.js';
+import { avisosDoDia, linha, ponto } from '../dados.js';
+import { diaSelecionado, irPara } from '../estado.js';
 
 /** Rotulo textual da severidade — a cor nunca e o unico indicador (RNF-06). */
 const ROTULO_SEVERIDADE = {
@@ -38,14 +38,70 @@ export function rotuloDia(diaISO) {
 }
 
 /**
- * Descreve o alcance de um aviso em texto.
+ * Monta o alcance do aviso: "Todas as linhas", ou a lista das linhas afetadas
+ * como chips clicaveis, cada um levando direto para a tela daquela linha.
+ *
+ * Esta e a face visivel dos avisos por linha: como a tela da linha nao mostra
+ * mais aviso nenhum, e aqui que o operador ve QUEM sofreu a alteracao.
+ *
+ * Um numero que esta no aviso mas nao tem aba de escala (216, 705, ...) aparece
+ * como chip apagado e sem clique — some-lo seria esconder da equipe uma linha
+ * que a OS cita.
+ *
  * @param {object} aviso
- * @returns {string}
+ * @returns {HTMLElement}
  */
 function alcance(aviso) {
-  if (aviso.linhas === 'todas') return 'Todas as linhas';
-  const total = aviso.linhas.length;
-  return total === 1 ? 'Linha ' + aviso.linhas[0] : total + ' linhas: ' + aviso.linhas.join(', ');
+  const bloco = document.createElement('div');
+  bloco.className = 'aviso__alcance';
+
+  if (aviso.linhas === 'todas') {
+    bloco.classList.add('aviso__alcance--todas');
+    bloco.textContent = 'Todas as linhas';
+    return bloco;
+  }
+
+  const rotulo = document.createElement('p');
+  rotulo.className = 'aviso__alcance-rotulo';
+  rotulo.textContent =
+    aviso.linhas.length === 1 ? 'Linha afetada:' : aviso.linhas.length + ' linhas afetadas:';
+  bloco.append(rotulo);
+
+  const lista = document.createElement('ul');
+  lista.className = 'aviso__linhas';
+
+  for (const numero of aviso.linhas) {
+    const item = document.createElement('li');
+    const objetoLinha = linha(numero);
+
+    if (!objetoLinha) {
+      const inerte = document.createElement('span');
+      inerte.className = 'chip-linha chip-linha--sem-quadro';
+      inerte.textContent = numero;
+      inerte.title = 'Linha citada na OS, sem quadro horário na base.';
+      item.append(inerte);
+      lista.append(item);
+      continue;
+    }
+
+    const chip = document.createElement('button');
+    chip.type = 'button';
+    chip.className = 'chip-linha';
+    // A cor do ponto de embarque acompanha o chip, igual ao resto do site.
+    const p = ponto(objetoLinha.pontoId);
+    if (p) chip.classList.add('ponto-' + p.id.toLowerCase());
+    chip.textContent = numero;
+    chip.setAttribute(
+      'aria-label',
+      'Linha ' + numero + (p ? ', ponto ' + p.numero : '') + '. Ver a linha.',
+    );
+    chip.addEventListener('click', () => irPara('linha', { numero: objetoLinha.numero }));
+    item.append(chip);
+    lista.append(item);
+  }
+
+  bloco.append(lista);
+  return bloco;
 }
 
 /**
@@ -67,10 +123,7 @@ function cartaoAviso(aviso) {
   texto.textContent = aviso.texto;
   artigo.append(texto);
 
-  const escopo = document.createElement('p');
-  escopo.className = 'aviso__alcance';
-  escopo.textContent = alcance(aviso);
-  artigo.append(escopo);
+  artigo.append(alcance(aviso));
 
   return artigo;
 }

@@ -1,11 +1,11 @@
-RELATÓRIO DE CONVERSÃO — 2026-09-02T08:45:29-04:00
+RELATÓRIO DE CONVERSÃO — 2026-09-02T10:22:12-04:00
 
-Linhas na base: 77
-  com programação do evento: 34 (102 blocos linha-dia)
+Linhas na base: 78
+  com programação do evento: 35 (105 blocos linha-dia)
   só escala regular, sem evento: 43 -> 002, 004, 110, 111, 112, 119, 123, 127, 129, 203, 205, 207, 211, 221, 223, 306, 319, 324, 330, 403, 427, 439, 447, 452, 454, 455, 457, 461, 507, 515, 517, 600, 602, 606, 609, 611, 619, 625, 651, 704, 706, 708, 711
-Passagens pelo ponto (VOLTA, publicadas): 5507
-Saídas do terminal de origem (IDA, referência): 5510
-Viagens no quadro completo: 6857
+Passagens pelo ponto (VOLTA, publicadas): 5579
+Saídas do terminal de origem (IDA, referência): 5582
+Viagens no quadro completo: 6947
 
 LINHA  DIA           DECL  ORIG PASSA  VIAG 1ªPASSAG ÚLTIMA  
 011    2026-09-05      18    18    18    24 05:47    25:27   
@@ -68,6 +68,9 @@ LINHA  DIA           DECL  ORIG PASSA  VIAG 1ªPASSAG ÚLTIMA
 443    2026-09-05      27    27    27    35 05:52    26:50   
 443    2026-09-06      20    20    20    26 06:07    26:55   
 443    2026-09-07      27    27    27    35 05:52    26:50   
+444    2026-09-05      24    24    24    30 06:10    26:25   
+444    2026-09-06      24    24    24    30 06:10    26:25   
+444    2026-09-07      24    24    24    30 06:10    26:25   
 448    2026-09-05      32    32    32    40 05:49    25:05   
 448    2026-09-06      32    32    32    40 05:49    25:05   
 448    2026-09-07      32    32    32    40 05:49    25:05   
@@ -158,7 +161,7 @@ AVISOS DE CONVERSÃO (47):
   461: aba e escala regular (ref. 2024-02-11, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
   P1: linhas da arte sem aba nenhuma: 209, 502, 610
   P3: linhas da arte sem aba nenhuma: 616, 690
-  P4: linhas da arte sem aba nenhuma: 442, 444
+  P4: linhas da arte sem aba nenhuma: 442
 
 ERROS DE VALIDAÇÃO (0):
   nenhum

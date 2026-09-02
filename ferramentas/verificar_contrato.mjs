@@ -82,8 +82,8 @@ const linhas = dados.linhas ?? {};
 const numeros = Object.keys(linhas);
 const comProgramacao = numeros.filter((n) => linhas[n].temProgramacaoEvento);
 
-igual('77 linhas', numeros.length, 77);
-igual('34 linhas com temProgramacaoEvento', comProgramacao.length, 34);
+igual('78 linhas', numeros.length, 78);
+igual('35 linhas com temProgramacaoEvento', comProgramacao.length, 35);
 
 // Desde que o gerador passou a publicar tambem a escala regular, TODA linha
 // tem quadro nos 3 dias — inclusive as 43 sem programacao especial. Se alguma
@@ -139,6 +139,11 @@ igual('linha 113 / 05-09 / total de passagens', linhas['113']?.dias?.['2026-09-0
 igual('linha 306 (escala regular) / 06-09 / 1a passagem', linhas['306']?.dias?.['2026-09-06']?.passagens?.[0], '05:28');
 igual('linha 002 (escala regular) / 07-09 / total de passagens', linhas['002']?.dias?.['2026-09-07']?.passagens?.length, 21);
 
+// A 444 foi a ultima aba a entrar; se a planilha for trocada sem ela, some sem aviso.
+ok('linha 444 publicada, no P4, com programacao do evento',
+  linhas['444']?.pontoId === 'P4' && linhas['444']?.temProgramacaoEvento === true);
+igual('linha 444 / 05-09 / total de passagens', linhas['444']?.dias?.['2026-09-05']?.passagens?.length, 24);
+
 // Viagens cortadas: so a 305 tem, duas por dia, nos tres dias.
 const comCortadas = numeros.filter((n) =>
   DIAS.some((d) => (linhas[n].dias?.[d]?.passagensCortadas ?? []).length > 0));
@@ -153,25 +158,15 @@ for (const dia of DIAS) {
 
 // --------------------------------------------- 1b. entradas manuais
 
-secao('ferramentas/entrada/ — nomes e escalas editados a mao');
+secao('ferramentas/entrada/ — nomes editados a mao');
 
 const caminhoNomes = join(RAIZ, 'ferramentas', 'entrada', 'nomes_linhas.json');
-const caminhoEscalas = join(RAIZ, 'ferramentas', 'entrada', 'escalas_evento.json');
 ok('nomes_linhas.json existe', existsSync(caminhoNomes));
-ok('escalas_evento.json existe', existsSync(caminhoEscalas));
 
 if (existsSync(caminhoNomes)) {
   const nomes = JSON.parse(readFileSync(caminhoNomes, 'utf8'));
   const faltando = numeros.filter((n) => !(n in nomes));
   ok('nomes_linhas.json cobre todas as linhas publicadas', faltando.length === 0, faltando.join(', '));
-}
-
-if (existsSync(caminhoEscalas)) {
-  const escalas = JSON.parse(readFileSync(caminhoEscalas, 'utf8'));
-  const semEscala = numeros
-    .filter((n) => !linhas[n].temProgramacaoEvento)
-    .filter((n) => !DIAS.every((d) => escalas[n]?.[d]));
-  ok('escalas_evento.json declara os 3 dias de toda linha sem evento', semEscala.length === 0, semEscala.join(', '));
 }
 
 // --------------------------------------------------- 2. registro de telas
@@ -219,6 +214,25 @@ ok(
   usamSaidasOrigem.length === 0,
   usamSaidasOrigem.join(', '),
 );
+
+// Os avisos moram so na aba Avisos, onde cada um lista as linhas que atinge.
+// Repeti-los no card da linha era ruido; se alguem reintroduzir isso, aqui quebra.
+secao('app/telas/ — avisos so na aba Avisos');
+
+const renderizamAviso = [...fontes.entries()]
+  .filter(([arquivo]) => arquivo !== 'avisos.js')
+  .filter(([, fonte]) => /aviso\.texto|cartaoAviso|avisosDe\(|avisosEspecificosDe\(|avisosDoDia\(/.test(fonte))
+  .map(([arquivo]) => arquivo);
+
+ok(
+  'so avisos.js renderiza texto de aviso',
+  renderizamAviso.length === 0,
+  renderizamAviso.join(', '),
+);
+
+const fonteAvisos = fontes.get('avisos.js') ?? '';
+ok('avisos.js marca as linhas afetadas com chips clicaveis', fonteAvisos.includes('chip-linha'));
+ok('avisos.js leva do chip para a tela da linha', /irPara\('linha'/.test(fonteAvisos));
 
 // ------------------------------------------------------- 4. formatadores
 

@@ -14,9 +14,11 @@
 // data de referencia na tela — decisao de produto: o operador quer o horario,
 // e uma data de 2021 so confunde.
 //
-// Os avisos gerais (`linhas: 'todas'`) NAO entram aqui: eles ja estao na aba
-// Avisos, e repeti-los em toda linha era ruido. So os avisos que citam o numero
-// da linha aparecem, mais um link para os gerais.
+// NENHUM aviso e renderizado aqui. Os avisos vivem so na aba Avisos, onde cada
+// um lista as linhas que atinge; repeti-los no card da linha era ruido. Esta
+// tela fica com o que so ela tem: ponto, horario e quadro. O unico resquicio e
+// o selo "viagem extra apos 00h", que e um DESTAQUE (o operador precisa bater o
+// olho e ver), nao o texto do aviso.
 //
 // PROIBIDO ler o campo de partida do bairro (o vizinho de `passagens` dentro
 // de `dias[dia]`). Ele nao e a passagem pelo ponto: na linha 604 mostraria
@@ -24,17 +26,10 @@
 // "passagem prevista pelo ponto" e sinalizado como aproximado.
 
 import { registrar } from '../telas.js';
-import { linha, ponto, avisosEspecificosDe, avisosGeraisDoDia, temViagemExtra } from '../dados.js';
+import { linha, ponto, temViagemExtra } from '../dados.js';
 import { diaSelecionado, irPara } from '../estado.js';
 import { hora, diaVigente, proximaPassagem } from '../formato.js';
 import { renderizarQuadroCompleto } from './quadro.js';
-
-/** Rotulo textual da severidade — a cor nunca e o unico indicador (RNF-06). */
-const ROTULO_SEVERIDADE = {
-  alta: 'Atenção',
-  media: 'Importante',
-  info: 'Informação',
-};
 
 /**
  * Formata 'AAAA-MM-DD' como 'sexta, 05/09'.
@@ -87,28 +82,6 @@ function cartaoPonto(objetoPonto) {
     cartao.textContent = 'Ponto de embarque não identificado';
   }
   return cartao;
-}
-
-/**
- * Monta o cartao de um aviso (mesmo padrao visual de avisos.js).
- * @param {object} aviso
- * @returns {HTMLElement}
- */
-function cartaoAviso(aviso) {
-  const artigo = document.createElement('article');
-  artigo.className = 'aviso aviso--' + aviso.severidade;
-
-  const marca = document.createElement('span');
-  marca.className = 'aviso__severidade';
-  marca.textContent = ROTULO_SEVERIDADE[aviso.severidade] ?? aviso.severidade;
-  artigo.append(marca);
-
-  const texto = document.createElement('p');
-  texto.className = 'aviso__texto';
-  texto.textContent = aviso.texto;
-  artigo.append(texto);
-
-  return artigo;
 }
 
 /**
@@ -304,22 +277,6 @@ function renderLinha(elemento, objetoLinha, dia) {
 
   secao.append(cabecalho);
 
-  // --------------------------------------------------------------- avisos
-  const avisos = avisosEspecificosDe(objetoLinha.numero, dia);
-  if (avisos.length > 0) {
-    const secaoAvisos = document.createElement('section');
-    secaoAvisos.className = 'linha__avisos';
-    const listaAvisos = document.createElement('ul');
-    listaAvisos.className = 'lista-avisos';
-    for (const aviso of avisos) {
-      const item = document.createElement('li');
-      item.append(cartaoAviso(aviso));
-      listaAvisos.append(item);
-    }
-    secaoAvisos.append(listaAvisos);
-    secao.append(secaoAvisos);
-  }
-
   // ---------------------------------------------------- observacoes/legenda
   const blocoObservacoes = secaoDeLista('Observações', 'linha__observacoes', objetoLinha.observacoes);
   if (blocoObservacoes) secao.append(blocoObservacoes);
@@ -401,18 +358,14 @@ function renderLinha(elemento, objetoLinha, dia) {
   secaoQuadro.append(botaoQuadro, contentorQuadro);
   secao.append(secaoQuadro);
 
-  // ---------------------------------------------------------- avisos gerais
-  // Ficam a um toque de distancia, sem ocupar o card: sao os mesmos 6 avisos
-  // em todas as linhas, e a aba Avisos ja os lista por extenso.
-  const gerais = avisosGeraisDoDia(dia);
-  if (gerais.length > 0) {
-    const link = document.createElement('button');
-    link.type = 'button';
-    link.className = 'linha__link-avisos';
-    link.textContent = 'Ver avisos gerais (' + gerais.length + ')';
-    link.addEventListener('click', () => irPara('avisos'));
-    secao.append(link);
-  }
+  // ------------------------------------------------------------- navegacao
+  // Um caminho para os avisos, nao os avisos em si.
+  const link = document.createElement('button');
+  link.type = 'button';
+  link.className = 'linha__link-avisos';
+  link.textContent = 'Ver avisos operacionais do dia';
+  link.addEventListener('click', () => irPara('avisos'));
+  secao.append(link);
 
   elemento.append(secao);
 }

@@ -1,6 +1,6 @@
 # Entradas manuais do gerador
 
-Estes dois arquivos são editados à mão e lidos por `ferramentas/gerar_dados.py`.
+`nomes_linhas.json` é editado à mão e lido por `ferramentas/gerar_dados.py`.
 Nada aqui é gerado automaticamente — o script só lê.
 
 ## nomes_linhas.json
@@ -10,18 +10,18 @@ ao lado do número na busca, na lista do ponto e na tela da linha.
 
 - Chave: número da linha com 3 dígitos, como string (`"011"`, não `11`).
 - Valor: o itinerário, ou `null` para a linha aparecer só com o número.
-- Todas as linhas conhecidas já estão listadas. Não remova chaves: uma linha
-  ausente aqui faz o gerador falhar, de propósito, para nada passar batido.
+- Todas as linhas conhecidas já estão listadas. Uma linha que exista na planilha
+  mas falte aqui é publicada sem itinerário e vira aviso no relatório.
 
-## escalas_evento.json
+**De onde vieram os nomes que já estão preenchidos:** das tabelas de viagens
+extras da OS 057 (31 linhas), transcritos no commit inicial do projeto. Já
+chegam abreviados de lá (`STA. ETELVINA/ E4/ DJ. BATISTA/ T1/ CENTRO`).
+**Nenhuma aba de planilha traz itinerário** — as abas só têm horário. Por isso
+as demais estão em `null`: não há de onde puxá-las automaticamente.
 
-Tipo de escala com que cada linha **sem programação especial** vai operar em
-cada dia do evento. Serve só para conferência: o gerador compara com o tipo
-que está escrito na aba da planilha e avisa no relatório quando divergem.
-Este texto **não aparece no site**.
+## E o tipo de escala?
 
-- Valores aceitos: `"DOMINGO"`, `"SÁBADO"`, `"SÁBADO E DOMINGO"` ou `null`.
-- `null` = ainda não conferido; vira aviso no relatório de conversão.
-- Os valores iniciais foram copiados da própria planilha e **precisam de
-  revisão**: 05 e 07/09 são feriados, então boa parte da frota roda escala de
-  domingo mesmo em aba rotulada de outro jeito.
+Não tem arquivo. O tipo (domingo, sábado, sábado e domingo, ou a escala especial
+do evento) é lido do cabeçalho da própria aba, por `ler_escala_base`. Serve só
+para o relatório de conversão — **a tela nunca mostra escala nem data de
+referência**. Para mudar a escala com que uma linha opera, edite a aba.

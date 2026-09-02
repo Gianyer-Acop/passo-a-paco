@@ -58,10 +58,6 @@ PONTO_POR_LINHA = {
 
 ENTRADA = RAIZ / "ferramentas" / "entrada"
 ARQ_NOMES = ENTRADA / "nomes_linhas.json"
-ARQ_ESCALAS = ENTRADA / "escalas_evento.json"
-
-# Tipos de escala aceitos em escalas_evento.json.
-ESCALAS_VALIDAS = {"DOMINGO", "SÁBADO", "SÁBADO E DOMINGO"}
 
 # A escala aparece solta numa célula ("DOMINGO") ou enterrada num título
 # ("PROPOSTA QUADRO OPERACIONAL, SÁBADO E DOMINGO, LINHA 123"). As alternativas
@@ -91,10 +87,18 @@ PONTOS = [
      "hotspot": {"x": 36.7, "y": 72.5}},
 ]
 
-# Nomes/itinerários das linhas e escalas declaradas vêm de ferramentas/entrada/,
-# editados à mão (ver ferramentas/entrada/LEIA-ME.md). Ficam fora deste arquivo
-# de propósito: são a parte que muda a cada edição da OS, e quem edita não
-# precisa mexer em Python.
+# Os nomes/itinerários vêm de ferramentas/entrada/nomes_linhas.json, editado à
+# mão (ver ferramentas/entrada/LEIA-ME.md). Ficam fora deste arquivo de
+# propósito: são a parte que muda a cada edição da OS, e quem edita não precisa
+# mexer em Python.
+#
+# NENHUMA aba de planilha traz itinerário — as abas só têm horário. Os nomes que
+# já existem foram transcritos das tabelas de viagens extras da OS 057 (31
+# linhas), e vêm abreviados de lá mesmo.
+#
+# O TIPO DE ESCALA (domingo, sábado, sábado e domingo) não é declarado em lugar
+# nenhum além da própria aba: ler_escala_base o extrai do cabeçalho. Só entra no
+# relatório — a tela nunca o exibe.
 
 def ler_entrada(caminho):
     """Lê um JSON de ferramentas/entrada/, com falha explícita e legível."""
@@ -122,22 +126,6 @@ def ler_nomes():
             sys.exit("ERRO: nomes_linhas.json: %s deve ter texto ou null" % num)
     return {k: (v.strip() or None) if isinstance(v, str) else None
             for k, v in nomes.items()}
-
-
-def ler_escalas():
-    escalas = ler_entrada(ARQ_ESCALAS)
-    for num, porDia in escalas.items():
-        if not isinstance(porDia, dict):
-            sys.exit("ERRO: escalas_evento.json: %s deve ser um objeto "
-                     "{dia: tipo}" % num)
-        for dia, tipo in porDia.items():
-            if dia not in DIAS:
-                sys.exit("ERRO: escalas_evento.json: %s tem o dia %r, fora de %s"
-                         % (num, dia, DIAS))
-            if tipo is not None and tipo not in ESCALAS_VALIDAS:
-                sys.exit("ERRO: escalas_evento.json: %s/%s tem %r; aceitos: %s ou null"
-                         % (num, dia, tipo, ", ".join(sorted(ESCALAS_VALIDAS))))
-    return escalas
 
 
 # Concessionárias citadas na OS 057. A célula da planilha mistura
@@ -484,7 +472,7 @@ def ler_escala_base(linhas):
     Essas abas tem um unico bloco, com data de referencia propria (de 2021 a
     2026) e tipo de dia generico (DOMINGO / SABADO E DOMINGO). O QUADRO delas e
     publicado normalmente (ler_aba replica o bloco nos 3 dias); estes metadados
-    ficam so para o relatorio e para conferir contra escalas_evento.json.
+    ficam so para o relatorio: a tela nunca exibe escala nem data.
     """
     ref = None
     candidatos = []
@@ -654,7 +642,7 @@ def ler_aba(ws, aba):
 
 # ------------------------------------------------------------------ validações
 
-def validar(linhas_json, escalas):
+def validar(linhas_json):
     erros = []
     for num, L in sorted(linhas_json.items()):
         # Vale para TODA linha publicada com quadro — as de evento e as de
@@ -662,20 +650,6 @@ def validar(linhas_json, escalas):
         if not L["dias"]:
             erros.append("%s: publicada sem nenhum quadro horário" % num)
             continue
-        if not L["temProgramacaoEvento"]:
-            declarado = escalas.get(num)
-            if not declarado:
-                erros.append("%s: sem escala declarada em escalas_evento.json" % num)
-            else:
-                lida = (L["escalaBase"] or {}).get("tipoDia")
-                for dia in DIAS:
-                    tipo = declarado.get(dia)
-                    if not tipo:
-                        erros.append("%s/%s: escala declarada em branco "
-                                     "(escalas_evento.json)" % (num, dia))
-                    elif lida and tipo not in lida.upper():
-                        avisar("%s/%s: escala declarada %s difere da aba (%s); "
-                               "publicado o quadro da aba" % (num, dia, tipo, lida))
         for dia in DIAS:
             b = L["dias"].get(dia)
             if not b:
@@ -725,7 +699,6 @@ def main():
     linhas_json = {}
     ponto_de = {n: p for p, ns in PONTO_POR_LINHA.items() for n in ns}
     nomes = ler_nomes()
-    escalas = ler_escalas()
 
     for g in GRUPOS:
         wb = openpyxl.load_workbook(PLANILHAS / g, data_only=True)
@@ -785,7 +758,7 @@ def main():
         "avisos": AVISOS,
     }
 
-    erros = validar(linhas_json, escalas)
+    erros = validar(linhas_json)
 
     SAIDA.parent.mkdir(parents=True, exist_ok=True)
     with open(SAIDA, "w", encoding="utf-8") as f:

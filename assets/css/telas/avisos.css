@@ -62,8 +62,61 @@
 }
 
 .aviso__alcance {
-  margin-top: 6px;
+  margin-top: 10px;
   color: var(--cor-texto-suave);
   font-size: 0.8125rem;
   overflow-wrap: anywhere;
+}
+
+.aviso__alcance-rotulo {
+  margin: 0 0 6px 0;
+  font-weight: 700;
+}
+
+/* Chips das linhas afetadas: cada aviso mostra QUEM sofreu a alteração, já que
+   a tela da linha não repete mais o texto do aviso. */
+.aviso__linhas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* --cor-ponto-sobre escolhe branco ou #1A1A1A conforme o que alcança AA sobre
+   o preenchimento do ponto (base.css). Sem ponto conhecido, cai no azul do
+   evento, que aprova com branco. */
+.chip-linha {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  min-height: 40px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: var(--raio);
+  background: var(--cor-ponto, var(--cor-evento-azul));
+  color: var(--cor-ponto-sobre, #FFFFFF);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+
+.chip-linha:hover {
+  filter: brightness(0.92);
+}
+
+.chip-linha:focus-visible {
+  outline: 3px solid var(--cor-evento-azul);
+  outline-offset: 2px;
+}
+
+/* Linha citada na OS que não tem aba de escala: fica visível, mas inerte. */
+.chip-linha--sem-quadro {
+  background: var(--cor-superficie);
+  color: var(--cor-texto-suave);
+  border: 1px dashed var(--cor-borda);
+  cursor: default;
 }
