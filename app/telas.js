@@ -4,8 +4,8 @@
 // momento em que e importado. `renderizar(chave, params)` limpa o <main id="tela">
 // e entrega o elemento vazio para a funcao `render` da tela.
 //
-// As 7 chaves validas sao fixas e cada uma pertence a exatamente um modulo:
-//   mapa · busca · ponto · linha · quadro · avisos · circulacao
+// As 6 chaves validas sao fixas e cada uma pertence a exatamente um modulo:
+//   mapa · busca · ponto · linha · quadro · avisos
 // O teste-guarda (ferramentas/verificar_contrato.mjs) falha se duas telas
 // registrarem a mesma chave ou se aparecer chave fora dessa lista.
 //

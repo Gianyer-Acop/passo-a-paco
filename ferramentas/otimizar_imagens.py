@@ -29,7 +29,7 @@ QUALIDADE_INICIAL = 85
 QUALIDADE_MINIMA = 40
 PASSO = 5
 
-ARTES = ["mapa-pontos.png", "mapa-circulacao.png"]
+ARTES = ["mapa-pontos.png"]
 
 
 def converter(origem: Path) -> tuple[Path, int, int]:

@@ -21,7 +21,7 @@
 //
 //   postMessage({ tipo: MENSAGEM_ATUALIZACAO, versaoDados: '<ISO 8601 com offset>' })
 
-const VERSAO = 'v2';
+const VERSAO = 'v3';
 const CACHE = 'passo-a-paco-' + VERSAO;
 
 const MENSAGEM_ATUALIZACAO = 'dados-atualizados';
@@ -40,7 +40,6 @@ const APP_SHELL = [
   './assets/css/telas/linha.css',
   './assets/css/telas/quadro.css',
   './assets/css/telas/avisos.css',
-  './assets/css/telas/circulacao.css',
 
   './app/principal.js',
   './app/dados.js',
@@ -54,14 +53,11 @@ const APP_SHELL = [
   './app/telas/linha.js',
   './app/telas/quadro.js',
   './app/telas/avisos.js',
-  './app/telas/circulacao.js',
 
   // Os dois formatos de cada arte. O navegador escolhe um pelo <picture>, mas
   // qual dos dois nao da para saber daqui, entao os dois entram no cache.
   './assets/img/mapa-pontos.webp',
   './assets/img/mapa-pontos.png',
-  './assets/img/mapa-circulacao.webp',
-  './assets/img/mapa-circulacao.png',
 
   './dados/dados.json',
 ];

@@ -4,13 +4,27 @@
 // e NAO tira o operador da tela em que ele esta. Ele so re-renderiza a mesma tela
 // com o novo dia.
 //
-// Assinaturas CONGELADAS (TASK-02).
+// Alem do dia e da tela corrente, este modulo guarda a PILHA de navegacao, que
+// alimenta o botao "Voltar" do cabecalho. Tres regras a mantem util:
+//
+//   - as abas (mapa, avisos) sao raiz: `irPara` sem `substituir` a partir delas
+//     comeca uma pilha nova, entao o botao nao aparece numa aba;
+//   - a busca usa `substituir`, senao digitar "608" empilharia tres entradas;
+//   - trocar de dia NAO mexe na pilha — re-renderiza a mesma tela (RF-04).
+//
+// Assinaturas CONGELADAS (TASK-02): `irPara` ganhou um terceiro parametro
+// opcional, o que nao quebra nenhuma chamada existente.
 
 import { renderizar } from './telas.js';
 import { DIAS_EVENTO } from './formato.js';
 
+/** Telas que zeram a pilha: sao pontos de partida, nao destinos. */
+const TELAS_RAIZ = ['mapa', 'avisos'];
+
 let dia = DIAS_EVENTO[0];
 let atual = { chave: null, params: {} };
+/** Telas visitadas antes da atual, da mais antiga para a mais recente. */
+let pilha = [];
 const observadores = [];
 
 function notificar() {
@@ -52,15 +66,57 @@ export function selecionarDia(diaISO) {
  *
  *   irPara('linha', { numero: '608' })
  *   irPara('ponto', { id: 'P1' })
- *   irPara('busca', { termo: 'petropolis' })
+ *   irPara('busca', { termo: 'petropolis' }, { substituir: true })
  *
  * @param {string} chaveTela
  * @param {object} [params]
+ * @param {{substituir?: boolean}} [opcoes] `substituir: true` troca a tela
+ *   corrente sem empilhar — use quando a navegacao e uma correcao da anterior,
+ *   como cada tecla digitada na busca.
  */
-export function irPara(chaveTela, params = {}) {
+export function irPara(chaveTela, params = {}, opcoes = {}) {
+  if (TELAS_RAIZ.includes(chaveTela)) {
+    pilha = [];
+  } else if (!opcoes.substituir && atual.chave) {
+    pilha.push({ chave: atual.chave, params: { ...atual.params } });
+  }
+
   atual = { chave: chaveTela, params };
   notificar();
   renderizar(chaveTela, params);
+}
+
+/**
+ * Ha para onde voltar?
+ * @returns {boolean}
+ */
+export function podeVoltar() {
+  return pilha.length > 0;
+}
+
+/**
+ * Tela para a qual `voltar()` vai, sem navegar. O cabecalho usa isto para
+ * escrever o destino no botao ("Voltar para o Ponto 02").
+ * @returns {{chave: string, params: object}|null}
+ */
+export function destinoDeVolta() {
+  const anterior = pilha[pilha.length - 1];
+  return anterior ? { chave: anterior.chave, params: { ...anterior.params } } : null;
+}
+
+/**
+ * Volta uma tela. Sem historico, nao faz nada — o botao que a chama fica
+ * escondido nesse caso, mas a funcao nao depende disso.
+ * @returns {boolean} se houve navegacao
+ */
+export function voltar() {
+  const anterior = pilha.pop();
+  if (!anterior) return false;
+
+  atual = { chave: anterior.chave, params: anterior.params };
+  notificar();
+  renderizar(anterior.chave, anterior.params);
+  return true;
 }
 
 /**

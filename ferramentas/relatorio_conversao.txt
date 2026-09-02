@@ -1,11 +1,11 @@
-RELATÓRIO DE CONVERSÃO — 2026-09-02T10:22:12-04:00
+RELATÓRIO DE CONVERSÃO — 2026-09-02T14:32:59-04:00
 
-Linhas na base: 78
-  com programação do evento: 35 (105 blocos linha-dia)
+Linhas na base: 80
+  com programação do evento: 37 (111 blocos linha-dia)
   só escala regular, sem evento: 43 -> 002, 004, 110, 111, 112, 119, 123, 127, 129, 203, 205, 207, 211, 221, 223, 306, 319, 324, 330, 403, 427, 439, 447, 452, 454, 455, 457, 461, 507, 515, 517, 600, 602, 606, 609, 611, 619, 625, 651, 704, 706, 708, 711
-Passagens pelo ponto (VOLTA, publicadas): 5579
-Saídas do terminal de origem (IDA, referência): 5582
-Viagens no quadro completo: 6947
+Passagens pelo ponto (VOLTA, publicadas): 5639
+Saídas do terminal de origem (IDA, referência): 5642
+Viagens no quadro completo: 7011
 
 LINHA  DIA           DECL  ORIG PASSA  VIAG 1ªPASSAG ÚLTIMA  
 011    2026-09-05      18    18    18    24 05:47    25:27   
@@ -29,6 +29,9 @@ LINHA  DIA           DECL  ORIG PASSA  VIAG 1ªPASSAG ÚLTIMA
 214    2026-09-05      20    20    20    25 06:02    26:31   
 214    2026-09-06      20    20    20    25 06:02    26:31   
 214    2026-09-07      20    20    20    25 06:02    26:31   
+216    2026-09-05      20    20    20    24 05:52    25:50   
+216    2026-09-06      20    20    20    24 05:52    25:50   
+216    2026-09-07      20    20    20    24 05:52    25:50   
 219    2026-09-05      32    32    32    38 05:33    25:45   
 219    2026-09-06      32    32    32    38 05:33    25:45   
 219    2026-09-07      32    32    32    38 05:33    25:45   
@@ -110,6 +113,9 @@ LINHA  DIA           DECL  ORIG PASSA  VIAG 1ªPASSAG ÚLTIMA
 676    2026-09-05      35    35    35    45 05:42    25:37   
 676    2026-09-06      16    16    16    20 16:12    25:27   
 676    2026-09-07      16    16    16    20 16:12    25:27   
+705    2026-09-05      16    16    16    20 06:10    25:30   
+705    2026-09-06      16    16    16    20 06:10    25:30   
+705    2026-09-07      16    16    16    20 06:10    25:30   
 713    2026-09-05      21    21    21    27 05:55    25:29   
 713    2026-09-06      21    21    21    27 05:55    25:29   
 713    2026-09-07      21    21    21    27 05:55    25:29   

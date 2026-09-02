@@ -18,7 +18,6 @@
 <link rel="stylesheet" href="assets/css/telas/linha.css">
 <link rel="stylesheet" href="assets/css/telas/quadro.css">
 <link rel="stylesheet" href="assets/css/telas/avisos.css">
-<link rel="stylesheet" href="assets/css/telas/circulacao.css">
 </head>
 <body>
 
@@ -55,10 +54,16 @@
 <nav id="abas" aria-label="Seções">
   <div class="envolve" role="tablist">
     <button type="button" class="aba" role="tab" data-tela="mapa" aria-selected="false">Mapa</button>
-    <button type="button" class="aba" role="tab" data-tela="circulacao" aria-selected="false">Circulação</button>
     <button type="button" class="aba" role="tab" data-tela="avisos" aria-selected="false">Avisos</button>
   </div>
 </nav>
+
+<!-- Um botao de voltar para o app inteiro, e nao um por tela: quem sabe o
+     caminho percorrido e a pilha de app/estado.js, nao a tela desenhada.
+     principal.js mostra, esconde e escreve o destino. -->
+<div id="navegacao" class="envolve">
+  <button type="button" id="voltar" class="botao-voltar" hidden></button>
+</div>
 
 <noscript>
   <p class="sem-script">

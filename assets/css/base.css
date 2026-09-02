@@ -331,3 +331,35 @@ input {
   background: #FDECEC;
   font-weight: 600;
 }
+
+/* ------------------------------------------------------- botão de voltar */
+
+/* Fica escondido (atributo `hidden`) enquanto não há para onde voltar, então
+   nas abas Mapa e Avisos a faixa não ocupa espaço nenhum. */
+#navegacao:has(#voltar[hidden]) {
+  display: none;
+}
+
+.botao-voltar {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--alvo-toque);
+  margin-top: var(--espaco);
+  padding: 8px 16px;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  background: var(--cor-superficie);
+  color: var(--cor-evento-azul);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.botao-voltar:hover {
+  background: var(--cor-fundo);
+}
+
+.botao-voltar:focus-visible {
+  outline: 3px solid var(--cor-evento-azul);
+  outline-offset: 2px;
+}

@@ -82,8 +82,8 @@ const linhas = dados.linhas ?? {};
 const numeros = Object.keys(linhas);
 const comProgramacao = numeros.filter((n) => linhas[n].temProgramacaoEvento);
 
-igual('78 linhas', numeros.length, 78);
-igual('35 linhas com temProgramacaoEvento', comProgramacao.length, 35);
+igual('80 linhas', numeros.length, 80);
+igual('37 linhas com temProgramacaoEvento', comProgramacao.length, 37);
 
 // Desde que o gerador passou a publicar tambem a escala regular, TODA linha
 // tem quadro nos 3 dias — inclusive as 43 sem programacao especial. Se alguma
@@ -106,6 +106,7 @@ for (const numero of numeros) {
 
   for (const dia of dias) {
     const bloco = linha.dias[dia];
+    if (bloco.naoOpera) continue; // linha desativada neste dia (ex.: 619)
     const passagens = bloco.passagens ?? [];
 
     const viagens = (bloco.turnos ?? [])
@@ -144,6 +145,33 @@ ok('linha 444 publicada, no P4, com programacao do evento',
   linhas['444']?.pontoId === 'P4' && linhas['444']?.temProgramacaoEvento === true);
 igual('linha 444 / 05-09 / total de passagens', linhas['444']?.dias?.['2026-09-05']?.passagens?.length, 24);
 
+// 216 e 705 foram as ultimas abas a entrar.
+ok('linha 216 no P2, com programacao do evento',
+  linhas['216']?.pontoId === 'P2' && linhas['216']?.temProgramacaoEvento === true);
+ok('linha 705 no P1, com programacao do evento',
+  linhas['705']?.pontoId === 'P1' && linhas['705']?.temProgramacaoEvento === true);
+
+// A aba 602 tem DOIS quadros (sabado 40 viagens, domingo 32) e alterna entre
+// eles. Se o parser voltar a tratar a aba regular como um bloco unico, os dois
+// se somam e estes numeros mudam.
+igual('linha 602 / 05-09 (sabado) / saidas', linhas['602']?.dias?.['2026-09-05']?.saidasOrigem?.length, 40);
+igual('linha 602 / 06-09 (domingo) / saidas', linhas['602']?.dias?.['2026-09-06']?.saidasOrigem?.length, 32);
+igual('linha 602 / 07-09 (sabado) / saidas', linhas['602']?.dias?.['2026-09-07']?.saidasOrigem?.length, 40);
+
+// A 619 so circula no sabado; nos outros dois dias o bloco existe e e vazio.
+ok('linha 619 opera em 05-09', !linhas['619']?.dias?.['2026-09-05']?.naoOpera
+  && (linhas['619']?.dias?.['2026-09-05']?.passagens?.length ?? 0) > 0);
+igual('linha 619 nao opera em 06-09', linhas['619']?.dias?.['2026-09-06']?.naoOpera, true);
+igual('linha 619 nao opera em 07-09', linhas['619']?.dias?.['2026-09-07']?.naoOpera, true);
+
+// Todo bloco naoOpera precisa vir vazio: um dia "desativado" que ainda carrega
+// horario seria pior do que nenhum dos dois.
+const naoOperaSujo = numeros.filter((n) =>
+  DIAS.some((d) => linhas[n].dias?.[d]?.naoOpera
+    && ((linhas[n].dias[d].passagens?.length ?? 0) > 0
+      || (linhas[n].dias[d].turnos?.length ?? 0) > 0)));
+ok('todo dia sem operacao vem sem horario', naoOperaSujo.length === 0, naoOperaSujo.join(', '));
+
 // Viagens cortadas: so a 305 tem, duas por dia, nos tres dias.
 const comCortadas = numeros.filter((n) =>
   DIAS.some((d) => (linhas[n].dias?.[d]?.passagensCortadas ?? []).length > 0));
@@ -167,17 +195,37 @@ if (existsSync(caminhoNomes)) {
   const nomes = JSON.parse(readFileSync(caminhoNomes, 'utf8'));
   const faltando = numeros.filter((n) => !(n in nomes));
   ok('nomes_linhas.json cobre todas as linhas publicadas', faltando.length === 0, faltando.join(', '));
+
+  // nomes_linhas.json e ENTRADA do gerador; o site le dados/dados.json. Editar
+  // o primeiro sem rodar `python ferramentas/gerar_dados.py` nao muda nada na
+  // tela, e nada acusa isso — foi exatamente a duvida de "os cards estao
+  // hardcoded?". O mtime resolve.
+  const geradoEm = statSync(caminhoDados).mtimeMs;
+  const editadoEm = statSync(caminhoNomes).mtimeMs;
+  ok(
+    'dados.json foi gerado depois da ultima edicao de nomes_linhas.json',
+    geradoEm >= editadoEm,
+    'rode: python ferramentas/gerar_dados.py',
+  );
+
+  // E o nome tem de chegar ate o JSON publicado, nao so existir na entrada.
+  const naoCompilados = numeros.filter((n) => nomes[n] && linhas[n].nome !== nomes[n]);
+  ok(
+    'todo itinerario de nomes_linhas.json esta compilado em dados.json',
+    naoCompilados.length === 0,
+    naoCompilados.slice(0, 5).join(', ') + ' — rode: python ferramentas/gerar_dados.py',
+  );
 }
 
 // --------------------------------------------------- 2. registro de telas
 
 secao('app/telas/ — registro de chaves');
 
-const CHAVES_RESERVADAS = ['mapa', 'busca', 'ponto', 'linha', 'quadro', 'avisos', 'circulacao'];
+const CHAVES_RESERVADAS = ['mapa', 'busca', 'ponto', 'linha', 'quadro', 'avisos'];
 const dirTelas = join(RAIZ, 'app', 'telas');
 const arquivosTela = existsSync(dirTelas) ? readdirSync(dirTelas).filter((f) => f.endsWith('.js')) : [];
 
-ok('app/telas/ tem 7 arquivos .js', arquivosTela.length === 7, 'encontrados ' + arquivosTela.length + ': ' + arquivosTela.join(', '));
+ok('app/telas/ tem 6 arquivos .js', arquivosTela.length === 6, 'encontrados ' + arquivosTela.length + ': ' + arquivosTela.join(', '));
 
 const registradas = [];
 const fontes = new Map();
@@ -236,6 +284,23 @@ ok('avisos.js leva do chip para a tela da linha', /irPara\('linha'/.test(fonteAv
 
 // ------------------------------------------------------- 4. formatadores
 
+secao('app/estado.js — historico de navegacao');
+
+const fonteEstado = readFileSync(join(RAIZ, 'app', 'estado.js'), 'utf8');
+ok('estado.js exporta voltar()', /export function voltar/.test(fonteEstado));
+ok('estado.js exporta podeVoltar()', /export function podeVoltar/.test(fonteEstado));
+ok('estado.js exporta destinoDeVolta()', /export function destinoDeVolta/.test(fonteEstado));
+// Sem `substituir` na busca, cada tecla digitada empilha uma entrada e voltar
+// de "608" exige tres cliques.
+ok(
+  'principal.js usa substituir na busca',
+  readFileSync(join(RAIZ, 'app', 'principal.js'), 'utf8').includes('substituir:'),
+);
+ok(
+  'index.html tem o botao de voltar',
+  readFileSync(join(RAIZ, 'index.html'), 'utf8').includes('id="voltar"'),
+);
+
 secao('app/formato.js — assinaturas congeladas');
 
 const caminhoFormato = join(RAIZ, 'app', 'formato.js');
@@ -274,7 +339,7 @@ igual('proximaPassagem com lista vazia -> null', formato.proximaPassagem?.([], n
 secao('assets/img/ — WebP com fallback PNG (RNF-01)');
 
 const LIMITE_BYTES = 400 * 1024;
-for (const nome of ['mapa-pontos', 'mapa-circulacao']) {
+for (const nome of ['mapa-pontos']) {
   const png = join(RAIZ, 'assets', 'img', nome + '.png');
   const webp = join(RAIZ, 'assets', 'img', nome + '.webp');
 
@@ -304,7 +369,7 @@ for (const nome of ['mapa-pontos', 'mapa-circulacao']) {
 }
 
 // As duas telas de imagem precisam servir o WebP com <picture> e manter o <img> PNG.
-for (const [arquivo, base] of [['mapa.js', 'mapa-pontos'], ['circulacao.js', 'mapa-circulacao']]) {
+for (const [arquivo, base] of [['mapa.js', 'mapa-pontos']]) {
   const fonte = fontes.get(arquivo) ?? '';
   ok(arquivo + ' usa <picture> com source WebP', fonte.includes("'picture'") && fonte.includes('image/webp'));
   ok(arquivo + ' mantem o PNG como fallback no <img>', fonte.includes(base + '.png'));

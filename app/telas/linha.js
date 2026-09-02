@@ -8,11 +8,15 @@
 // Params: { numero } — string de 3 digitos ('608').
 //
 // TODA linha tem quadro, inclusive as sem programacao especial: desde que o
-// gerador passou a publicar tambem a escala regular (replicada nos 3 dias do
-// evento), `dias[dia]` tem o mesmo formato para as 77 linhas. A unica diferenca
-// visivel e o selo "sem alteracao" no cabecalho. Nada de tipo de escala nem de
-// data de referencia na tela — decisao de produto: o operador quer o horario,
-// e uma data de 2021 so confunde.
+// gerador passou a publicar tambem a escala regular, `dias[dia]` tem o mesmo
+// formato para as 80 linhas. A unica diferenca visivel e o selo "sem
+// alteracao" no cabecalho. Nada de tipo de escala nem de data de referencia na
+// tela — decisao de produto: o operador quer o horario, e uma data de 2021 so
+// confunde.
+//
+// A excecao e `dias[dia].naoOpera`: a linha existe mas nao circula naquele dia
+// (a 619 so roda no sabado). Ai a tela para no recado e nao mostra grade nem
+// quadro.
 //
 // NENHUM aviso e renderizado aqui. Os avisos vivem so na aba Avisos, onde cada
 // um lista as linhas que atinge; repeti-los no card da linha era ruido. Esta
@@ -141,6 +145,19 @@ function agruparPorHora(passagens) {
     grupos.get(chaveHora).push({ bruto, formatado });
   }
   return grupos;
+}
+
+/**
+ * Caminho para a aba Avisos — um link, nao os avisos em si.
+ * @returns {HTMLElement}
+ */
+function linkAvisos() {
+  const link = document.createElement('button');
+  link.type = 'button';
+  link.className = 'linha__link-avisos';
+  link.textContent = 'Ver avisos operacionais do dia';
+  link.addEventListener('click', () => irPara('avisos'));
+  return link;
 }
 
 /**
@@ -284,8 +301,25 @@ function renderLinha(elemento, objetoLinha, dia) {
   const blocoLegenda = secaoDeLista('Legenda de viagens', 'linha__legenda', objetoLinha.legendaViagens);
   if (blocoLegenda) secao.append(blocoLegenda);
 
-  // ------------------------------------------------------- grade de horario
+  // ---------------------------------------------------- dia sem operacao
+  // A linha existe, mas nao circula neste dia (ex.: a 619 so roda no sabado).
+  // Sai a grade e sai o quadro: mostrar um quadro vazio ou "nenhuma passagem
+  // prevista" faria parecer defeito de dados, e nao uma decisao operacional.
+  // O seletor de dia continua ali, entao trocar para um dia em que ela opera
+  // devolve a tela normal.
   const blocoDia = objetoLinha.dias?.[dia];
+
+  if (blocoDia?.naoOpera) {
+    const recado = document.createElement('p');
+    recado.className = 'linha__nao-opera';
+    recado.textContent = 'Esta linha não opera em ' + rotuloDia(dia) + '.';
+    secao.append(recado);
+    secao.append(linkAvisos());
+    elemento.append(secao);
+    return;
+  }
+
+  // ------------------------------------------------------- grade de horario
   const passagens = blocoDia?.passagens ?? [];
   const cortadas = blocoDia?.passagensCortadas ?? [];
 
@@ -358,14 +392,7 @@ function renderLinha(elemento, objetoLinha, dia) {
   secaoQuadro.append(botaoQuadro, contentorQuadro);
   secao.append(secaoQuadro);
 
-  // ------------------------------------------------------------- navegacao
-  // Um caminho para os avisos, nao os avisos em si.
-  const link = document.createElement('button');
-  link.type = 'button';
-  link.className = 'linha__link-avisos';
-  link.textContent = 'Ver avisos operacionais do dia';
-  link.addEventListener('click', () => irPara('avisos'));
-  secao.append(link);
+  secao.append(linkAvisos());
 
   elemento.append(secao);
 }

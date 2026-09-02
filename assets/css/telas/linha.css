@@ -269,3 +269,16 @@
 .linha__link-avisos:hover {
   background: var(--cor-fundo);
 }
+
+/* Dia em que a linha nao circula. Tom de recado, nao de erro: e uma decisao
+   operacional, nao falta de dado. */
+.linha__nao-opera {
+  margin: var(--espaco) 0 0 0;
+  padding: var(--espaco);
+  border: 1px solid var(--cor-borda);
+  border-left: 4px solid var(--cor-texto-suave);
+  border-radius: var(--raio);
+  background: var(--cor-superficie);
+  font-size: var(--fonte-corpo);
+  font-weight: 600;
+}

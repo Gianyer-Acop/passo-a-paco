@@ -1,5 +1,5 @@
 {
- "versaoDados": "2026-09-02T10:22:12-04:00",
+ "versaoDados": "2026-09-02T14:32:59-04:00",
  "evento": {
   "nome": "Sou Manaus Passo a Paço 2026",
   "dias": [
@@ -39,6 +39,7 @@
     "612",
     "625",
     "704",
+    "705",
     "706",
     "708",
     "711",
@@ -49,6 +50,7 @@
     "227",
     "608",
     "612",
+    "705",
     "713"
    ],
    "linhasSemProgramacao": [
@@ -102,6 +104,7 @@
     "127",
     "129",
     "211",
+    "216",
     "219",
     "221",
     "302",
@@ -118,6 +121,7 @@
     "120",
     "121",
     "126",
+    "216",
     "219",
     "302",
     "305",
@@ -254,7 +258,7 @@
  "linhas": {
   "002": {
    "numero": "002",
-   "nome": null,
+   "nome": "INTERBAIRROS II / T1 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 3.xlsx",
    "pontoId": "P3",
@@ -1795,7 +1799,7 @@
   },
   "004": {
    "numero": "004",
-   "nome": null,
+   "nome": "CIRCULAR / EDUCANDOS / T2 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 1.xlsx",
    "pontoId": "P1",
@@ -2919,7 +2923,7 @@
   },
   "011": {
    "numero": "011",
-   "nome": null,
+   "nome": "BALNEARIOS / VIVENDA VERDE / E3 / E2 / E1 / T1 / CENTRO",
    "empresa": "SÃO PEDRO",
    "grupoOrigem": "Grupo 2.xlsx",
    "pontoId": "P2",
@@ -5948,7 +5952,7 @@
   },
   "110": {
    "numero": "110",
-   "nome": null,
+   "nome": "COMPENSA / T1 / CENTRO / T2 / CACHOERINHA",
    "empresa": null,
    "grupoOrigem": "Grupo 2.xlsx",
    "pontoId": "P2",
@@ -7072,7 +7076,7 @@
   },
   "111": {
    "numero": "111",
-   "nome": null,
+   "nome": "SANTO ANTÔNIO / T1 / CENTRO / T2 / CACHOEIRINHA",
    "empresa": null,
    "grupoOrigem": "Grupo 2.xlsx",
    "pontoId": "P2",
@@ -8808,7 +8812,7 @@
   },
   "112": {
    "numero": "112",
-   "nome": null,
+   "nome": "SANTO ANTÔNIO / APARECIDA / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 2.xlsx",
    "pontoId": "P2",
@@ -9926,7 +9930,7 @@
   },
   "113": {
    "numero": "113",
-   "nome": "AV. BRASIL / T1 / CENTRO",
+   "nome": "AV BRASIL / T1 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 2.xlsx",
    "pontoId": "P2",
@@ -11871,7 +11875,7 @@
   },
   "119": {
    "numero": "119",
-   "nome": null,
+   "nome": "COMPENSA / OSCAR BOREL / T1 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 2.xlsx",
    "pontoId": "P2",
@@ -17312,7 +17316,7 @@
   },
   "123": {
    "numero": "123",
-   "nome": null,
+   "nome": "SANTO AGOSTINHO / DJALMA BATISTA / T1 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 2.xlsx",
    "pontoId": "P2",
@@ -18334,7 +18338,7 @@
   },
   "126": {
    "numero": "126",
-   "nome": "SIPAM / AV. BRASIL / T1 / CENTRO",
+   "nome": "SIPAM / AVENIDA BRASIL / T1 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 2.xlsx",
    "pontoId": "P2",
@@ -20711,7 +20715,7 @@
   },
   "127": {
    "numero": "127",
-   "nome": null,
+   "nome": "SANTO AGOSTINHO / T1 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 2.xlsx",
    "pontoId": "P2",
@@ -22246,7 +22250,7 @@
   },
   "129": {
    "numero": "129",
-   "nome": null,
+   "nome": "TRANSPORTUÁRIA / CENTRO / EDUCANDOS / T2",
    "empresa": null,
    "grupoOrigem": "Grupo 2.xlsx",
    "pontoId": "P2",
@@ -23886,7 +23890,7 @@
   },
   "203": {
    "numero": "203",
-   "nome": null,
+   "nome": "BAIRRO DA PAZ / CENTRO",
    "empresa": "VEGA",
    "grupoOrigem": "Grupo 1.xlsx",
    "pontoId": "P1",
@@ -25367,7 +25371,7 @@
   },
   "205": {
    "numero": "205",
-   "nome": null,
+   "nome": "PLANALTO / FLAMANAL / CENTRO",
    "empresa": "VIA VERDE",
    "grupoOrigem": "Grupo 1.xlsx",
    "pontoId": "P1",
@@ -26644,7 +26648,7 @@
   },
   "207": {
    "numero": "207",
-   "nome": null,
+   "nome": "REDENÇÃO / CENTRO",
    "empresa": "VIA VERDE",
    "grupoOrigem": "Grupo 1.xlsx",
    "pontoId": "P1",
@@ -27564,7 +27568,7 @@
   },
   "211": {
    "numero": "211",
-   "nome": null,
+   "nome": "AUGUSTO MONTENEGRO / SÃO JORGE / T1 / E1 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 2.xlsx",
    "pontoId": "P2",
@@ -29204,7 +29208,7 @@
   },
   "214": {
    "numero": "214",
-   "nome": "CONJ. HILÉIA / CENTRO",
+   "nome": "CONJUNTO HILÉIA / CENTRO",
    "empresa": "VIA VERDE",
    "grupoOrigem": "Grupo 1.xlsx",
    "pontoId": "P1",
@@ -30589,9 +30593,1343 @@
     }
    }
   },
+  "216": {
+   "numero": "216",
+   "nome": "AUGUSTO MONTENEGRO / LIRIO DO VALE / E1 / T1 / CENTRO",
+   "empresa": null,
+   "grupoOrigem": "Grupo 2.xlsx",
+   "pontoId": "P2",
+   "temProgramacaoEvento": true,
+   "escalaBase": null,
+   "avisos": [
+    "corredor-bb-19h",
+    "desvio-itamaraca",
+    "paradas-inoperantes-00h",
+    "onibus-extras-00h",
+    "frota-apoio-t1",
+    "orientacao-fiscais",
+    "viagem-extra-00h",
+    "opera-ate-centro"
+   ],
+   "observacoes": [],
+   "legendaViagens": [],
+   "dias": {
+    "2026-09-05": {
+     "tipoDia": "SÁBADO (PASSO A PAÇO)",
+     "totalViagens": 20,
+     "passagens": [
+      "05:52",
+      "06:40",
+      "07:21",
+      "08:06",
+      "08:56",
+      "10:38",
+      "11:50",
+      "12:16",
+      "13:36",
+      "14:04",
+      "15:17",
+      "16:55",
+      "17:48",
+      "18:52",
+      "19:52",
+      "21:22",
+      "22:12",
+      "23:27",
+      "24:35",
+      "25:50"
+     ],
+     "passagensCortadas": [],
+     "saidasOrigem": [
+      "05:20",
+      "06:00",
+      "06:42",
+      "07:25",
+      "08:10",
+      "09:50",
+      "11:05",
+      "11:32",
+      "12:49",
+      "13:24",
+      "14:36",
+      "16:07",
+      "17:07",
+      "18:07",
+      "19:02",
+      "20:47",
+      "21:37",
+      "22:52",
+      "24:00",
+      "25:20"
+     ],
+     "frequencia": [
+      {
+       "hora": "05:20",
+       "intervalo": null,
+       "origem": null
+      },
+      {
+       "hora": "06:00",
+       "intervalo": "00:40",
+       "origem": null
+      },
+      {
+       "hora": "06:42",
+       "intervalo": "00:42",
+       "origem": null
+      },
+      {
+       "hora": "07:25",
+       "intervalo": "00:43",
+       "origem": null
+      },
+      {
+       "hora": "08:10",
+       "intervalo": "00:45",
+       "origem": null
+      },
+      {
+       "hora": "09:50",
+       "intervalo": "01:40",
+       "origem": null
+      },
+      {
+       "hora": "11:05",
+       "intervalo": "01:15",
+       "origem": null
+      },
+      {
+       "hora": "11:32",
+       "intervalo": "00:27",
+       "origem": null
+      },
+      {
+       "hora": "12:49",
+       "intervalo": "01:17",
+       "origem": null
+      },
+      {
+       "hora": "13:24",
+       "intervalo": "00:35",
+       "origem": null
+      },
+      {
+       "hora": "14:36",
+       "intervalo": "01:12",
+       "origem": null
+      },
+      {
+       "hora": "16:07",
+       "intervalo": "01:31",
+       "origem": null
+      },
+      {
+       "hora": "17:07",
+       "intervalo": "01:00",
+       "origem": null
+      },
+      {
+       "hora": "18:07",
+       "intervalo": "01:00",
+       "origem": null
+      },
+      {
+       "hora": "19:02",
+       "intervalo": "00:55",
+       "origem": null
+      },
+      {
+       "hora": "20:47",
+       "intervalo": "01:45",
+       "origem": null
+      },
+      {
+       "hora": "21:37",
+       "intervalo": "00:50",
+       "origem": null
+      },
+      {
+       "hora": "22:52",
+       "intervalo": "01:15",
+       "origem": null
+      },
+      {
+       "hora": "24:00",
+       "intervalo": "01:08",
+       "origem": null
+      },
+      {
+       "hora": "25:20",
+       "intervalo": "01:20",
+       "origem": null
+      }
+     ],
+     "origemMista": false,
+     "turnos": [
+      {
+       "nome": "1º TURNO",
+       "tabelas": [
+        {
+         "tab": "TAB - 0101",
+         "veiculo": "1",
+         "tipoVeiculo": "CONVENCIONAL AR",
+         "jornada": "07:50",
+         "viagens": [
+          {
+           "ida": "05:20",
+           "volta": "05:52",
+           "termino": "06:27",
+           "tempoViagem": "01:07",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "06:42",
+           "volta": "07:21",
+           "termino": "07:58",
+           "tempoViagem": "01:16",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "08:10",
+           "volta": "08:56",
+           "termino": "09:49",
+           "tempoViagem": "01:39",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "09:49",
+           "volta": null,
+           "termino": "11:05",
+           "tempoViagem": "01:16",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "11:05",
+           "volta": "11:50",
+           "termino": "12:39",
+           "tempoViagem": "01:34",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "12:49",
+           "volta": "13:36",
+           "termino": "14:16",
+           "tempoViagem": "01:27",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        },
+        {
+         "tab": "TAB - 0102",
+         "veiculo": "2",
+         "tipoVeiculo": "CONVENCIONAL AR",
+         "jornada": "07:44",
+         "viagens": [
+          {
+           "ida": "06:00",
+           "volta": "06:40",
+           "termino": "07:15",
+           "tempoViagem": "01:15",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "07:25",
+           "volta": "08:06",
+           "termino": "08:41",
+           "tempoViagem": "01:16",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "08:41",
+           "volta": null,
+           "termino": "09:50",
+           "tempoViagem": "01:09",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "09:50",
+           "volta": "10:38",
+           "termino": "11:22",
+           "tempoViagem": "01:32",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "11:32",
+           "volta": "12:16",
+           "termino": "13:02",
+           "tempoViagem": "01:30",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "13:24",
+           "volta": "14:04",
+           "termino": "14:43",
+           "tempoViagem": "01:19",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "nome": "2º TURNO",
+       "tabelas": [
+        {
+         "tab": "TAB - 0201",
+         "veiculo": "1",
+         "tipoVeiculo": "CONVENCIONAL AR",
+         "jornada": "07:39",
+         "viagens": [
+          {
+           "ida": "14:36",
+           "volta": "15:17",
+           "termino": "15:56",
+           "tempoViagem": "01:20",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "16:07",
+           "volta": "16:55",
+           "termino": "17:49",
+           "tempoViagem": "01:42",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "18:07",
+           "volta": "18:52",
+           "termino": "19:41",
+           "tempoViagem": "01:34",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "19:41",
+           "volta": null,
+           "termino": "21:37",
+           "tempoViagem": "01:56",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "21:37",
+           "volta": "22:12",
+           "termino": "22:39",
+           "tempoViagem": "01:02",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "22:52",
+           "volta": "23:27",
+           "termino": "24:01",
+           "tempoViagem": "01:09",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        },
+        {
+         "tab": "TAB - 0202",
+         "veiculo": "2",
+         "tipoVeiculo": "CONVENCIONAL AR",
+         "jornada": "07:25",
+         "viagens": [
+          {
+           "ida": "17:07",
+           "volta": "17:48",
+           "termino": "18:36",
+           "tempoViagem": "01:29",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "19:02",
+           "volta": "19:52",
+           "termino": "20:37",
+           "tempoViagem": "01:35",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "20:47",
+           "volta": "21:22",
+           "termino": "22:02",
+           "tempoViagem": "01:15",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "22:02",
+           "volta": null,
+           "termino": "24:00",
+           "tempoViagem": "01:58",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "24:00",
+           "volta": "24:35",
+           "termino": "25:09",
+           "tempoViagem": "01:09",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "25:20",
+           "volta": "25:50",
+           "termino": "26:20",
+           "tempoViagem": "01:00",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "conflitos": []
+    },
+    "2026-09-06": {
+     "tipoDia": "DOMINGO (PASSO A PAÇO)",
+     "totalViagens": 20,
+     "passagens": [
+      "05:52",
+      "06:40",
+      "07:21",
+      "08:06",
+      "08:56",
+      "10:38",
+      "11:50",
+      "12:16",
+      "13:36",
+      "14:04",
+      "15:17",
+      "16:55",
+      "17:48",
+      "18:52",
+      "19:52",
+      "21:22",
+      "22:12",
+      "23:27",
+      "24:35",
+      "25:50"
+     ],
+     "passagensCortadas": [],
+     "saidasOrigem": [
+      "05:20",
+      "06:00",
+      "06:42",
+      "07:25",
+      "08:10",
+      "09:50",
+      "11:05",
+      "11:32",
+      "12:49",
+      "13:24",
+      "14:36",
+      "16:07",
+      "17:07",
+      "18:07",
+      "19:02",
+      "20:47",
+      "21:37",
+      "22:52",
+      "24:00",
+      "25:20"
+     ],
+     "frequencia": [
+      {
+       "hora": "05:20",
+       "intervalo": null,
+       "origem": null
+      },
+      {
+       "hora": "06:00",
+       "intervalo": "00:40",
+       "origem": null
+      },
+      {
+       "hora": "06:42",
+       "intervalo": "00:42",
+       "origem": null
+      },
+      {
+       "hora": "07:25",
+       "intervalo": "00:43",
+       "origem": null
+      },
+      {
+       "hora": "08:10",
+       "intervalo": "00:45",
+       "origem": null
+      },
+      {
+       "hora": "09:50",
+       "intervalo": "01:40",
+       "origem": null
+      },
+      {
+       "hora": "11:05",
+       "intervalo": "01:15",
+       "origem": null
+      },
+      {
+       "hora": "11:32",
+       "intervalo": "00:27",
+       "origem": null
+      },
+      {
+       "hora": "12:49",
+       "intervalo": "01:17",
+       "origem": null
+      },
+      {
+       "hora": "13:24",
+       "intervalo": "00:35",
+       "origem": null
+      },
+      {
+       "hora": "14:36",
+       "intervalo": "01:12",
+       "origem": null
+      },
+      {
+       "hora": "16:07",
+       "intervalo": "01:31",
+       "origem": null
+      },
+      {
+       "hora": "17:07",
+       "intervalo": "01:00",
+       "origem": null
+      },
+      {
+       "hora": "18:07",
+       "intervalo": "01:00",
+       "origem": null
+      },
+      {
+       "hora": "19:02",
+       "intervalo": "00:55",
+       "origem": null
+      },
+      {
+       "hora": "20:47",
+       "intervalo": "01:45",
+       "origem": null
+      },
+      {
+       "hora": "21:37",
+       "intervalo": "00:50",
+       "origem": null
+      },
+      {
+       "hora": "22:52",
+       "intervalo": "01:15",
+       "origem": null
+      },
+      {
+       "hora": "24:00",
+       "intervalo": "01:08",
+       "origem": null
+      },
+      {
+       "hora": "25:20",
+       "intervalo": "01:20",
+       "origem": null
+      }
+     ],
+     "origemMista": false,
+     "turnos": [
+      {
+       "nome": "1º TURNO",
+       "tabelas": [
+        {
+         "tab": "TAB - 0101",
+         "veiculo": "1",
+         "tipoVeiculo": "CONVENCIONAL AR",
+         "jornada": null,
+         "viagens": [
+          {
+           "ida": "05:20",
+           "volta": "05:52",
+           "termino": "06:27",
+           "tempoViagem": "01:07",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "06:42",
+           "volta": "07:21",
+           "termino": "07:58",
+           "tempoViagem": "01:16",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "08:10",
+           "volta": "08:56",
+           "termino": "09:49",
+           "tempoViagem": "01:39",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "09:49",
+           "volta": null,
+           "termino": "11:05",
+           "tempoViagem": "01:16",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "11:05",
+           "volta": "11:50",
+           "termino": "12:39",
+           "tempoViagem": "01:34",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "12:49",
+           "volta": "13:36",
+           "termino": "14:16",
+           "tempoViagem": "01:27",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        },
+        {
+         "tab": "TAB - 0102",
+         "veiculo": "2",
+         "tipoVeiculo": "CONVENCIONAL AR",
+         "jornada": null,
+         "viagens": [
+          {
+           "ida": "06:00",
+           "volta": "06:40",
+           "termino": "07:15",
+           "tempoViagem": "01:15",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "07:25",
+           "volta": "08:06",
+           "termino": "08:41",
+           "tempoViagem": "01:16",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "08:41",
+           "volta": null,
+           "termino": "09:50",
+           "tempoViagem": "01:09",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "09:50",
+           "volta": "10:38",
+           "termino": "11:22",
+           "tempoViagem": "01:32",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "11:32",
+           "volta": "12:16",
+           "termino": "13:02",
+           "tempoViagem": "01:30",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "13:24",
+           "volta": "14:04",
+           "termino": "14:43",
+           "tempoViagem": "01:19",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "nome": "2º TURNO",
+       "tabelas": [
+        {
+         "tab": "TAB - 0201",
+         "veiculo": "1",
+         "tipoVeiculo": "CONVENCIONAL AR",
+         "jornada": null,
+         "viagens": [
+          {
+           "ida": "14:36",
+           "volta": "15:17",
+           "termino": "15:56",
+           "tempoViagem": "01:20",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "16:07",
+           "volta": "16:55",
+           "termino": "17:49",
+           "tempoViagem": "01:42",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "18:07",
+           "volta": "18:52",
+           "termino": "19:41",
+           "tempoViagem": "01:34",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "19:41",
+           "volta": null,
+           "termino": "21:37",
+           "tempoViagem": "01:56",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "21:37",
+           "volta": "22:12",
+           "termino": "22:39",
+           "tempoViagem": "01:02",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "22:52",
+           "volta": "23:27",
+           "termino": "24:01",
+           "tempoViagem": "01:09",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        },
+        {
+         "tab": "TAB - 0202",
+         "veiculo": "2",
+         "tipoVeiculo": "CONVENCIONAL AR",
+         "jornada": null,
+         "viagens": [
+          {
+           "ida": "17:07",
+           "volta": "17:48",
+           "termino": "18:36",
+           "tempoViagem": "01:29",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "19:02",
+           "volta": "19:52",
+           "termino": "20:37",
+           "tempoViagem": "01:35",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "20:47",
+           "volta": "21:22",
+           "termino": "22:02",
+           "tempoViagem": "01:15",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "22:02",
+           "volta": null,
+           "termino": "24:00",
+           "tempoViagem": "01:58",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "24:00",
+           "volta": "24:35",
+           "termino": "25:09",
+           "tempoViagem": "01:09",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "25:20",
+           "volta": "25:50",
+           "termino": "26:20",
+           "tempoViagem": "01:00",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "conflitos": []
+    },
+    "2026-09-07": {
+     "tipoDia": "SEGUNDA (PASSO A PAÇO)",
+     "totalViagens": 20,
+     "passagens": [
+      "05:52",
+      "06:40",
+      "07:21",
+      "08:06",
+      "08:56",
+      "10:38",
+      "11:50",
+      "12:16",
+      "13:36",
+      "14:04",
+      "15:17",
+      "16:55",
+      "17:48",
+      "18:52",
+      "19:52",
+      "21:22",
+      "22:12",
+      "23:27",
+      "24:35",
+      "25:50"
+     ],
+     "passagensCortadas": [],
+     "saidasOrigem": [
+      "05:20",
+      "06:00",
+      "06:42",
+      "07:25",
+      "08:10",
+      "09:50",
+      "11:05",
+      "11:32",
+      "12:49",
+      "13:24",
+      "14:36",
+      "16:07",
+      "17:07",
+      "18:07",
+      "19:02",
+      "20:47",
+      "21:37",
+      "22:52",
+      "24:00",
+      "25:20"
+     ],
+     "frequencia": [
+      {
+       "hora": "05:20",
+       "intervalo": null,
+       "origem": null
+      },
+      {
+       "hora": "06:00",
+       "intervalo": "00:40",
+       "origem": null
+      },
+      {
+       "hora": "06:42",
+       "intervalo": "00:42",
+       "origem": null
+      },
+      {
+       "hora": "07:25",
+       "intervalo": "00:43",
+       "origem": null
+      },
+      {
+       "hora": "08:10",
+       "intervalo": "00:45",
+       "origem": null
+      },
+      {
+       "hora": "09:50",
+       "intervalo": "01:40",
+       "origem": null
+      },
+      {
+       "hora": "11:05",
+       "intervalo": "01:15",
+       "origem": null
+      },
+      {
+       "hora": "11:32",
+       "intervalo": "00:27",
+       "origem": null
+      },
+      {
+       "hora": "12:49",
+       "intervalo": "01:17",
+       "origem": null
+      },
+      {
+       "hora": "13:24",
+       "intervalo": "00:35",
+       "origem": null
+      },
+      {
+       "hora": "14:36",
+       "intervalo": "01:12",
+       "origem": null
+      },
+      {
+       "hora": "16:07",
+       "intervalo": "01:31",
+       "origem": null
+      },
+      {
+       "hora": "17:07",
+       "intervalo": "01:00",
+       "origem": null
+      },
+      {
+       "hora": "18:07",
+       "intervalo": "01:00",
+       "origem": null
+      },
+      {
+       "hora": "19:02",
+       "intervalo": "00:55",
+       "origem": null
+      },
+      {
+       "hora": "20:47",
+       "intervalo": "01:45",
+       "origem": null
+      },
+      {
+       "hora": "21:37",
+       "intervalo": "00:50",
+       "origem": null
+      },
+      {
+       "hora": "22:52",
+       "intervalo": "01:15",
+       "origem": null
+      },
+      {
+       "hora": "24:00",
+       "intervalo": "01:08",
+       "origem": null
+      },
+      {
+       "hora": "25:20",
+       "intervalo": "01:20",
+       "origem": null
+      }
+     ],
+     "origemMista": false,
+     "turnos": [
+      {
+       "nome": "1º TURNO",
+       "tabelas": [
+        {
+         "tab": "TAB - 0101",
+         "veiculo": "1",
+         "tipoVeiculo": "CONVENCIONAL AR",
+         "jornada": "07:50",
+         "viagens": [
+          {
+           "ida": "05:20",
+           "volta": "05:52",
+           "termino": "06:27",
+           "tempoViagem": "01:07",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "06:42",
+           "volta": "07:21",
+           "termino": "07:58",
+           "tempoViagem": "01:16",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "08:10",
+           "volta": "08:56",
+           "termino": "09:49",
+           "tempoViagem": "01:39",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "09:49",
+           "volta": null,
+           "termino": "11:05",
+           "tempoViagem": "01:16",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "11:05",
+           "volta": "11:50",
+           "termino": "12:39",
+           "tempoViagem": "01:34",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "12:49",
+           "volta": "13:36",
+           "termino": "14:16",
+           "tempoViagem": "01:27",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        },
+        {
+         "tab": "TAB - 0102",
+         "veiculo": "2",
+         "tipoVeiculo": "CONVENCIONAL AR",
+         "jornada": "07:44",
+         "viagens": [
+          {
+           "ida": "06:00",
+           "volta": "06:40",
+           "termino": "07:15",
+           "tempoViagem": "01:15",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "07:25",
+           "volta": "08:06",
+           "termino": "08:41",
+           "tempoViagem": "01:16",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "08:41",
+           "volta": null,
+           "termino": "09:50",
+           "tempoViagem": "01:09",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "09:50",
+           "volta": "10:38",
+           "termino": "11:22",
+           "tempoViagem": "01:32",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "11:32",
+           "volta": "12:16",
+           "termino": "13:02",
+           "tempoViagem": "01:30",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "13:24",
+           "volta": "14:04",
+           "termino": "14:43",
+           "tempoViagem": "01:19",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "nome": "2º TURNO",
+       "tabelas": [
+        {
+         "tab": "TAB - 0201",
+         "veiculo": "1",
+         "tipoVeiculo": "CONVENCIONAL AR",
+         "jornada": "07:39",
+         "viagens": [
+          {
+           "ida": "14:36",
+           "volta": "15:17",
+           "termino": "15:56",
+           "tempoViagem": "01:20",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "16:07",
+           "volta": "16:55",
+           "termino": "17:49",
+           "tempoViagem": "01:42",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "18:07",
+           "volta": "18:52",
+           "termino": "19:41",
+           "tempoViagem": "01:34",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "19:41",
+           "volta": null,
+           "termino": "21:37",
+           "tempoViagem": "01:56",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "21:37",
+           "volta": "22:12",
+           "termino": "22:39",
+           "tempoViagem": "01:02",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "22:52",
+           "volta": "23:27",
+           "termino": "24:01",
+           "tempoViagem": "01:09",
+           "linha": "216",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        },
+        {
+         "tab": "TAB - 0202",
+         "veiculo": "2",
+         "tipoVeiculo": "CONVENCIONAL AR",
+         "jornada": "07:25",
+         "viagens": [
+          {
+           "ida": "17:07",
+           "volta": "17:48",
+           "termino": "18:36",
+           "tempoViagem": "01:29",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "19:02",
+           "volta": "19:52",
+           "termino": "20:37",
+           "tempoViagem": "01:35",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "20:47",
+           "volta": "21:22",
+           "termino": "22:02",
+           "tempoViagem": "01:15",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "22:02",
+           "volta": null,
+           "termino": "24:00",
+           "tempoViagem": "01:58",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "24:00",
+           "volta": "24:35",
+           "termino": "25:09",
+           "tempoViagem": "01:09",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "25:20",
+           "volta": "25:50",
+           "termino": "26:20",
+           "tempoViagem": "01:00",
+           "linha": "216",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "conflitos": []
+    }
+   }
+  },
   "219": {
    "numero": "219",
-   "nome": "A. MONTENEGRO / T1 / CENTRO",
+   "nome": "AUGUSTO MONTENEGRO / T1 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 2.xlsx",
    "pontoId": "P2",
@@ -32644,7 +33982,7 @@
   },
   "221": {
    "numero": "221",
-   "nome": null,
+   "nome": "NOVA ESPERANÇA / T1 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 2.xlsx",
    "pontoId": "P2",
@@ -34281,7 +35619,7 @@
   },
   "223": {
    "numero": "223",
-   "nome": null,
+   "nome": "AUGUSTO MONTENEGRO / NOVA ESPERANÇA / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 1.xlsx",
    "pontoId": "P1",
@@ -35510,7 +36848,7 @@
   },
   "227": {
    "numero": "227",
-   "nome": null,
+   "nome": "ALVORADA III / DJALMA BATISTA / E2 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 1.xlsx",
    "pontoId": "P1",
@@ -37512,7 +38850,7 @@
   },
   "302": {
    "numero": "302",
-   "nome": null,
+   "nome": "FAZENDO ESPERANÇA / E3",
    "empresa": "VIA VERDE",
    "grupoOrigem": "Grupo 2.xlsx",
    "pontoId": "P2",
@@ -38389,7 +39727,7 @@
   },
   "305": {
    "numero": "305",
-   "nome": null,
+   "nome": "PONTE BOLÍVIA / E3 / E2 / E1 / T1 / CENTRO",
    "empresa": "LÍDER",
    "grupoOrigem": "Grupo 2.xlsx",
    "pontoId": "P2",
@@ -39574,7 +40912,7 @@
   },
   "306": {
    "numero": "306",
-   "nome": null,
+   "nome": "AEROPORTO / E3 / E2 / E1 / T1 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 2.xlsx",
    "pontoId": "P2",
@@ -41061,7 +42399,7 @@
   },
   "315": {
    "numero": "315",
-   "nome": "STA. ETELVINA / E4 / DJ. BATISTA / T1 / CENTRO",
+   "nome": "SANTA ETELVINA / E4 / DJALMA BATISTA / T1 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 4.xlsx",
    "pontoId": "P4",
@@ -43018,7 +44356,7 @@
   },
   "319": {
    "numero": "319",
-   "nome": null,
+   "nome": "CONJUNTO JÕAO PAULO / T3",
    "empresa": null,
    "grupoOrigem": "Grupo 4.xlsx",
    "pontoId": "P4",
@@ -44193,7 +45531,7 @@
   },
   "320": {
    "numero": "320",
-   "nome": null,
+   "nome": "UNIÃO DA VITORIA / E3 / E2 / E1 / T1 / CENTRO",
    "empresa": "SÃO PEDRO",
    "grupoOrigem": "Grupo 2.xlsx",
    "pontoId": "P2",
@@ -46303,7 +47641,7 @@
   },
   "321": {
    "numero": "321",
-   "nome": "COM. SÃO JOÃO / E3-E2-E1 / T1 / CENTRO",
+   "nome": "COMUNIDADE SÃO JOÃO / E3 / E2 / E1 / T1 / CENTRO",
    "empresa": "VEGA",
    "grupoOrigem": "Grupo 2.xlsx",
    "pontoId": "P2",
@@ -47847,7 +49185,7 @@
   },
   "324": {
    "numero": "324",
-   "nome": null,
+   "nome": "COMUNIDADE SÃO PEDRO / E3 / E2 / E1 / T1 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 2.xlsx",
    "pontoId": "P2",
@@ -49385,7 +50723,7 @@
   },
   "330": {
    "numero": "330",
-   "nome": null,
+   "nome": "LAGO AZUL / E3 / E2 / E1 / T1 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 4.xlsx",
    "pontoId": "P4",
@@ -50611,7 +51949,7 @@
   },
   "340": {
    "numero": "340",
-   "nome": "T7 / E3-E2-E1 / T1 / CENTRO",
+   "nome": "T7 / E3 / E2 / E1 / T1 / CENTRO",
    "empresa": "SÃO PEDRO",
    "grupoOrigem": "Grupo 4.xlsx",
    "pontoId": "P4",
@@ -53854,7 +55192,7 @@
   },
   "356": {
    "numero": "356",
-   "nome": "RESID. VIVER MELHOR / T1 / CENTRO",
+   "nome": "VIVER MELHOR / T1 / CENTRO",
    "empresa": "LÍDER",
    "grupoOrigem": "Grupo 4.xlsx",
    "pontoId": "P4",
@@ -56226,7 +57564,7 @@
   },
   "357": {
    "numero": "357",
-   "nome": null,
+   "nome": "VIVER MELHOR / T3 / E4 / E3 / E2 / E1 / T1 / CENTRO",
    "empresa": "LÍDER",
    "grupoOrigem": "Grupo 4.xlsx",
    "pontoId": "P4",
@@ -57667,7 +59005,7 @@
   },
   "403": {
    "numero": "403",
-   "nome": null,
+   "nome": "BAIRRO DA UNIÃO / T1 / T2 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 1.xlsx",
    "pontoId": "P1",
@@ -60334,7 +61672,7 @@
   },
   "427": {
    "numero": "427",
-   "nome": null,
+   "nome": "RIO MARACANÃ / CONJUNTO JARDIM IMPERIAL / CENTRO",
    "empresa": "VEGA",
    "grupoOrigem": "Grupo 1.xlsx",
    "pontoId": "P1",
@@ -61458,7 +62796,7 @@
   },
   "439": {
    "numero": "439",
-   "nome": null,
+   "nome": "NÚCLEO 15 / NOVO ALEIXO / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 4.xlsx",
    "pontoId": "P4",
@@ -62378,7 +63716,7 @@
   },
   "440": {
    "numero": "440",
-   "nome": "AMAZ. MENDES II / T1 / CENTRO",
+   "nome": "AMAZONINO MENDES II / T1 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 4.xlsx",
    "pontoId": "P4",
@@ -63714,7 +65052,7 @@
   },
   "443": {
    "numero": "443",
-   "nome": "N. CIDADE / EST. 4-3 / DJ. BATISTA / T1 / CENTRO",
+   "nome": "NOVA CIDADE / E4 / E3 / DJALMA BATISTA / T1 / CENTRO",
    "empresa": "LÍDER",
    "grupoOrigem": "Grupo 4.xlsx",
    "pontoId": "P4",
@@ -65465,7 +66803,7 @@
   },
   "444": {
    "numero": "444",
-   "nome": null,
+   "nome": "ALIANÇA COM DEUS / E3 / E2 / E1 / T1 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 4.xlsx",
    "pontoId": "P4",
@@ -67110,7 +68448,7 @@
   },
   "447": {
    "numero": "447",
-   "nome": null,
+   "nome": "AMAZONINO MENDES / MAJOR GABRIEL / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 4.xlsx",
    "pontoId": "P4",
@@ -70395,7 +71733,7 @@
   },
   "452": {
    "numero": "452",
-   "nome": null,
+   "nome": "CONJUNTO BEIJA FLOR / FLORES / T1 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 1.xlsx",
    "pontoId": "P1",
@@ -71777,7 +73115,7 @@
   },
   "454": {
    "numero": "454",
-   "nome": null,
+   "nome": "COLÔNIA SANTO ANTÔNIO / E3 / E2 / E1 / T1 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 4.xlsx",
    "pontoId": "P4",
@@ -73366,7 +74704,7 @@
   },
   "455": {
    "numero": "455",
-   "nome": null,
+   "nome": "RIO PIORINI / SANTA MARTA / E3 / E2 / E1 / T1 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 4.xlsx",
    "pontoId": "P4",
@@ -75522,7 +76860,7 @@
   },
   "457": {
    "numero": "457",
-   "nome": null,
+   "nome": "T3 / CONJUNTO ÁGUAS CLARAS / JAPIIM / T2 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 4.xlsx",
    "pontoId": "P4",
@@ -76751,7 +78089,7 @@
   },
   "461": {
    "numero": "461",
-   "nome": null,
+   "nome": "NÚCLEO 15 / PARQUE DAS GRAÇAS / T2 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 4.xlsx",
    "pontoId": "P4",
@@ -80450,7 +81788,7 @@
   },
   "507": {
    "numero": "507",
-   "nome": null,
+   "nome": "ADRIANÓPOLIS / T2 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 1.xlsx",
    "pontoId": "P1",
@@ -81262,7 +82600,7 @@
   },
   "515": {
    "numero": "515",
-   "nome": null,
+   "nome": "COROADO / T2 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 3.xlsx",
    "pontoId": "P3",
@@ -82074,7 +83412,7 @@
   },
   "517": {
    "numero": "517",
-   "nome": null,
+   "nome": "OURO VERDE / T2 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 3.xlsx",
    "pontoId": "P3",
@@ -87100,7 +88438,7 @@
   },
   "560": {
    "numero": "560",
-   "nome": "T4 / C. DEUS / NOVA CIDADE / T1 / CENTRO",
+   "nome": "T4 / CIDADE DE DEUS / NOVA CIDADE / T1 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 4.xlsx",
    "pontoId": "P4",
@@ -89268,7 +90606,7 @@
   },
   "600": {
    "numero": "600",
-   "nome": null,
+   "nome": "T4 / T5 / MAJOR GABRIEL / CENTRO",
    "empresa": "INTEGRAÇÃO",
    "grupoOrigem": "Grupo 3.xlsx",
    "pontoId": "P3",
@@ -91940,7 +93278,7 @@
   },
   "602": {
    "numero": "602",
-   "nome": null,
+   "nome": "T4 / T5 / BOULEVARD / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 3.xlsx",
    "pontoId": "P3",
@@ -92876,271 +94214,220 @@
     },
     "2026-09-06": {
      "tipoDia": null,
-     "totalViagens": 40,
+     "totalViagens": 32,
      "passagens": [
-      "05:33",
-      "05:50",
-      "06:17",
-      "06:37",
-      "06:57",
-      "07:12",
-      "07:24",
-      "07:39",
-      "08:10",
-      "08:37",
-      "09:12",
-      "09:47",
-      "10:26",
-      "10:47",
-      "11:10",
-      "11:37",
-      "12:05",
-      "12:33",
-      "13:00",
-      "13:26",
-      "13:55",
-      "14:30",
-      "15:01",
-      "15:33",
-      "16:08",
-      "16:30",
-      "17:01",
-      "17:32",
-      "18:09",
-      "18:31",
-      "18:56",
-      "19:32",
-      "20:05",
-      "20:35",
-      "21:02",
-      "21:30",
-      "22:00",
-      "22:30",
-      "22:59",
-      "23:32"
+      "05:45",
+      "06:16",
+      "06:36",
+      "07:02",
+      "07:29",
+      "08:00",
+      "08:21",
+      "08:44",
+      "09:09",
+      "09:43",
+      "10:53",
+      "11:27",
+      "11:50",
+      "12:48",
+      "13:21",
+      "14:02",
+      "14:49",
+      "15:17",
+      "15:45",
+      "16:17",
+      "16:40",
+      "17:06",
+      "17:36",
+      "18:21",
+      "18:32",
+      "19:01",
+      "19:41",
+      "20:26",
+      "21:25",
+      "21:56",
+      "22:34",
+      "23:20"
      ],
      "passagensCortadas": [],
      "saidasOrigem": [
-      "04:53",
-      "05:13",
-      "05:33",
-      "05:53",
-      "06:08",
-      "06:23",
-      "06:38",
-      "06:53",
-      "07:18",
-      "07:43",
-      "08:20",
-      "08:57",
-      "09:27",
-      "09:52",
-      "10:17",
-      "10:42",
-      "11:08",
-      "11:34",
+      "05:05",
+      "05:30",
+      "05:50",
+      "06:17",
+      "06:47",
+      "07:17",
+      "07:37",
+      "08:00",
+      "08:27",
+      "09:00",
+      "10:10",
+      "10:47",
+      "11:09",
       "12:04",
-      "12:34",
-      "13:04",
-      "13:34",
-      "14:04",
-      "14:34",
-      "15:04",
-      "15:34",
-      "16:04",
-      "16:39",
-      "17:15",
-      "17:35",
-      "18:05",
-      "18:40",
-      "19:12",
-      "19:44",
-      "20:16",
+      "12:39",
+      "13:19",
+      "14:07",
+      "14:37",
+      "15:07",
+      "15:39",
+      "16:01",
+      "16:27",
+      "16:53",
+      "17:33",
+      "17:47",
+      "18:17",
+      "18:56",
+      "19:45",
       "20:46",
       "21:16",
-      "21:46",
-      "22:16",
-      "22:58"
+      "21:58",
+      "22:45"
      ],
      "frequencia": [
       {
-       "hora": "04:53",
+       "hora": "05:05",
        "intervalo": null,
        "origem": null
       },
       {
-       "hora": "05:13",
-       "intervalo": "00:20",
-       "origem": null
-      },
-      {
-       "hora": "05:33",
-       "intervalo": "00:20",
-       "origem": null
-      },
-      {
-       "hora": "05:53",
-       "intervalo": "00:20",
-       "origem": null
-      },
-      {
-       "hora": "06:08",
-       "intervalo": "00:15",
-       "origem": null
-      },
-      {
-       "hora": "06:23",
-       "intervalo": "00:15",
-       "origem": null
-      },
-      {
-       "hora": "06:38",
-       "intervalo": "00:15",
-       "origem": null
-      },
-      {
-       "hora": "06:53",
-       "intervalo": "00:15",
-       "origem": null
-      },
-      {
-       "hora": "07:18",
+       "hora": "05:30",
        "intervalo": "00:25",
        "origem": null
       },
       {
-       "hora": "07:43",
-       "intervalo": "00:25",
+       "hora": "05:50",
+       "intervalo": "00:20",
        "origem": null
       },
       {
-       "hora": "08:20",
-       "intervalo": "00:37",
+       "hora": "06:17",
+       "intervalo": "00:27",
        "origem": null
       },
       {
-       "hora": "08:57",
-       "intervalo": "00:37",
-       "origem": null
-      },
-      {
-       "hora": "09:27",
+       "hora": "06:47",
        "intervalo": "00:30",
        "origem": null
       },
       {
-       "hora": "09:52",
-       "intervalo": "00:25",
+       "hora": "07:17",
+       "intervalo": "00:30",
        "origem": null
       },
       {
-       "hora": "10:17",
-       "intervalo": "00:25",
+       "hora": "07:37",
+       "intervalo": "00:20",
        "origem": null
       },
       {
-       "hora": "10:42",
-       "intervalo": "00:25",
+       "hora": "08:00",
+       "intervalo": "00:23",
        "origem": null
       },
       {
-       "hora": "11:08",
-       "intervalo": "00:26",
+       "hora": "08:27",
+       "intervalo": "00:27",
        "origem": null
       },
       {
-       "hora": "11:34",
-       "intervalo": "00:26",
+       "hora": "09:00",
+       "intervalo": "00:33",
+       "origem": null
+      },
+      {
+       "hora": "10:10",
+       "intervalo": "01:10",
+       "origem": null
+      },
+      {
+       "hora": "10:47",
+       "intervalo": "00:37",
+       "origem": null
+      },
+      {
+       "hora": "11:09",
+       "intervalo": "00:22",
        "origem": null
       },
       {
        "hora": "12:04",
-       "intervalo": "00:30",
+       "intervalo": "00:55",
        "origem": null
       },
       {
-       "hora": "12:34",
-       "intervalo": "00:30",
-       "origem": null
-      },
-      {
-       "hora": "13:04",
-       "intervalo": "00:30",
-       "origem": null
-      },
-      {
-       "hora": "13:34",
-       "intervalo": "00:30",
-       "origem": null
-      },
-      {
-       "hora": "14:04",
-       "intervalo": "00:30",
-       "origem": null
-      },
-      {
-       "hora": "14:34",
-       "intervalo": "00:30",
-       "origem": null
-      },
-      {
-       "hora": "15:04",
-       "intervalo": "00:30",
-       "origem": null
-      },
-      {
-       "hora": "15:34",
-       "intervalo": "00:30",
-       "origem": null
-      },
-      {
-       "hora": "16:04",
-       "intervalo": "00:30",
-       "origem": null
-      },
-      {
-       "hora": "16:39",
+       "hora": "12:39",
        "intervalo": "00:35",
        "origem": null
       },
       {
-       "hora": "17:15",
-       "intervalo": "00:36",
+       "hora": "13:19",
+       "intervalo": "00:40",
        "origem": null
       },
       {
-       "hora": "17:35",
-       "intervalo": "00:20",
+       "hora": "14:07",
+       "intervalo": "00:48",
        "origem": null
       },
       {
-       "hora": "18:05",
+       "hora": "14:37",
        "intervalo": "00:30",
        "origem": null
       },
       {
-       "hora": "18:40",
-       "intervalo": "00:35",
+       "hora": "15:07",
+       "intervalo": "00:30",
        "origem": null
       },
       {
-       "hora": "19:12",
+       "hora": "15:39",
        "intervalo": "00:32",
        "origem": null
       },
       {
-       "hora": "19:44",
-       "intervalo": "00:32",
+       "hora": "16:01",
+       "intervalo": "00:22",
        "origem": null
       },
       {
-       "hora": "20:16",
-       "intervalo": "00:32",
+       "hora": "16:27",
+       "intervalo": "00:26",
+       "origem": null
+      },
+      {
+       "hora": "16:53",
+       "intervalo": "00:26",
+       "origem": null
+      },
+      {
+       "hora": "17:33",
+       "intervalo": "00:40",
+       "origem": null
+      },
+      {
+       "hora": "17:47",
+       "intervalo": "00:14",
+       "origem": null
+      },
+      {
+       "hora": "18:17",
+       "intervalo": "00:30",
+       "origem": null
+      },
+      {
+       "hora": "18:56",
+       "intervalo": "00:39",
+       "origem": null
+      },
+      {
+       "hora": "19:45",
+       "intervalo": "00:49",
        "origem": null
       },
       {
        "hora": "20:46",
-       "intervalo": "00:30",
+       "intervalo": "01:01",
        "origem": null
       },
       {
@@ -93149,18 +94436,13 @@
        "origem": null
       },
       {
-       "hora": "21:46",
-       "intervalo": "00:30",
-       "origem": null
-      },
-      {
-       "hora": "22:16",
-       "intervalo": "00:30",
-       "origem": null
-      },
-      {
-       "hora": "22:58",
+       "hora": "21:58",
        "intervalo": "00:42",
+       "origem": null
+      },
+      {
+       "hora": "22:45",
+       "intervalo": "00:47",
        "origem": null
       }
      ],
@@ -93172,44 +94454,54 @@
         {
          "tab": "TAB - 0101",
          "veiculo": "1",
-         "tipoVeiculo": "EXPRESSO COROADO - PADRON AR P.E",
-         "jornada": "05:52",
+         "tipoVeiculo": "EXPRESSO COROADO - PADRON AR P.E 11.05.2025",
+         "jornada": "06:27",
          "viagens": [
           {
-           "ida": "04:53",
-           "volta": "05:33",
-           "termino": "06:19",
-           "tempoViagem": "01:26",
+           "ida": "05:05",
+           "volta": "05:45",
+           "termino": "06:28",
+           "tempoViagem": "01:23",
            "linha": "602",
            "veiculo": "1",
            "tipo": "normal",
            "continuacao": false
           },
           {
-           "ida": "06:38",
-           "volta": "07:24",
-           "termino": "08:14",
-           "tempoViagem": "01:36",
+           "ida": "06:47",
+           "volta": "07:29",
+           "termino": "08:12",
+           "tempoViagem": "01:25",
            "linha": "602",
            "veiculo": "1",
            "tipo": "normal",
            "continuacao": false
           },
           {
-           "ida": "08:14",
+           "ida": "08:27",
+           "volta": "09:09",
+           "termino": "09:59",
+           "tempoViagem": "01:32",
+           "linha": "602",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "09:59",
            "volta": null,
-           "termino": "09:27",
-           "tempoViagem": "01:13",
+           "termino": "11:09",
+           "tempoViagem": "01:10",
            "linha": null,
            "veiculo": null,
            "tipo": "continuacao",
            "continuacao": true
           },
           {
-           "ida": "09:27",
-           "volta": "10:26",
-           "termino": "11:33",
-           "tempoViagem": "02:06",
+           "ida": "11:09",
+           "volta": "11:50",
+           "termino": "12:42",
+           "tempoViagem": "01:33",
            "linha": "602",
            "veiculo": "1",
            "tipo": "normal",
@@ -93220,44 +94512,54 @@
         {
          "tab": "TAB - 0102",
          "veiculo": "2",
-         "tipoVeiculo": "EXPRESSO COROADO - PADRON AR P.E",
-         "jornada": "05:41",
+         "tipoVeiculo": "EXPRESSO COROADO - PADRON AR P.E 11.05.2025",
+         "jornada": "06:40",
          "viagens": [
           {
-           "ida": "05:13",
-           "volta": "05:50",
-           "termino": "06:35",
-           "tempoViagem": "01:22",
+           "ida": "05:30",
+           "volta": "06:16",
+           "termino": "07:01",
+           "tempoViagem": "01:31",
            "linha": "602",
            "veiculo": "2",
            "tipo": "normal",
            "continuacao": false
           },
           {
-           "ida": "06:53",
-           "volta": "07:39",
-           "termino": "08:29",
-           "tempoViagem": "01:36",
+           "ida": "07:17",
+           "volta": "08:00",
+           "termino": "08:45",
+           "tempoViagem": "01:28",
            "linha": "602",
            "veiculo": "2",
            "tipo": "normal",
            "continuacao": false
           },
           {
-           "ida": "08:29",
+           "ida": "09:00",
+           "volta": "09:43",
+           "termino": "10:35",
+           "tempoViagem": "01:35",
+           "linha": "602",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "10:35",
            "volta": null,
-           "termino": "09:52",
-           "tempoViagem": "01:23",
+           "termino": "12:04",
+           "tempoViagem": "01:29",
            "linha": null,
            "veiculo": null,
            "tipo": "continuacao",
            "continuacao": true
           },
           {
-           "ida": "09:52",
-           "volta": "10:47",
-           "termino": "11:52",
-           "tempoViagem": "02:00",
+           "ida": "12:04",
+           "volta": "12:48",
+           "termino": "13:39",
+           "tempoViagem": "01:35",
            "linha": "602",
            "veiculo": "2",
            "tipo": "normal",
@@ -93268,44 +94570,54 @@
         {
          "tab": "TAB - 0103",
          "veiculo": "3",
-         "tipoVeiculo": "EXPRESSO COROADO - PADRON AR P.E",
-         "jornada": "05:57",
+         "tipoVeiculo": "EXPRESSO COROADO - PADRON AR P.E 11.05.2025",
+         "jornada": "06:37",
          "viagens": [
           {
-           "ida": "05:33",
-           "volta": "06:17",
-           "termino": "07:06",
-           "tempoViagem": "01:33",
+           "ida": "05:50",
+           "volta": "06:36",
+           "termino": "07:21",
+           "tempoViagem": "01:31",
            "linha": "602",
            "veiculo": "3",
            "tipo": "normal",
            "continuacao": false
           },
           {
-           "ida": "07:18",
-           "volta": "08:10",
-           "termino": "09:05",
-           "tempoViagem": "01:47",
+           "ida": "07:37",
+           "volta": "08:21",
+           "termino": "09:06",
+           "tempoViagem": "01:29",
            "linha": "602",
            "veiculo": "3",
            "tipo": "normal",
            "continuacao": false
           },
           {
-           "ida": "09:05",
+           "ida": "09:06",
            "volta": null,
-           "termino": "10:17",
-           "tempoViagem": "01:12",
+           "termino": "10:47",
+           "tempoViagem": "01:41",
            "linha": null,
            "veiculo": null,
            "tipo": "continuacao",
            "continuacao": true
           },
           {
-           "ida": "10:17",
-           "volta": "11:10",
-           "termino": "12:17",
-           "tempoViagem": "02:00",
+           "ida": "10:47",
+           "volta": "11:27",
+           "termino": "12:15",
+           "tempoViagem": "01:28",
+           "linha": "602",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "12:39",
+           "volta": "13:21",
+           "termino": "14:08",
+           "tempoViagem": "01:29",
            "linha": "602",
            "veiculo": "3",
            "tipo": "normal",
@@ -93317,141 +94629,55 @@
          "tab": "TAB - 0104",
          "veiculo": "4",
          "tipoVeiculo": "EXPRESSO COROADO - PADRON AR P.E",
-         "jornada": "06:14",
+         "jornada": "07:02",
          "viagens": [
           {
-           "ida": "05:53",
-           "volta": "06:37",
-           "termino": "07:26",
-           "tempoViagem": "01:33",
+           "ida": "06:17",
+           "volta": "07:02",
+           "termino": "07:45",
+           "tempoViagem": "01:28",
            "linha": "602",
            "veiculo": "4",
            "tipo": "normal",
            "continuacao": false
           },
           {
-           "ida": "07:43",
-           "volta": "08:37",
-           "termino": "09:35",
-           "tempoViagem": "01:52",
+           "ida": "08:00",
+           "volta": "08:44",
+           "termino": "09:31",
+           "tempoViagem": "01:31",
            "linha": "602",
            "veiculo": "4",
            "tipo": "normal",
            "continuacao": false
           },
           {
-           "ida": "09:35",
-           "volta": null,
-           "termino": "10:42",
-           "tempoViagem": "01:07",
-           "linha": null,
-           "veiculo": null,
-           "tipo": "continuacao",
-           "continuacao": true
-          },
-          {
-           "ida": "10:42",
-           "volta": "11:37",
-           "termino": "12:49",
-           "tempoViagem": "02:07",
+           "ida": "10:10",
+           "volta": "10:53",
+           "termino": "11:47",
+           "tempoViagem": "01:37",
            "linha": "602",
            "veiculo": "4",
            "tipo": "normal",
            "continuacao": false
-          }
-         ]
-        },
-        {
-         "tab": "TAB - 0105",
-         "veiculo": "5",
-         "tipoVeiculo": "EXPRESSO COROADO - PADRON AR P.E",
-         "jornada": "06:20",
-         "viagens": [
-          {
-           "ida": "06:08",
-           "volta": "06:57",
-           "termino": "07:46",
-           "tempoViagem": "01:38",
-           "linha": "602",
-           "veiculo": "5",
-           "tipo": "normal",
-           "continuacao": false
           },
           {
-           "ida": "07:46",
+           "ida": "11:47",
            "volta": null,
-           "termino": "08:57",
-           "tempoViagem": "01:11",
+           "termino": "13:19",
+           "tempoViagem": "01:32",
            "linha": null,
            "veiculo": null,
            "tipo": "continuacao",
            "continuacao": true
           },
           {
-           "ida": "08:57",
-           "volta": "09:47",
-           "termino": "10:51",
-           "tempoViagem": "01:54",
+           "ida": "13:19",
+           "volta": "14:02",
+           "termino": "14:51",
+           "tempoViagem": "01:32",
            "linha": "602",
-           "veiculo": "5",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "11:08",
-           "volta": "12:05",
-           "termino": "13:14",
-           "tempoViagem": "02:06",
-           "linha": "602",
-           "veiculo": "5",
-           "tipo": "normal",
-           "continuacao": false
-          }
-         ]
-        },
-        {
-         "tab": "TAB - 0106",
-         "veiculo": "6",
-         "tipoVeiculo": "EXPRESSO COROADO - PADRON AR P.E 17.05.2025",
-         "jornada": "06:09",
-         "viagens": [
-          {
-           "ida": "06:23",
-           "volta": "07:12",
-           "termino": "08:02",
-           "tempoViagem": "01:39",
-           "linha": "602",
-           "veiculo": "6",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "08:20",
-           "volta": "09:12",
-           "termino": "10:09",
-           "tempoViagem": "01:49",
-           "linha": "602",
-           "veiculo": "6",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "10:09",
-           "volta": null,
-           "termino": "11:34",
-           "tempoViagem": "01:25",
-           "linha": null,
-           "veiculo": null,
-           "tipo": "continuacao",
-           "continuacao": true
-          },
-          {
-           "ida": "11:34",
-           "volta": "12:33",
-           "termino": "13:32",
-           "tempoViagem": "01:58",
-           "linha": "602",
-           "veiculo": "6",
+           "veiculo": "4",
            "tipo": "normal",
            "continuacao": false
           }
@@ -93465,44 +94691,54 @@
         {
          "tab": "TAB - 0201",
          "veiculo": "1",
-         "tipoVeiculo": "EXPRESSO COROADO - PADRON AR P.E",
-         "jornada": "05:56",
+         "tipoVeiculo": "EXPRESSO COROADO - PADRON AR P.E 11.05.2025",
+         "jornada": "06:43",
          "viagens": [
           {
-           "ida": "12:04",
-           "volta": "13:00",
-           "termino": "13:53",
-           "tempoViagem": "01:49",
+           "ida": "14:07",
+           "volta": "14:49",
+           "termino": "15:36",
+           "tempoViagem": "01:29",
            "linha": "602",
            "veiculo": "1",
            "tipo": "normal",
            "continuacao": false
           },
           {
-           "ida": "14:04",
-           "volta": "15:01",
-           "termino": "16:08",
-           "tempoViagem": "02:04",
+           "ida": "16:01",
+           "volta": "16:40",
+           "termino": "17:27",
+           "tempoViagem": "01:26",
            "linha": "602",
            "veiculo": "1",
            "tipo": "normal",
            "continuacao": false
           },
           {
-           "ida": "16:08",
+           "ida": "17:47",
+           "volta": "18:32",
+           "termino": "19:25",
+           "tempoViagem": "01:38",
+           "linha": "602",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "19:25",
            "volta": null,
-           "termino": "17:35",
-           "tempoViagem": "01:27",
+           "termino": "20:46",
+           "tempoViagem": "01:21",
            "linha": null,
            "veiculo": null,
            "tipo": "continuacao",
            "continuacao": true
           },
           {
-           "ida": "17:35",
-           "volta": "18:31",
-           "termino": "19:27",
-           "tempoViagem": "01:52",
+           "ida": "20:46",
+           "volta": "21:25",
+           "termino": "22:11",
+           "tempoViagem": "01:25",
            "linha": "602",
            "veiculo": "1",
            "tipo": "normal",
@@ -93513,44 +94749,54 @@
         {
          "tab": "TAB - 0202",
          "veiculo": "2",
-         "tipoVeiculo": "EXPRESSO COROADO - PADRON AR P.E",
-         "jornada": "05:52",
+         "tipoVeiculo": "EXPRESSO COROADO - PADRON AR P.E 11.05.2025",
+         "jornada": "06:39",
          "viagens": [
           {
-           "ida": "12:34",
-           "volta": "13:26",
-           "termino": "14:19",
-           "tempoViagem": "01:45",
+           "ida": "14:37",
+           "volta": "15:17",
+           "termino": "16:08",
+           "tempoViagem": "01:31",
            "linha": "602",
            "veiculo": "2",
            "tipo": "normal",
            "continuacao": false
           },
           {
-           "ida": "14:34",
-           "volta": "15:33",
-           "termino": "16:39",
-           "tempoViagem": "02:05",
+           "ida": "16:27",
+           "volta": "17:06",
+           "termino": "18:00",
+           "tempoViagem": "01:33",
            "linha": "602",
            "veiculo": "2",
            "tipo": "normal",
            "continuacao": false
           },
           {
-           "ida": "16:39",
+           "ida": "18:17",
+           "volta": "19:01",
+           "termino": "19:52",
+           "tempoViagem": "01:35",
+           "linha": "602",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "19:52",
            "volta": null,
-           "termino": "18:05",
-           "tempoViagem": "01:26",
+           "termino": "21:16",
+           "tempoViagem": "01:24",
            "linha": null,
            "veiculo": null,
            "tipo": "continuacao",
            "continuacao": true
           },
           {
-           "ida": "18:05",
-           "volta": "18:56",
-           "termino": "19:52",
-           "tempoViagem": "01:47",
+           "ida": "21:16",
+           "volta": "21:56",
+           "termino": "22:40",
+           "tempoViagem": "01:24",
            "linha": "602",
            "veiculo": "2",
            "tipo": "normal",
@@ -93561,54 +94807,54 @@
         {
          "tab": "TAB - 0203",
          "veiculo": "3",
-         "tipoVeiculo": "EXPRESSO COROADO - PADRON AR P.E",
-         "jornada": "07:28",
+         "tipoVeiculo": "EXPRESSO COROADO - PADRON AR P.E 11.05.2025",
+         "jornada": "06:50",
          "viagens": [
           {
-           "ida": "13:04",
-           "volta": "13:55",
-           "termino": "14:56",
-           "tempoViagem": "01:52",
+           "ida": "15:07",
+           "volta": "15:45",
+           "termino": "16:29",
+           "tempoViagem": "01:22",
            "linha": "602",
            "veiculo": "3",
            "tipo": "normal",
            "continuacao": false
           },
           {
-           "ida": "14:56",
+           "ida": "16:53",
+           "volta": "17:36",
+           "termino": "18:29",
+           "tempoViagem": "01:36",
+           "linha": "602",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "18:56",
+           "volta": "19:41",
+           "termino": "20:37",
+           "tempoViagem": "01:41",
+           "linha": "602",
+           "veiculo": "3",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "20:37",
            "volta": null,
-           "termino": "16:39",
-           "tempoViagem": "01:43",
+           "termino": "21:58",
+           "tempoViagem": "01:21",
            "linha": null,
            "veiculo": null,
            "tipo": "continuacao",
            "continuacao": true
           },
           {
-           "ida": "16:39",
-           "volta": "17:32",
-           "termino": "18:30",
-           "tempoViagem": "01:51",
-           "linha": "602",
-           "veiculo": "3",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "18:40",
-           "volta": "19:32",
-           "termino": "20:23",
-           "tempoViagem": "01:43",
-           "linha": "602",
-           "veiculo": "3",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "20:46",
-           "volta": "21:30",
-           "termino": "22:15",
-           "tempoViagem": "01:29",
+           "ida": "21:58",
+           "volta": "22:34",
+           "termino": "23:18",
+           "tempoViagem": "01:20",
            "linha": "602",
            "veiculo": "3",
            "tipo": "normal",
@@ -93620,171 +94866,55 @@
          "tab": "TAB - 0204",
          "veiculo": "4",
          "tipoVeiculo": "EXPRESSO COROADO - PADRON AR P.E",
-         "jornada": "07:53",
+         "jornada": "06:54",
          "viagens": [
           {
-           "ida": "13:34",
-           "volta": "14:30",
-           "termino": "15:40",
-           "tempoViagem": "02:06",
-           "linha": "602",
-           "veiculo": "4",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "16:04",
-           "volta": "17:01",
-           "termino": "17:57",
-           "tempoViagem": "01:53",
-           "linha": "602",
-           "veiculo": "4",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "17:57",
-           "volta": null,
-           "termino": "19:44",
-           "tempoViagem": "01:47",
-           "linha": null,
-           "veiculo": null,
-           "tipo": "continuacao",
-           "continuacao": true
-          },
-          {
-           "ida": "19:44",
-           "volta": "20:35",
-           "termino": "21:23",
-           "tempoViagem": "01:39",
-           "linha": "602",
-           "veiculo": "4",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "21:46",
-           "volta": "22:30",
-           "termino": "23:14",
+           "ida": "15:39",
+           "volta": "16:17",
+           "termino": "17:07",
            "tempoViagem": "01:28",
            "linha": "602",
            "veiculo": "4",
            "tipo": "normal",
            "continuacao": false
-          }
-         ]
-        },
-        {
-         "tab": "TAB - 0205",
-         "veiculo": "5",
-         "tipoVeiculo": "EXPRESSO COROADO - PADRON AR P.E",
-         "jornada": "07:27",
-         "viagens": [
+          },
           {
-           "ida": "15:04",
-           "volta": "16:08",
-           "termino": "17:05",
-           "tempoViagem": "02:01",
+           "ida": "17:33",
+           "volta": "18:21",
+           "termino": "19:17",
+           "tempoViagem": "01:44",
            "linha": "602",
-           "veiculo": "5",
+           "veiculo": "4",
            "tipo": "normal",
            "continuacao": false
           },
           {
-           "ida": "17:15",
-           "volta": "18:09",
-           "termino": "19:04",
-           "tempoViagem": "01:49",
+           "ida": "19:45",
+           "volta": "20:26",
+           "termino": "21:16",
+           "tempoViagem": "01:31",
            "linha": "602",
-           "veiculo": "5",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "19:04",
-           "volta": null,
-           "termino": "20:16",
-           "tempoViagem": "01:12",
-           "linha": null,
-           "veiculo": null,
-           "tipo": "continuacao",
-           "continuacao": true
-          },
-          {
-           "ida": "20:16",
-           "volta": "21:02",
-           "termino": "21:53",
-           "tempoViagem": "01:37",
-           "linha": "602",
-           "veiculo": "5",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "22:16",
-           "volta": "22:59",
-           "termino": "23:43",
-           "tempoViagem": "01:27",
-           "linha": "602",
-           "veiculo": "5",
-           "tipo": "normal",
-           "continuacao": false
-          }
-         ]
-        },
-        {
-         "tab": "TAB - 0206",
-         "veiculo": "6",
-         "tipoVeiculo": "EXPRESSO COROADO - PADRON AR P.E 17.05.2025",
-         "jornada": "06:47",
-         "viagens": [
-          {
-           "ida": "15:34",
-           "volta": "16:30",
-           "termino": "17:24",
-           "tempoViagem": "01:50",
-           "linha": "602",
-           "veiculo": "6",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "17:24",
-           "volta": null,
-           "termino": "19:12",
-           "tempoViagem": "01:48",
-           "linha": null,
-           "veiculo": null,
-           "tipo": "continuacao",
-           "continuacao": true
-          },
-          {
-           "ida": "19:12",
-           "volta": "20:05",
-           "termino": "20:54",
-           "tempoViagem": "01:42",
-           "linha": "602",
-           "veiculo": "6",
+           "veiculo": "4",
            "tipo": "normal",
            "continuacao": false
           },
           {
            "ida": "21:16",
-           "volta": "22:00",
-           "termino": "22:48",
-           "tempoViagem": "01:32",
-           "linha": "602",
-           "veiculo": "6",
-           "tipo": "normal",
-           "continuacao": false
+           "volta": null,
+           "termino": "22:45",
+           "tempoViagem": "01:29",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
           },
           {
-           "ida": "22:58",
-           "volta": "23:32",
-           "termino": "24:09",
-           "tempoViagem": "01:11",
+           "ida": "22:45",
+           "volta": "23:20",
+           "termino": "24:02",
+           "tempoViagem": "01:17",
            "linha": "602",
-           "veiculo": "6",
+           "veiculo": "4",
            "tipo": "normal",
            "continuacao": false
           }
@@ -94720,7 +95850,7 @@
   },
   "604": {
    "numero": "604",
-   "nome": "ANT. ALEIXO / T2 / CENTRO",
+   "nome": "COLÔNIA ANTONIO ALEIXO / T2 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 3.xlsx",
    "pontoId": "P3",
@@ -96203,7 +97333,7 @@
   },
   "606": {
    "numero": "606",
-   "nome": null,
+   "nome": "SÃO FRANCISCO / T1 / AVENIDA DUQUE DE CAXIAS / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 1.xlsx",
    "pontoId": "P1",
@@ -99275,7 +100405,7 @@
   },
   "609": {
    "numero": "609",
-   "nome": null,
+   "nome": "JAPIINLÂNDIA / SEFAZ / T1 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 1.xlsx",
    "pontoId": "P1",
@@ -99934,7 +101064,7 @@
   },
   "611": {
    "numero": "611",
-   "nome": null,
+   "nome": "ATÍLIO ANDREAZZA / JAPIIM II / T2 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 1.xlsx",
    "pontoId": "P1",
@@ -103060,7 +104190,7 @@
   },
   "619": {
    "numero": "619",
-   "nome": null,
+   "nome": "PURAQUEQUARA / T2 / CENTRO",
    "empresa": "INTEGRAÇÃO",
    "grupoOrigem": "Grupo 3.xlsx",
    "pontoId": "P3",
@@ -103584,1027 +104714,33 @@
     },
     "2026-09-06": {
      "tipoDia": null,
-     "totalViagens": 20,
-     "passagens": [
-      "05:49",
-      "06:30",
-      "07:21",
-      "08:01",
-      "08:46",
-      "09:21",
-      "11:05",
-      "11:51",
-      "12:31",
-      "13:19",
-      "14:10",
-      "15:06",
-      "15:56",
-      "16:54",
-      "17:45",
-      "18:40",
-      "19:25",
-      "20:27",
-      "21:31",
-      "22:32"
-     ],
+     "naoOpera": true,
+     "totalViagens": 0,
+     "passagens": [],
      "passagensCortadas": [],
-     "saidasOrigem": [
-      "04:40",
-      "05:20",
-      "06:00",
-      "06:40",
-      "07:25",
-      "08:10",
-      "09:50",
-      "10:40",
-      "11:20",
-      "12:10",
-      "13:00",
-      "14:00",
-      "14:50",
-      "15:45",
-      "16:35",
-      "17:30",
-      "18:20",
-      "19:20",
-      "20:25",
-      "21:30"
-     ],
-     "frequencia": [
-      {
-       "hora": "04:40",
-       "intervalo": null,
-       "origem": null
-      },
-      {
-       "hora": "05:20",
-       "intervalo": "00:40",
-       "origem": null
-      },
-      {
-       "hora": "06:00",
-       "intervalo": "00:40",
-       "origem": null
-      },
-      {
-       "hora": "06:40",
-       "intervalo": "00:40",
-       "origem": null
-      },
-      {
-       "hora": "07:25",
-       "intervalo": "00:45",
-       "origem": null
-      },
-      {
-       "hora": "08:10",
-       "intervalo": "00:45",
-       "origem": null
-      },
-      {
-       "hora": "09:50",
-       "intervalo": "01:40",
-       "origem": null
-      },
-      {
-       "hora": "10:40",
-       "intervalo": "00:50",
-       "origem": null
-      },
-      {
-       "hora": "11:20",
-       "intervalo": "00:40",
-       "origem": null
-      },
-      {
-       "hora": "12:10",
-       "intervalo": "00:50",
-       "origem": null
-      },
-      {
-       "hora": "13:00",
-       "intervalo": "00:50",
-       "origem": null
-      },
-      {
-       "hora": "14:00",
-       "intervalo": "01:00",
-       "origem": null
-      },
-      {
-       "hora": "14:50",
-       "intervalo": "00:50",
-       "origem": null
-      },
-      {
-       "hora": "15:45",
-       "intervalo": "00:55",
-       "origem": null
-      },
-      {
-       "hora": "16:35",
-       "intervalo": "00:50",
-       "origem": null
-      },
-      {
-       "hora": "17:30",
-       "intervalo": "00:55",
-       "origem": null
-      },
-      {
-       "hora": "18:20",
-       "intervalo": "00:50",
-       "origem": null
-      },
-      {
-       "hora": "19:20",
-       "intervalo": "01:00",
-       "origem": null
-      },
-      {
-       "hora": "20:25",
-       "intervalo": "01:05",
-       "origem": null
-      },
-      {
-       "hora": "21:30",
-       "intervalo": "01:05",
-       "origem": null
-      }
-     ],
+     "saidasOrigem": [],
+     "frequencia": [],
      "origemMista": false,
-     "turnos": [
-      {
-       "nome": "1º TURNO",
-       "tabelas": [
-        {
-         "tab": "TAB - 0101",
-         "veiculo": "1",
-         "tipoVeiculo": "CONVENCIONAL 13.06.26",
-         "jornada": "08:48",
-         "viagens": [
-          {
-           "ida": "04:40",
-           "volta": "05:49",
-           "termino": "07:03",
-           "tempoViagem": "02:23",
-           "linha": "619",
-           "veiculo": "1",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "07:25",
-           "volta": "08:46",
-           "termino": "10:05",
-           "tempoViagem": "02:40",
-           "linha": "619",
-           "veiculo": "1",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "10:05",
-           "volta": null,
-           "termino": "11:20",
-           "tempoViagem": "01:15",
-           "linha": null,
-           "veiculo": null,
-           "tipo": "continuacao",
-           "continuacao": true
-          },
-          {
-           "ida": "11:20",
-           "volta": "12:31",
-           "termino": "13:58",
-           "tempoViagem": "02:38",
-           "linha": "619",
-           "veiculo": "1",
-           "tipo": "normal",
-           "continuacao": false
-          }
-         ]
-        },
-        {
-         "tab": "TAB - 0102",
-         "veiculo": "2",
-         "tipoVeiculo": "CONVENCIONAL 13.06.27",
-         "jornada": "08:41",
-         "viagens": [
-          {
-           "ida": "05:20",
-           "volta": "06:30",
-           "termino": "07:44",
-           "tempoViagem": "02:24",
-           "linha": "619",
-           "veiculo": "2",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "08:10",
-           "volta": "09:21",
-           "termino": "10:44",
-           "tempoViagem": "02:34",
-           "linha": "619",
-           "veiculo": "2",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "10:44",
-           "volta": null,
-           "termino": "12:10",
-           "tempoViagem": "01:26",
-           "linha": null,
-           "veiculo": null,
-           "tipo": "continuacao",
-           "continuacao": true
-          },
-          {
-           "ida": "12:10",
-           "volta": "13:19",
-           "termino": "14:42",
-           "tempoViagem": "02:32",
-           "linha": "619",
-           "veiculo": "2",
-           "tipo": "normal",
-           "continuacao": false
-          }
-         ]
-        },
-        {
-         "tab": "TAB - 0103",
-         "veiculo": "3",
-         "tipoVeiculo": "CONVENCIONAL 13.06.28",
-         "jornada": "06:10",
-         "viagens": [
-          {
-           "ida": "06:00",
-           "volta": "07:21",
-           "termino": "08:41",
-           "tempoViagem": "02:41",
-           "linha": "619",
-           "veiculo": "3",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "08:41",
-           "volta": null,
-           "termino": "09:50",
-           "tempoViagem": "01:09",
-           "linha": null,
-           "veiculo": null,
-           "tipo": "continuacao",
-           "continuacao": true
-          },
-          {
-           "ida": "09:50",
-           "volta": "11:05",
-           "termino": "12:34",
-           "tempoViagem": "02:44",
-           "linha": "619",
-           "veiculo": "3",
-           "tipo": "normal",
-           "continuacao": false
-          }
-         ]
-        },
-        {
-         "tab": "TAB - 0104",
-         "veiculo": "4",
-         "tipoVeiculo": "CONVENCIONAL 13.06.29",
-         "jornada": "06:03",
-         "viagens": [
-          {
-           "ida": "06:40",
-           "volta": "08:01",
-           "termino": "09:20",
-           "tempoViagem": "02:40",
-           "linha": "619",
-           "veiculo": "4",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "09:20",
-           "volta": null,
-           "termino": "10:40",
-           "tempoViagem": "01:20",
-           "linha": null,
-           "veiculo": null,
-           "tipo": "continuacao",
-           "continuacao": true
-          },
-          {
-           "ida": "10:40",
-           "volta": "11:51",
-           "termino": "13:18",
-           "tempoViagem": "02:38",
-           "linha": "619",
-           "veiculo": "4",
-           "tipo": "normal",
-           "continuacao": false
-          }
-         ]
-        }
-       ]
-      },
-      {
-       "nome": "2º TURNO",
-       "tabelas": [
-        {
-         "tab": "TAB - 0201",
-         "veiculo": "3",
-         "tipoVeiculo": "CONVENCIONAL 13.06.26",
-         "jornada": "08:19",
-         "viagens": [
-          {
-           "ida": "13:00",
-           "volta": "14:10",
-           "termino": "15:31",
-           "tempoViagem": "02:31",
-           "linha": "619",
-           "veiculo": "3",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "15:45",
-           "volta": "16:54",
-           "termino": "18:13",
-           "tempoViagem": "02:28",
-           "linha": "619",
-           "veiculo": "3",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "18:13",
-           "volta": null,
-           "termino": "19:20",
-           "tempoViagem": "01:07",
-           "linha": null,
-           "veiculo": null,
-           "tipo": "continuacao",
-           "continuacao": true
-          },
-          {
-           "ida": "19:20",
-           "volta": "20:27",
-           "termino": "21:41",
-           "tempoViagem": "02:21",
-           "linha": "619",
-           "veiculo": "3",
-           "tipo": "normal",
-           "continuacao": false
-          }
-         ]
-        },
-        {
-         "tab": "TAB - 0202",
-         "veiculo": "4",
-         "tipoVeiculo": "CONVENCIONAL 13.06.27",
-         "jornada": "05:35",
-         "viagens": [
-          {
-           "ida": "14:00",
-           "volta": "15:06",
-           "termino": "16:26",
-           "tempoViagem": "02:26",
-           "linha": "619",
-           "veiculo": "4",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "16:26",
-           "volta": null,
-           "termino": "18:20",
-           "tempoViagem": "01:54",
-           "linha": null,
-           "veiculo": null,
-           "tipo": "continuacao",
-           "continuacao": true
-          },
-          {
-           "ida": "18:20",
-           "volta": "19:25",
-           "termino": "20:44",
-           "tempoViagem": "02:24",
-           "linha": "619",
-           "veiculo": "4",
-           "tipo": "normal",
-           "continuacao": false
-          }
-         ]
-        },
-        {
-         "tab": "TAB - 0203",
-         "veiculo": "1",
-         "tipoVeiculo": "CONVENCIONAL 13.06.28",
-         "jornada": "08:09",
-         "viagens": [
-          {
-           "ida": "14:50",
-           "volta": "15:56",
-           "termino": "17:16",
-           "tempoViagem": "02:26",
-           "linha": "619",
-           "veiculo": "1",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "17:30",
-           "volta": "18:40",
-           "termino": "19:59",
-           "tempoViagem": "02:29",
-           "linha": "619",
-           "veiculo": "1",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "19:59",
-           "volta": null,
-           "termino": "21:30",
-           "tempoViagem": "01:31",
-           "linha": null,
-           "veiculo": null,
-           "tipo": "continuacao",
-           "continuacao": true
-          },
-          {
-           "ida": "21:30",
-           "volta": "22:32",
-           "termino": "23:45",
-           "tempoViagem": "02:15",
-           "linha": "619",
-           "veiculo": "1",
-           "tipo": "normal",
-           "continuacao": false
-          }
-         ]
-        },
-        {
-         "tab": "TAB - 0204",
-         "veiculo": "2",
-         "tipoVeiculo": "CONVENCIONAL 13.06.29",
-         "jornada": "05:35",
-         "viagens": [
-          {
-           "ida": "16:35",
-           "volta": "17:45",
-           "termino": "19:06",
-           "tempoViagem": "02:31",
-           "linha": "619",
-           "veiculo": "2",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "19:06",
-           "volta": null,
-           "termino": "20:25",
-           "tempoViagem": "01:19",
-           "linha": null,
-           "veiculo": null,
-           "tipo": "continuacao",
-           "continuacao": true
-          },
-          {
-           "ida": "20:25",
-           "volta": "21:31",
-           "termino": "22:44",
-           "tempoViagem": "02:19",
-           "linha": "619",
-           "veiculo": "2",
-           "tipo": "normal",
-           "continuacao": false
-          }
-         ]
-        }
-       ]
-      }
-     ],
+     "turnos": [],
      "conflitos": []
     },
     "2026-09-07": {
      "tipoDia": null,
-     "totalViagens": 20,
-     "passagens": [
-      "05:49",
-      "06:30",
-      "07:21",
-      "08:01",
-      "08:46",
-      "09:21",
-      "11:05",
-      "11:51",
-      "12:31",
-      "13:19",
-      "14:10",
-      "15:06",
-      "15:56",
-      "16:54",
-      "17:45",
-      "18:40",
-      "19:25",
-      "20:27",
-      "21:31",
-      "22:32"
-     ],
+     "naoOpera": true,
+     "totalViagens": 0,
+     "passagens": [],
      "passagensCortadas": [],
-     "saidasOrigem": [
-      "04:40",
-      "05:20",
-      "06:00",
-      "06:40",
-      "07:25",
-      "08:10",
-      "09:50",
-      "10:40",
-      "11:20",
-      "12:10",
-      "13:00",
-      "14:00",
-      "14:50",
-      "15:45",
-      "16:35",
-      "17:30",
-      "18:20",
-      "19:20",
-      "20:25",
-      "21:30"
-     ],
-     "frequencia": [
-      {
-       "hora": "04:40",
-       "intervalo": null,
-       "origem": null
-      },
-      {
-       "hora": "05:20",
-       "intervalo": "00:40",
-       "origem": null
-      },
-      {
-       "hora": "06:00",
-       "intervalo": "00:40",
-       "origem": null
-      },
-      {
-       "hora": "06:40",
-       "intervalo": "00:40",
-       "origem": null
-      },
-      {
-       "hora": "07:25",
-       "intervalo": "00:45",
-       "origem": null
-      },
-      {
-       "hora": "08:10",
-       "intervalo": "00:45",
-       "origem": null
-      },
-      {
-       "hora": "09:50",
-       "intervalo": "01:40",
-       "origem": null
-      },
-      {
-       "hora": "10:40",
-       "intervalo": "00:50",
-       "origem": null
-      },
-      {
-       "hora": "11:20",
-       "intervalo": "00:40",
-       "origem": null
-      },
-      {
-       "hora": "12:10",
-       "intervalo": "00:50",
-       "origem": null
-      },
-      {
-       "hora": "13:00",
-       "intervalo": "00:50",
-       "origem": null
-      },
-      {
-       "hora": "14:00",
-       "intervalo": "01:00",
-       "origem": null
-      },
-      {
-       "hora": "14:50",
-       "intervalo": "00:50",
-       "origem": null
-      },
-      {
-       "hora": "15:45",
-       "intervalo": "00:55",
-       "origem": null
-      },
-      {
-       "hora": "16:35",
-       "intervalo": "00:50",
-       "origem": null
-      },
-      {
-       "hora": "17:30",
-       "intervalo": "00:55",
-       "origem": null
-      },
-      {
-       "hora": "18:20",
-       "intervalo": "00:50",
-       "origem": null
-      },
-      {
-       "hora": "19:20",
-       "intervalo": "01:00",
-       "origem": null
-      },
-      {
-       "hora": "20:25",
-       "intervalo": "01:05",
-       "origem": null
-      },
-      {
-       "hora": "21:30",
-       "intervalo": "01:05",
-       "origem": null
-      }
-     ],
+     "saidasOrigem": [],
+     "frequencia": [],
      "origemMista": false,
-     "turnos": [
-      {
-       "nome": "1º TURNO",
-       "tabelas": [
-        {
-         "tab": "TAB - 0101",
-         "veiculo": "1",
-         "tipoVeiculo": "CONVENCIONAL 13.06.26",
-         "jornada": "08:48",
-         "viagens": [
-          {
-           "ida": "04:40",
-           "volta": "05:49",
-           "termino": "07:03",
-           "tempoViagem": "02:23",
-           "linha": "619",
-           "veiculo": "1",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "07:25",
-           "volta": "08:46",
-           "termino": "10:05",
-           "tempoViagem": "02:40",
-           "linha": "619",
-           "veiculo": "1",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "10:05",
-           "volta": null,
-           "termino": "11:20",
-           "tempoViagem": "01:15",
-           "linha": null,
-           "veiculo": null,
-           "tipo": "continuacao",
-           "continuacao": true
-          },
-          {
-           "ida": "11:20",
-           "volta": "12:31",
-           "termino": "13:58",
-           "tempoViagem": "02:38",
-           "linha": "619",
-           "veiculo": "1",
-           "tipo": "normal",
-           "continuacao": false
-          }
-         ]
-        },
-        {
-         "tab": "TAB - 0102",
-         "veiculo": "2",
-         "tipoVeiculo": "CONVENCIONAL 13.06.27",
-         "jornada": "08:41",
-         "viagens": [
-          {
-           "ida": "05:20",
-           "volta": "06:30",
-           "termino": "07:44",
-           "tempoViagem": "02:24",
-           "linha": "619",
-           "veiculo": "2",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "08:10",
-           "volta": "09:21",
-           "termino": "10:44",
-           "tempoViagem": "02:34",
-           "linha": "619",
-           "veiculo": "2",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "10:44",
-           "volta": null,
-           "termino": "12:10",
-           "tempoViagem": "01:26",
-           "linha": null,
-           "veiculo": null,
-           "tipo": "continuacao",
-           "continuacao": true
-          },
-          {
-           "ida": "12:10",
-           "volta": "13:19",
-           "termino": "14:42",
-           "tempoViagem": "02:32",
-           "linha": "619",
-           "veiculo": "2",
-           "tipo": "normal",
-           "continuacao": false
-          }
-         ]
-        },
-        {
-         "tab": "TAB - 0103",
-         "veiculo": "3",
-         "tipoVeiculo": "CONVENCIONAL 13.06.28",
-         "jornada": "06:10",
-         "viagens": [
-          {
-           "ida": "06:00",
-           "volta": "07:21",
-           "termino": "08:41",
-           "tempoViagem": "02:41",
-           "linha": "619",
-           "veiculo": "3",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "08:41",
-           "volta": null,
-           "termino": "09:50",
-           "tempoViagem": "01:09",
-           "linha": null,
-           "veiculo": null,
-           "tipo": "continuacao",
-           "continuacao": true
-          },
-          {
-           "ida": "09:50",
-           "volta": "11:05",
-           "termino": "12:34",
-           "tempoViagem": "02:44",
-           "linha": "619",
-           "veiculo": "3",
-           "tipo": "normal",
-           "continuacao": false
-          }
-         ]
-        },
-        {
-         "tab": "TAB - 0104",
-         "veiculo": "4",
-         "tipoVeiculo": "CONVENCIONAL 13.06.29",
-         "jornada": "06:03",
-         "viagens": [
-          {
-           "ida": "06:40",
-           "volta": "08:01",
-           "termino": "09:20",
-           "tempoViagem": "02:40",
-           "linha": "619",
-           "veiculo": "4",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "09:20",
-           "volta": null,
-           "termino": "10:40",
-           "tempoViagem": "01:20",
-           "linha": null,
-           "veiculo": null,
-           "tipo": "continuacao",
-           "continuacao": true
-          },
-          {
-           "ida": "10:40",
-           "volta": "11:51",
-           "termino": "13:18",
-           "tempoViagem": "02:38",
-           "linha": "619",
-           "veiculo": "4",
-           "tipo": "normal",
-           "continuacao": false
-          }
-         ]
-        }
-       ]
-      },
-      {
-       "nome": "2º TURNO",
-       "tabelas": [
-        {
-         "tab": "TAB - 0201",
-         "veiculo": "3",
-         "tipoVeiculo": "CONVENCIONAL 13.06.26",
-         "jornada": "08:19",
-         "viagens": [
-          {
-           "ida": "13:00",
-           "volta": "14:10",
-           "termino": "15:31",
-           "tempoViagem": "02:31",
-           "linha": "619",
-           "veiculo": "3",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "15:45",
-           "volta": "16:54",
-           "termino": "18:13",
-           "tempoViagem": "02:28",
-           "linha": "619",
-           "veiculo": "3",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "18:13",
-           "volta": null,
-           "termino": "19:20",
-           "tempoViagem": "01:07",
-           "linha": null,
-           "veiculo": null,
-           "tipo": "continuacao",
-           "continuacao": true
-          },
-          {
-           "ida": "19:20",
-           "volta": "20:27",
-           "termino": "21:41",
-           "tempoViagem": "02:21",
-           "linha": "619",
-           "veiculo": "3",
-           "tipo": "normal",
-           "continuacao": false
-          }
-         ]
-        },
-        {
-         "tab": "TAB - 0202",
-         "veiculo": "4",
-         "tipoVeiculo": "CONVENCIONAL 13.06.27",
-         "jornada": "05:35",
-         "viagens": [
-          {
-           "ida": "14:00",
-           "volta": "15:06",
-           "termino": "16:26",
-           "tempoViagem": "02:26",
-           "linha": "619",
-           "veiculo": "4",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "16:26",
-           "volta": null,
-           "termino": "18:20",
-           "tempoViagem": "01:54",
-           "linha": null,
-           "veiculo": null,
-           "tipo": "continuacao",
-           "continuacao": true
-          },
-          {
-           "ida": "18:20",
-           "volta": "19:25",
-           "termino": "20:44",
-           "tempoViagem": "02:24",
-           "linha": "619",
-           "veiculo": "4",
-           "tipo": "normal",
-           "continuacao": false
-          }
-         ]
-        },
-        {
-         "tab": "TAB - 0203",
-         "veiculo": "1",
-         "tipoVeiculo": "CONVENCIONAL 13.06.28",
-         "jornada": "08:09",
-         "viagens": [
-          {
-           "ida": "14:50",
-           "volta": "15:56",
-           "termino": "17:16",
-           "tempoViagem": "02:26",
-           "linha": "619",
-           "veiculo": "1",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "17:30",
-           "volta": "18:40",
-           "termino": "19:59",
-           "tempoViagem": "02:29",
-           "linha": "619",
-           "veiculo": "1",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "19:59",
-           "volta": null,
-           "termino": "21:30",
-           "tempoViagem": "01:31",
-           "linha": null,
-           "veiculo": null,
-           "tipo": "continuacao",
-           "continuacao": true
-          },
-          {
-           "ida": "21:30",
-           "volta": "22:32",
-           "termino": "23:45",
-           "tempoViagem": "02:15",
-           "linha": "619",
-           "veiculo": "1",
-           "tipo": "normal",
-           "continuacao": false
-          }
-         ]
-        },
-        {
-         "tab": "TAB - 0204",
-         "veiculo": "2",
-         "tipoVeiculo": "CONVENCIONAL 13.06.29",
-         "jornada": "05:35",
-         "viagens": [
-          {
-           "ida": "16:35",
-           "volta": "17:45",
-           "termino": "19:06",
-           "tempoViagem": "02:31",
-           "linha": "619",
-           "veiculo": "2",
-           "tipo": "normal",
-           "continuacao": false
-          },
-          {
-           "ida": "19:06",
-           "volta": null,
-           "termino": "20:25",
-           "tempoViagem": "01:19",
-           "linha": null,
-           "veiculo": null,
-           "tipo": "continuacao",
-           "continuacao": true
-          },
-          {
-           "ida": "20:25",
-           "volta": "21:31",
-           "termino": "22:44",
-           "tempoViagem": "02:19",
-           "linha": "619",
-           "veiculo": "2",
-           "tipo": "normal",
-           "continuacao": false
-          }
-         ]
-        }
-       ]
-      }
-     ],
+     "turnos": [],
      "conflitos": []
     }
    }
   },
   "621": {
    "numero": "621",
-   "nome": "DIST. II / N. VITÓRIA / T2 / CENTRO",
+   "nome": "DISTRITO INDUSTIRAL II / NOVA VITÓRIA / T2 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 3.xlsx",
    "pontoId": "P3",
@@ -106142,7 +106278,7 @@
   },
   "625": {
    "numero": "625",
-   "nome": null,
+   "nome": "T4 / ALEIXO / T2 / CENTRO / T5",
    "empresa": null,
    "grupoOrigem": "Grupo 1.xlsx",
    "pontoId": "P1",
@@ -106852,7 +106988,7 @@
   },
   "640": {
    "numero": "640",
-   "nome": "T4-3 / C. NOVA / E4-E3-E2-E1 / T1 / CENTRO",
+   "nome": "T4 / T3 / CIDADE NOVA / E4 / E3 / E2 / E1 / T1 / CENTRO",
    "empresa": "INTEGRAÇÃO",
    "grupoOrigem": "Grupo 4.xlsx",
    "pontoId": "P4",
@@ -113562,7 +113698,7 @@
   },
   "651": {
    "numero": "651",
-   "nome": null,
+   "nome": "T4 / ALEIXO / T2 / CENTRO / T5",
    "empresa": "INTEGRAÇÃO",
    "grupoOrigem": "Grupo 3.xlsx",
    "pontoId": "P3",
@@ -115670,7 +115806,7 @@
   },
   "652": {
    "numero": "652",
-   "nome": "T4-T5 / E. SALES / E1 / T1 / CENTRO",
+   "nome": "T4 / T5 / EFIGÊNIO SALLES / E1 / T1 / CENTRO",
    "empresa": "INTEGRAÇÃO",
    "grupoOrigem": "Grupo 3.xlsx",
    "pontoId": "P3",
@@ -120000,7 +120136,7 @@
   },
   "704": {
    "numero": "704",
-   "nome": null,
+   "nome": "BETÂNIA / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 1.xlsx",
    "pontoId": "P1",
@@ -121683,9 +121819,1138 @@
     }
    }
   },
+  "705": {
+   "numero": "705",
+   "nome": "MAUAZINHO / MORRO DA LIBERDADE / T2 / CENTRO",
+   "empresa": null,
+   "grupoOrigem": "Grupo 1.xlsx",
+   "pontoId": "P1",
+   "temProgramacaoEvento": true,
+   "escalaBase": null,
+   "avisos": [
+    "corredor-bb-19h",
+    "desvio-itamaraca",
+    "paradas-inoperantes-00h",
+    "onibus-extras-00h",
+    "frota-apoio-t1",
+    "orientacao-fiscais",
+    "viagem-extra-00h"
+   ],
+   "observacoes": [],
+   "legendaViagens": [],
+   "dias": {
+    "2026-09-05": {
+     "tipoDia": "SÁBADO (PASSO A PAÇO)",
+     "totalViagens": 16,
+     "passagens": [
+      "06:10",
+      "07:21",
+      "08:16",
+      "09:37",
+      "11:20",
+      "12:53",
+      "13:42",
+      "14:56",
+      "15:48",
+      "16:49",
+      "18:55",
+      "19:28",
+      "21:10",
+      "22:38",
+      "24:15",
+      "25:30"
+     ],
+     "passagensCortadas": [],
+     "saidasOrigem": [
+      "05:20",
+      "06:20",
+      "07:20",
+      "08:35",
+      "10:25",
+      "11:49",
+      "12:45",
+      "14:02",
+      "14:50",
+      "16:00",
+      "17:50",
+      "18:40",
+      "20:30",
+      "21:50",
+      "23:40",
+      "25:00"
+     ],
+     "frequencia": [
+      {
+       "hora": "05:20",
+       "intervalo": null,
+       "origem": null
+      },
+      {
+       "hora": "06:20",
+       "intervalo": "01:00",
+       "origem": null
+      },
+      {
+       "hora": "07:20",
+       "intervalo": "01:00",
+       "origem": null
+      },
+      {
+       "hora": "08:35",
+       "intervalo": "01:15",
+       "origem": null
+      },
+      {
+       "hora": "10:25",
+       "intervalo": "01:50",
+       "origem": null
+      },
+      {
+       "hora": "11:49",
+       "intervalo": "01:24",
+       "origem": null
+      },
+      {
+       "hora": "12:45",
+       "intervalo": "00:56",
+       "origem": null
+      },
+      {
+       "hora": "14:02",
+       "intervalo": "01:17",
+       "origem": null
+      },
+      {
+       "hora": "14:50",
+       "intervalo": "00:48",
+       "origem": null
+      },
+      {
+       "hora": "16:00",
+       "intervalo": "01:10",
+       "origem": null
+      },
+      {
+       "hora": "17:50",
+       "intervalo": "01:50",
+       "origem": null
+      },
+      {
+       "hora": "18:40",
+       "intervalo": "00:50",
+       "origem": null
+      },
+      {
+       "hora": "20:30",
+       "intervalo": "01:50",
+       "origem": null
+      },
+      {
+       "hora": "21:50",
+       "intervalo": "01:20",
+       "origem": null
+      },
+      {
+       "hora": "23:40",
+       "intervalo": "01:50",
+       "origem": null
+      },
+      {
+       "hora": "25:00",
+       "intervalo": "01:20",
+       "origem": null
+      }
+     ],
+     "origemMista": false,
+     "turnos": [
+      {
+       "nome": "1º TURNO",
+       "tabelas": [
+        {
+         "tab": "TAB - 0101",
+         "veiculo": "1",
+         "tipoVeiculo": "MICRÃO",
+         "jornada": "06:00",
+         "viagens": [
+          {
+           "ida": "05:20",
+           "volta": "06:10",
+           "termino": "06:59",
+           "tempoViagem": "01:39",
+           "linha": "705",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "07:20",
+           "volta": "08:16",
+           "termino": "09:07",
+           "tempoViagem": "01:47",
+           "linha": "705",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "09:07",
+           "volta": null,
+           "termino": "10:25",
+           "tempoViagem": "01:18",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "10:25",
+           "volta": "11:20",
+           "termino": "12:18",
+           "tempoViagem": "01:53",
+           "linha": "705",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        },
+        {
+         "tab": "TAB - 0102",
+         "veiculo": "2",
+         "tipoVeiculo": "MICRÃO",
+         "jornada": "08:36",
+         "viagens": [
+          {
+           "ida": "06:20",
+           "volta": "07:21",
+           "termino": "08:17",
+           "tempoViagem": "01:57",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "08:35",
+           "volta": "09:37",
+           "termino": "10:39",
+           "tempoViagem": "02:04",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "10:39",
+           "volta": null,
+           "termino": "11:49",
+           "tempoViagem": "01:10",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "11:49",
+           "volta": "12:53",
+           "termino": "13:52",
+           "tempoViagem": "02:03",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "14:02",
+           "volta": "14:56",
+           "termino": "15:46",
+           "tempoViagem": "01:44",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "nome": "2º TURNO",
+       "tabelas": [
+        {
+         "tab": "TAB - 0201",
+         "veiculo": "1",
+         "tipoVeiculo": "MICRÃO",
+         "jornada": "07:42",
+         "viagens": [
+          {
+           "ida": "12:45",
+           "volta": "13:42",
+           "termino": "14:39",
+           "tempoViagem": "01:54",
+           "linha": "705",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "14:50",
+           "volta": "15:48",
+           "termino": "16:45",
+           "tempoViagem": "01:55",
+           "linha": "705",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "16:45",
+           "volta": null,
+           "termino": "18:40",
+           "tempoViagem": "01:55",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "18:40",
+           "volta": "19:28",
+           "termino": "20:14",
+           "tempoViagem": "01:34",
+           "linha": "705",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "20:30",
+           "volta": "21:10",
+           "termino": "22:02",
+           "tempoViagem": "01:32",
+           "linha": "705",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        },
+        {
+         "tab": "TAB - 0202",
+         "veiculo": "2",
+         "tipoVeiculo": "MICRÃO",
+         "jornada": "08:26",
+         "viagens": [
+          {
+           "ida": "16:00",
+           "volta": "16:49",
+           "termino": "17:40",
+           "tempoViagem": "01:40",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "17:50",
+           "volta": "18:55",
+           "termino": "19:51",
+           "tempoViagem": "02:01",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "19:51",
+           "volta": null,
+           "termino": "21:50",
+           "tempoViagem": "01:59",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "21:50",
+           "volta": "22:38",
+           "termino": "23:19",
+           "tempoViagem": "01:29",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "23:40",
+           "volta": "24:15",
+           "termino": "24:45",
+           "tempoViagem": "01:05",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "25:00",
+           "volta": "25:30",
+           "termino": "26:05",
+           "tempoViagem": "01:05",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "conflitos": []
+    },
+    "2026-09-06": {
+     "tipoDia": "DOMINGO (PASSO A PAÇO)",
+     "totalViagens": 16,
+     "passagens": [
+      "06:10",
+      "07:21",
+      "08:16",
+      "09:37",
+      "11:20",
+      "12:53",
+      "13:42",
+      "14:56",
+      "15:48",
+      "16:49",
+      "18:55",
+      "19:28",
+      "21:10",
+      "22:38",
+      "24:15",
+      "25:30"
+     ],
+     "passagensCortadas": [],
+     "saidasOrigem": [
+      "05:20",
+      "06:20",
+      "07:20",
+      "08:35",
+      "10:25",
+      "11:49",
+      "12:45",
+      "14:02",
+      "14:50",
+      "16:00",
+      "17:50",
+      "18:40",
+      "20:30",
+      "21:50",
+      "23:40",
+      "25:00"
+     ],
+     "frequencia": [
+      {
+       "hora": "05:20",
+       "intervalo": null,
+       "origem": null
+      },
+      {
+       "hora": "06:20",
+       "intervalo": "01:00",
+       "origem": null
+      },
+      {
+       "hora": "07:20",
+       "intervalo": "01:00",
+       "origem": null
+      },
+      {
+       "hora": "08:35",
+       "intervalo": "01:15",
+       "origem": null
+      },
+      {
+       "hora": "10:25",
+       "intervalo": "01:50",
+       "origem": null
+      },
+      {
+       "hora": "11:49",
+       "intervalo": "01:24",
+       "origem": null
+      },
+      {
+       "hora": "12:45",
+       "intervalo": "00:56",
+       "origem": null
+      },
+      {
+       "hora": "14:02",
+       "intervalo": "01:17",
+       "origem": null
+      },
+      {
+       "hora": "14:50",
+       "intervalo": "00:48",
+       "origem": null
+      },
+      {
+       "hora": "16:00",
+       "intervalo": "01:10",
+       "origem": null
+      },
+      {
+       "hora": "17:50",
+       "intervalo": "01:50",
+       "origem": null
+      },
+      {
+       "hora": "18:40",
+       "intervalo": "00:50",
+       "origem": null
+      },
+      {
+       "hora": "20:30",
+       "intervalo": "01:50",
+       "origem": null
+      },
+      {
+       "hora": "21:50",
+       "intervalo": "01:20",
+       "origem": null
+      },
+      {
+       "hora": "23:40",
+       "intervalo": "01:50",
+       "origem": null
+      },
+      {
+       "hora": "25:00",
+       "intervalo": "01:20",
+       "origem": null
+      }
+     ],
+     "origemMista": false,
+     "turnos": [
+      {
+       "nome": "1º TURNO",
+       "tabelas": [
+        {
+         "tab": "TAB - 0101",
+         "veiculo": "1",
+         "tipoVeiculo": "MICRÃO",
+         "jornada": "06:00",
+         "viagens": [
+          {
+           "ida": "05:20",
+           "volta": "06:10",
+           "termino": "06:59",
+           "tempoViagem": "01:39",
+           "linha": "705",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "07:20",
+           "volta": "08:16",
+           "termino": "09:07",
+           "tempoViagem": "01:47",
+           "linha": "705",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "09:07",
+           "volta": null,
+           "termino": "10:25",
+           "tempoViagem": "01:18",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "10:25",
+           "volta": "11:20",
+           "termino": "12:18",
+           "tempoViagem": "01:53",
+           "linha": "705",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        },
+        {
+         "tab": "TAB - 0102",
+         "veiculo": "2",
+         "tipoVeiculo": "MICRÃO",
+         "jornada": "08:36",
+         "viagens": [
+          {
+           "ida": "06:20",
+           "volta": "07:21",
+           "termino": "08:17",
+           "tempoViagem": "01:57",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "08:35",
+           "volta": "09:37",
+           "termino": "10:39",
+           "tempoViagem": "02:04",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "10:39",
+           "volta": null,
+           "termino": "11:49",
+           "tempoViagem": "01:10",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "11:49",
+           "volta": "12:53",
+           "termino": "13:52",
+           "tempoViagem": "02:03",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "14:02",
+           "volta": "14:56",
+           "termino": "15:46",
+           "tempoViagem": "01:44",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "nome": "2º TURNO",
+       "tabelas": [
+        {
+         "tab": "TAB - 0201",
+         "veiculo": "1",
+         "tipoVeiculo": "MICRÃO",
+         "jornada": "07:42",
+         "viagens": [
+          {
+           "ida": "12:45",
+           "volta": "13:42",
+           "termino": "14:39",
+           "tempoViagem": "01:54",
+           "linha": "705",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "14:50",
+           "volta": "15:48",
+           "termino": "16:45",
+           "tempoViagem": "01:55",
+           "linha": "705",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "16:45",
+           "volta": null,
+           "termino": "18:40",
+           "tempoViagem": "01:55",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "18:40",
+           "volta": "19:28",
+           "termino": "20:14",
+           "tempoViagem": "01:34",
+           "linha": "705",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "20:30",
+           "volta": "21:10",
+           "termino": "22:02",
+           "tempoViagem": "01:32",
+           "linha": "705",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        },
+        {
+         "tab": "TAB - 0202",
+         "veiculo": "2",
+         "tipoVeiculo": "MICRÃO",
+         "jornada": "08:26",
+         "viagens": [
+          {
+           "ida": "16:00",
+           "volta": "16:49",
+           "termino": "17:40",
+           "tempoViagem": "01:40",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "17:50",
+           "volta": "18:55",
+           "termino": "19:51",
+           "tempoViagem": "02:01",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "19:51",
+           "volta": null,
+           "termino": "21:50",
+           "tempoViagem": "01:59",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "21:50",
+           "volta": "22:38",
+           "termino": "23:19",
+           "tempoViagem": "01:29",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "23:40",
+           "volta": "24:15",
+           "termino": "24:45",
+           "tempoViagem": "01:05",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "25:00",
+           "volta": "25:30",
+           "termino": "26:05",
+           "tempoViagem": "01:05",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "conflitos": []
+    },
+    "2026-09-07": {
+     "tipoDia": "SEGUNDA (PASSO A PAÇO)",
+     "totalViagens": 16,
+     "passagens": [
+      "06:10",
+      "07:21",
+      "08:16",
+      "09:37",
+      "11:20",
+      "12:53",
+      "13:42",
+      "14:56",
+      "15:48",
+      "16:49",
+      "18:55",
+      "19:28",
+      "21:10",
+      "22:38",
+      "24:15",
+      "25:30"
+     ],
+     "passagensCortadas": [],
+     "saidasOrigem": [
+      "05:20",
+      "06:20",
+      "07:20",
+      "08:35",
+      "10:25",
+      "11:49",
+      "12:45",
+      "14:02",
+      "14:50",
+      "16:00",
+      "17:50",
+      "18:40",
+      "20:30",
+      "21:50",
+      "23:40",
+      "25:00"
+     ],
+     "frequencia": [
+      {
+       "hora": "05:20",
+       "intervalo": null,
+       "origem": null
+      },
+      {
+       "hora": "06:20",
+       "intervalo": "01:00",
+       "origem": null
+      },
+      {
+       "hora": "07:20",
+       "intervalo": "01:00",
+       "origem": null
+      },
+      {
+       "hora": "08:35",
+       "intervalo": "01:15",
+       "origem": null
+      },
+      {
+       "hora": "10:25",
+       "intervalo": "01:50",
+       "origem": null
+      },
+      {
+       "hora": "11:49",
+       "intervalo": "01:24",
+       "origem": null
+      },
+      {
+       "hora": "12:45",
+       "intervalo": "00:56",
+       "origem": null
+      },
+      {
+       "hora": "14:02",
+       "intervalo": "01:17",
+       "origem": null
+      },
+      {
+       "hora": "14:50",
+       "intervalo": "00:48",
+       "origem": null
+      },
+      {
+       "hora": "16:00",
+       "intervalo": "01:10",
+       "origem": null
+      },
+      {
+       "hora": "17:50",
+       "intervalo": "01:50",
+       "origem": null
+      },
+      {
+       "hora": "18:40",
+       "intervalo": "00:50",
+       "origem": null
+      },
+      {
+       "hora": "20:30",
+       "intervalo": "01:50",
+       "origem": null
+      },
+      {
+       "hora": "21:50",
+       "intervalo": "01:20",
+       "origem": null
+      },
+      {
+       "hora": "23:40",
+       "intervalo": "01:50",
+       "origem": null
+      },
+      {
+       "hora": "25:00",
+       "intervalo": "01:20",
+       "origem": null
+      }
+     ],
+     "origemMista": false,
+     "turnos": [
+      {
+       "nome": "1º TURNO",
+       "tabelas": [
+        {
+         "tab": "TAB - 0101",
+         "veiculo": "1",
+         "tipoVeiculo": "MICRÃO",
+         "jornada": "06:00",
+         "viagens": [
+          {
+           "ida": "05:20",
+           "volta": "06:10",
+           "termino": "06:59",
+           "tempoViagem": "01:39",
+           "linha": "705",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "07:20",
+           "volta": "08:16",
+           "termino": "09:07",
+           "tempoViagem": "01:47",
+           "linha": "705",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "09:07",
+           "volta": null,
+           "termino": "10:25",
+           "tempoViagem": "01:18",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "10:25",
+           "volta": "11:20",
+           "termino": "12:18",
+           "tempoViagem": "01:53",
+           "linha": "705",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        },
+        {
+         "tab": "TAB - 0102",
+         "veiculo": "2",
+         "tipoVeiculo": "MICRÃO",
+         "jornada": "08:36",
+         "viagens": [
+          {
+           "ida": "06:20",
+           "volta": "07:21",
+           "termino": "08:17",
+           "tempoViagem": "01:57",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "08:35",
+           "volta": "09:37",
+           "termino": "10:39",
+           "tempoViagem": "02:04",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "10:39",
+           "volta": null,
+           "termino": "11:49",
+           "tempoViagem": "01:10",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "11:49",
+           "volta": "12:53",
+           "termino": "13:52",
+           "tempoViagem": "02:03",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "14:02",
+           "volta": "14:56",
+           "termino": "15:46",
+           "tempoViagem": "01:44",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "nome": "2º TURNO",
+       "tabelas": [
+        {
+         "tab": "TAB - 0201",
+         "veiculo": "1",
+         "tipoVeiculo": "MICRÃO",
+         "jornada": "07:42",
+         "viagens": [
+          {
+           "ida": "12:45",
+           "volta": "13:42",
+           "termino": "14:39",
+           "tempoViagem": "01:54",
+           "linha": "705",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "14:50",
+           "volta": "15:48",
+           "termino": "16:45",
+           "tempoViagem": "01:55",
+           "linha": "705",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "16:45",
+           "volta": null,
+           "termino": "18:40",
+           "tempoViagem": "01:55",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "18:40",
+           "volta": "19:28",
+           "termino": "20:14",
+           "tempoViagem": "01:34",
+           "linha": "705",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "20:30",
+           "volta": "21:10",
+           "termino": "22:02",
+           "tempoViagem": "01:32",
+           "linha": "705",
+           "veiculo": "1",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        },
+        {
+         "tab": "TAB - 0202",
+         "veiculo": "2",
+         "tipoVeiculo": "MICRÃO",
+         "jornada": "08:26",
+         "viagens": [
+          {
+           "ida": "16:00",
+           "volta": "16:49",
+           "termino": "17:40",
+           "tempoViagem": "01:40",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "17:50",
+           "volta": "18:55",
+           "termino": "19:51",
+           "tempoViagem": "02:01",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "19:51",
+           "volta": null,
+           "termino": "21:50",
+           "tempoViagem": "01:59",
+           "linha": null,
+           "veiculo": null,
+           "tipo": "continuacao",
+           "continuacao": true
+          },
+          {
+           "ida": "21:50",
+           "volta": "22:38",
+           "termino": "23:19",
+           "tempoViagem": "01:29",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "23:40",
+           "volta": "24:15",
+           "termino": "24:45",
+           "tempoViagem": "01:05",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          },
+          {
+           "ida": "25:00",
+           "volta": "25:30",
+           "termino": "26:05",
+           "tempoViagem": "01:05",
+           "linha": "705",
+           "veiculo": "2",
+           "tipo": "normal",
+           "continuacao": false
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "conflitos": []
+    }
+   }
+  },
   "706": {
    "numero": "706",
-   "nome": null,
+   "nome": "MAUAZINHO / COLÔNIA OLIVEIRA MACHADO / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 1.xlsx",
    "pontoId": "P1",
@@ -122809,7 +124074,7 @@
   },
   "708": {
    "numero": "708",
-   "nome": null,
+   "nome": "SÃO LÁZARO / T2 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 1.xlsx",
    "pontoId": "P1",
@@ -124494,7 +125759,7 @@
   },
   "711": {
    "numero": "711",
-   "nome": null,
+   "nome": "MAUAZINHO / SANTA LUZIA / T2 / CENTRO",
    "empresa": null,
    "grupoOrigem": "Grupo 1.xlsx",
    "pontoId": "P1",

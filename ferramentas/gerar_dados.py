@@ -46,10 +46,11 @@ EPOCA = datetime.date(1899, 12, 31)
 # Nem todas têm aba de escala; o script só publica as que têm.
 PONTO_POR_LINHA = {
     "P1": ["004", "203", "205", "207", "209", "214", "223", "227", "403", "427", "452",
-           "502", "507", "606", "608", "609", "610", "611", "612", "625", "704", "706",
-           "708", "711", "713"],
+           "502", "507", "606", "608", "609", "610", "611", "612", "625", "704", "705",
+           "706", "708", "711", "713"],
     "P2": ["011", "101", "110", "111", "112", "113", "119", "120", "121", "123", "126",
-           "127", "129", "211", "219", "221", "302", "305", "306", "320", "321", "324"],
+           "127", "129", "211", "216", "219", "221", "302", "305", "306", "320", "321",
+           "324"],
     "P3": ["002", "515", "517", "535", "540", "600", "602", "604", "616", "619", "621",
            "650", "651", "652", "676", "690"],
     "P4": ["315", "319", "330", "340", "356", "357", "422", "439", "440", "442", "443",
@@ -65,6 +66,21 @@ ARQ_NOMES = ENTRADA / "nomes_linhas.json"
 # "SÁBADO".
 ESCALA_NO_TEXTO = re.compile(
     r"SEGUNDA A DOMINGO|S[ÁA]BADO E DOMINGO|DOMINGO|S[ÁA]BADO")
+
+# Regra geral das linhas SEM programação especial: como 05 e 07/09 são feriados,
+# a frota roda escala de domingo nos três dias. Quase toda aba tem um quadro só,
+# e ele vale para os três — não há nada a configurar.
+#
+# Estas são as exceções, e cada uma existe por um motivo operacional:
+#   602 — tem DOIS quadros na aba (sábado e domingo) e alterna entre eles.
+#   619 — só circula no sábado; domingo e segunda ela fica desativada.
+#
+# None = a linha não opera naquele dia. Se a escala citada aqui não existir na
+# aba, o gerador para com erro: planilha trocada não pode passar batido.
+ESCALA_POR_DIA = {
+    "602": {"2026-09-05": "SÁBADO", "2026-09-06": "DOMINGO", "2026-09-07": "SÁBADO"},
+    "619": {"2026-09-05": "SÁBADO", "2026-09-06": None, "2026-09-07": None},
+}
 
 # Quando a mesma linha aparece em mais de um arquivo (aconteceu com a 219, que
 # ficou nos Grupos 1 e 2 com versões diferentes), vale a aba do grupo cujo número
@@ -585,22 +601,118 @@ def ler_bloco(linhas, ini, fim, limite, aba, dia):
     }, empresa
 
 
+def achar_blocos_de_escala(linhas):
+    """Divide uma aba regular pelos titulos "QUADRO OPERACIONAL, <ESCALA>".
+
+    Espelha achar_blocos_de_dia, que faz o mesmo para as abas do evento usando a
+    data. Quase toda aba regular tem um titulo so; a 602 tem dois (sabado e
+    domingo empilhados) e sem esta divisao os dois quadros seriam somados.
+
+    @returns [(escala, ini, fim)] — escala e None quando o titulo nao nomeia uma.
+    """
+    marcas = []
+    for i, r in enumerate(linhas):
+        for c in r:
+            if isinstance(c, str) and "QUADRO OPERACIONAL" in c.upper():
+                achado = ESCALA_NO_TEXTO.search(re.sub(r"\s+", " ", c.upper()))
+                marcas.append((i, achado.group(0) if achado else None))
+                break
+
+    if not marcas:
+        return [(None, 0, len(linhas))]
+
+    saida = []
+    for k, (ini, escala) in enumerate(marcas):
+        fim = marcas[k + 1][0] if k + 1 < len(marcas) else len(linhas)
+        saida.append((escala, ini, fim))
+    return saida
+
+
+def dia_sem_operacao():
+    """Bloco de um dia em que a linha nao circula.
+
+    Um bloco vazio, e nao a ausencia do dia: sumir com a chave dispararia
+    "dia ausente" na validacao e deixaria a tela sem nada a dizer ao operador.
+    """
+    return {
+        "tipoDia": None,
+        "naoOpera": True,
+        "totalViagens": 0,
+        "passagens": [],
+        "passagensCortadas": [],
+        "saidasOrigem": [],
+        "frequencia": [],
+        "origemMista": False,
+        "turnos": [],
+        "conflitos": [],
+    }
+
+
+def ler_aba_regular(linhas, aba):
+    """Aba sem programacao do evento: 1..N quadros de escala, um por tipo de dia.
+
+    O quadro escolhido para cada dia do evento segue, nesta ordem:
+      1. ESCALA_POR_DIA, quando a linha estiver la (602 e 619);
+      2. o unico quadro da aba, quando so houver um — o caso de 42 das 43;
+      3. o quadro de DOMINGO, porque 05 e 07/09 sao feriados.
+    """
+    base = ler_escala_base(linhas)
+    observacoes, legenda = ler_notas(linhas)
+
+    por_escala = {}
+    empresa = None
+    for escala, ini, fim in achar_blocos_de_escala(linhas):
+        bloco, emp = ler_bloco(linhas, ini, fim, fim, aba, escala or "escala regular")
+        empresa = empresa or emp
+        # Chave None quando o titulo nao nomeia a escala: continua servindo como
+        # o quadro unico da aba pela regra 2.
+        por_escala[escala] = bloco
+
+    encontradas = ", ".join(str(e) for e in por_escala)
+    escolhas = ESCALA_POR_DIA.get(aba)
+
+    if escolhas is None:
+        # Regra 2 e 3: uma escala so para os tres dias.
+        if len(por_escala) == 1:
+            padrao = next(iter(por_escala))
+        else:
+            padrao = next((e for e in por_escala if e and "DOMINGO" in e), None)
+            if padrao is None:
+                padrao = next(iter(por_escala))
+                avisar("%s: %d quadros na aba (%s) e nenhum de domingo; usando %s"
+                       % (aba, len(por_escala), encontradas, padrao))
+            else:
+                avisar("%s: %d quadros na aba (%s); usando %s nos 3 dias"
+                       % (aba, len(por_escala), encontradas, padrao))
+        escolhas = {dia: padrao for dia in DIAS}
+
+    dias = {}
+    for dia in DIAS:
+        desejada = escolhas.get(dia)
+        if desejada is None:
+            dias[dia] = dia_sem_operacao()
+            continue
+        achado = next((e for e in por_escala if e and desejada in e), None)
+        if achado is None and desejada in por_escala:
+            achado = desejada  # o quadro unico de uma aba sem escala nomeada
+        if achado is None:
+            sys.exit("ERRO: %s/%s: ESCALA_POR_DIA pede a escala %r, que nao "
+                     "existe na aba (encontradas: %s). A planilha mudou?"
+                     % (aba, dia, desejada, encontradas or "nenhuma"))
+        dias[dia] = copy.deepcopy(por_escala[achado])
+
+    return dias, empresa, observacoes, legenda, base
+
+
 def ler_aba(ws, aba):
     linhas = list(ws.iter_rows(values_only=True))
     blocos = achar_blocos_de_dia(linhas)
 
     if not blocos:
-        # Aba de escala regular: um unico bloco, sem cabecalho de dia do evento.
-        # A estrutura interna e identica a das abas do evento (turnos, TABs,
-        # painel de frequencia, "N VIAGENS"), entao passa pelo mesmo leitor e o
-        # resultado e replicado nos 3 dias — 05 e 07/09 sao feriados e a linha
-        # roda a mesma escala nos tres.
-        base = ler_escala_base(linhas)
-        bloco, empresa = ler_bloco(linhas, 0, len(linhas), len(linhas), aba,
-                                   "escala regular")
-        observacoes, legenda = ler_notas(linhas)
-        dias = {dia: copy.deepcopy(bloco) for dia in DIAS}
-        return dias, empresa, observacoes, legenda, base
+        # Aba de escala regular: sem cabecalho de dia do evento, mas com a mesma
+        # estrutura interna (turnos, TABs, painel de frequencia, "N VIAGENS"),
+        # entao passa pelo mesmo leitor.
+        return ler_aba_regular(linhas, aba)
 
     if len(blocos) != 3:
         avisar("%s: %d blocos de dia do evento (esperado 3)" % (aba, len(blocos)))
@@ -654,6 +766,10 @@ def validar(linhas_json):
             b = L["dias"].get(dia)
             if not b:
                 erros.append("%s/%s: dia ausente" % (num, dia))
+                continue
+            if b.get("naoOpera"):
+                # Linha desativada neste dia (ver ESCALA_POR_DIA). O bloco existe
+                # e e vazio de proposito; as checagens de conteudo nao se aplicam.
                 continue
             s = b["saidasOrigem"]
             pa = b["passagens"]
