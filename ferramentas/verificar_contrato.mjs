@@ -389,6 +389,20 @@ for (const nome of ['mapa-pontos']) {
   }
 }
 
+// Os hotspots sao % sobre a arte. Trocar a arte por outra com enquadramento
+// diferente sem remedir os quatro pinos deixa os botoes fora de lugar, e nada
+// no site reclama: continuam clicaveis, so que no pedaco errado do mapa.
+// Estes numeros valem para o recorte 618x811 usado hoje; se a arte mudar, e
+// para medir de novo (ver o comentario de PONTOS em gerar_dados.py).
+const dimMapa = dimensoesPng(join(RAIZ, 'assets', 'img', 'mapa-pontos.png'));
+igual('arte do mapa continua 618x811', JSON.stringify(dimMapa), '{"largura":618,"altura":811}');
+
+const HOTSPOTS = { P1: [41.8, 27.4], P2: [42.5, 43.2], P3: [51, 62.2], P4: [61.5, 71.8] };
+for (const [id, [x, y]] of Object.entries(HOTSPOTS)) {
+  const p = (dados.pontos ?? []).find((cada) => cada.id === id);
+  igual('hotspot ' + id + ' casa com a arte atual', JSON.stringify([p?.hotspot?.x, p?.hotspot?.y]), JSON.stringify([x, y]));
+}
+
 // As duas telas de imagem precisam servir o WebP com <picture> e manter o <img> PNG.
 for (const [arquivo, base] of [['mapa.js', 'mapa-pontos']]) {
   const fonte = fontes.get(arquivo) ?? '';

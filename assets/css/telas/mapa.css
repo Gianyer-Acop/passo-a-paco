@@ -20,13 +20,34 @@
 
 /* ------------------------------------------------------------- mapa/hotspots */
 
+/* No celular o mapa sangra ate a borda da tela: ele e o conteudo principal
+   desta tela, e os 16px de margem de cada lado custavam ~10% da largura numa
+   arte que ja e o gargalo de legibilidade. A partir de 480px a margem volta,
+   porque ai a largura sobra e a arte colada na borda pareceria erro. */
 .mapa-imagem {
   position: relative;
-  width: 100%;
+  margin-inline: calc(var(--margem-pagina) * -1);
+  width: calc(100% + var(--margem-pagina) * 2);
   margin-bottom: calc(var(--espaco) * 1.5);
-  border-radius: var(--raio);
   overflow: hidden;
   background: var(--cor-superficie);
+}
+
+/* Acima de 480px a margem volta e a arte para de crescer. A arte e retrato
+   (618x811): esticada ate os 688px do contentor ela passaria de 900px de
+   altura e sozinha empurraria os quatro cartoes para fora da tela. O limite
+   mantem o mapa em destaque com os cartoes logo abaixo dele.
+
+   Limitar a LARGURA (e nao a altura com object-fit) e o que preserva os
+   hotspots: eles sao posicionados em % sobre a imagem, entao ela precisa
+   continuar preenchendo o contentor por inteiro. */
+@media (min-width: 480px) {
+  .mapa-imagem {
+    max-width: 460px;
+    margin-inline: auto;
+    width: 100%;
+    border-radius: var(--raio);
+  }
 }
 
 /* <picture> e inline por padrao; o whitespace de linha de base que isso

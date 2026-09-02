@@ -88,19 +88,34 @@ ESCALA_POR_DIA = {
 GRUPO_DO_PONTO = {"P1": "Grupo 1.xlsx", "P2": "Grupo 2.xlsx",
                   "P3": "Grupo 3.xlsx", "P4": "Grupo 4.xlsx"}
 
+# Os hotspots sao porcentagens sobre a arte RENDERIZADA de assets/img/
+# mapa-pontos.*, e nao coordenadas absolutas: trocar a arte por outra com
+# enquadramento diferente exige medir os quatro pinos de novo.
+#
+# Valores atuais medidos sobre "MAPA PONTOS.png" (618x811), o recorte so da
+# vista aerea. A arte anterior (1517x1190) trazia o cartaz com a lista de
+# linhas colado a direita, o que espremia o mapa em menos de metade da largura
+# e deixava os rotulos ilegiveis no celular. A lista de linhas continua no
+# site, nos cartoes abaixo do mapa.
+#
+# Como medir de novo: procurar os pixels da cor de cada pino dentro de uma
+# janela em volta dele e tirar o centroide da METADE DE CIMA do blob — a
+# cabeca redonda do pino, nao a ponta, que e onde o circulo clicavel deve
+# ficar. As cores das etiquetas e da seta batem com --ponto-p2 e --ponto-p3,
+# entao a busca precisa ser por janela.
 PONTOS = [
     {"id": "P1", "numero": 1, "nome": "Ponto de Ônibus 01", "cor": "verde",
      "corHex": "#3FA45B", "zonas": "Zonas Sul, Centro-Sul e Centro-Oeste",
-     "hotspot": {"x": 25.0, "y": 28.4}},
+     "hotspot": {"x": 41.8, "y": 27.4}},
     {"id": "P2", "numero": 2, "nome": "Ponto de Ônibus 02", "cor": "azul",
      "corHex": "#2B3990", "zonas": "Zona Oeste",
-     "hotspot": {"x": 25.0, "y": 43.3}},
+     "hotspot": {"x": 42.5, "y": 43.2}},
     {"id": "P3", "numero": 3, "nome": "Ponto de Ônibus 03", "cor": "laranja",
      "corHex": "#F5821F", "zonas": "Zona Leste",
-     "hotspot": {"x": 30.3, "y": 63.2}},
+     "hotspot": {"x": 51.0, "y": 62.2}},
     {"id": "P4", "numero": 4, "nome": "Ponto de Ônibus 04", "cor": "vermelho",
      "corHex": "#E31E24", "zonas": "Zona Norte",
-     "hotspot": {"x": 36.7, "y": 72.5}},
+     "hotspot": {"x": 61.5, "y": 71.8}},
 ]
 
 # Os nomes/itinerários vêm de ferramentas/entrada/nomes_linhas.json, editado à

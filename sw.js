@@ -21,7 +21,7 @@
 //
 //   postMessage({ tipo: MENSAGEM_ATUALIZACAO, versaoDados: '<ISO 8601 com offset>' })
 
-const VERSAO = 'v4';
+const VERSAO = 'v5';
 const CACHE = 'passo-a-paco-' + VERSAO;
 
 const MENSAGEM_ATUALIZACAO = 'dados-atualizados';

@@ -1,5 +1,5 @@
 {
- "versaoDados": "2026-09-02T14:32:59-04:00",
+ "versaoDados": "2026-09-02T15:10:35-04:00",
  "evento": {
   "nome": "Sou Manaus Passo a Paço 2026",
   "dias": [
@@ -17,8 +17,8 @@
    "corHex": "#3FA45B",
    "zonas": "Zonas Sul, Centro-Sul e Centro-Oeste",
    "hotspot": {
-    "x": 25.0,
-    "y": 28.4
+    "x": 41.8,
+    "y": 27.4
    },
    "linhas": [
     "004",
@@ -86,8 +86,8 @@
    "corHex": "#2B3990",
    "zonas": "Zona Oeste",
    "hotspot": {
-    "x": 25.0,
-    "y": 43.3
+    "x": 42.5,
+    "y": 43.2
    },
    "linhas": [
     "011",
@@ -151,8 +151,8 @@
    "corHex": "#F5821F",
    "zonas": "Zona Leste",
    "hotspot": {
-    "x": 30.3,
-    "y": 63.2
+    "x": 51.0,
+    "y": 62.2
    },
    "linhas": [
     "002",
@@ -201,8 +201,8 @@
    "corHex": "#E31E24",
    "zonas": "Zona Norte",
    "hotspot": {
-    "x": 36.7,
-    "y": 72.5
+    "x": 61.5,
+    "y": 71.8
    },
    "linhas": [
     "315",

@@ -142,13 +142,13 @@ function render(elemento) {
 
   const intro = document.createElement('p');
   intro.className = 'tela-mapa__intro';
-  intro.textContent = 'Toque em um ponto no mapa ou na lista abaixo para ver as linhas atendidas.';
+  intro.textContent = 'Toque num ponto para ver as linhas atendidas.';
   secao.append(intro);
 
   const contentor = document.createElement('div');
   contentor.className = 'mapa-imagem';
 
-  // <picture> serve o WebP (~259 KB) e cai no PNG em navegador sem suporte.
+  // <picture> serve o WebP (~97 KB) e cai no PNG em navegador sem suporte.
   // As duas versoes tem as MESMAS dimensoes: os hotspots abaixo sao
   // posicionados em % sobre a imagem renderizada e qualquer diferenca de
   // tamanho os deslocaria.
@@ -163,7 +163,7 @@ function render(elemento) {
   const img = document.createElement('img');
   img.className = 'mapa-imagem__img';
   img.src = URL_IMAGEM.href;
-  img.alt = 'Mapa aereo da via de embarque com os 4 pontos de onibus numerados, do mais proximo ao mais distante.';
+  img.alt = 'Mapa aereo da via de embarque, com os 4 pontos de onibus marcados ao longo dela: Ponto 01 (Zonas Sul, Centro-Sul e Centro-Oeste), Ponto 02 (Zona Oeste), Ponto 03 (Zona Leste) e Ponto 04 (Zona Norte), nesta ordem.';
   figura.append(img);
 
   contentor.append(figura);
