@@ -79,13 +79,41 @@
   // Registro do service worker (TASK-09). Fora do modulo de proposito: nao
   // depende de nada do app e nao deve atrasar a primeira renderizacao.
   // Uma falha aqui e sempre nao-fatal — o site continua funcionando online.
-  if ('serviceWorker' in navigator) {
+  //
+  // EM DESENVOLVIMENTO O SW FICA DESLIGADO. O app shell e cache-first: com o
+  // SW ativo, editar um arquivo e recarregar continua servindo a copia em
+  // cache ate alguem trocar a VERSAO em sw.js. No Live Server do VS Code isso
+  // aparece como "o site nao esta trazendo a versao atualizada" — sem erro
+  // nenhum no console, o que torna o diagnostico dificil.
+  //
+  // O unregister nao e simetrico ao register: ele existe para limpar um SW que
+  // ja tenha ficado preso numa maquina de desenvolvimento. Sem isso, quem ja
+  // registrou uma vez continuaria travado mesmo depois desta correcao.
+  (function () {
+    if (!('serviceWorker' in navigator)) return;
+
+    var local = ['localhost', '127.0.0.1', '::1', ''].indexOf(location.hostname) !== -1;
+
+    if (local) {
+      navigator.serviceWorker.getRegistrations().then(function (registros) {
+        registros.forEach(function (registro) { registro.unregister(); });
+      });
+      if (window.caches) {
+        caches.keys().then(function (nomes) {
+          nomes.forEach(function (nome) {
+            if (nome.indexOf('passo-a-paco-') === 0) caches.delete(nome);
+          });
+        });
+      }
+      return;
+    }
+
     window.addEventListener('load', function () {
       navigator.serviceWorker.register('sw.js').catch(function (erro) {
         console.warn('Service worker nao registrado:', erro);
       });
     });
-  }
+  })();
 </script>
 </body>
 </html>

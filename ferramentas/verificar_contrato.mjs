@@ -328,6 +328,10 @@ ok('sw.js cacheia .webp junto do .png', fonteSw.includes('.webp'));
 // pode ser encerrado no meio dela: o cache nunca avanca, o botao nunca
 // aparece, e nenhum erro e emitido.
 ok('sw.js prende a revalidacao em waitUntil', /evento\.waitUntil\(daRede\)/.test(fonteSw));
+// Sem `cache: 'reload'` o precache passa pelo cache HTTP e um SW com VERSAO
+// nova guarda os arquivos VELHOS. Como o app shell e cache-first, o site
+// serve a versao antiga para sempre — sem erro nenhum em lugar nenhum.
+ok("sw.js precacheia com cache: 'reload' (nunca pelo cache HTTP)", /cache:\s*'reload'/.test(fonteSw));
 
 const caminhoManifesto = join(RAIZ, 'manifest.webmanifest');
 ok('manifest.webmanifest existe', existsSync(caminhoManifesto));
@@ -366,6 +370,9 @@ ok(
 const fonteIndex = readFileSync(join(RAIZ, 'index.html'), 'utf8');
 ok('index.html linka o manifesto', /rel="manifest"/.test(fonteIndex));
 ok('index.html registra o service worker', fonteIndex.includes('serviceWorker'));
+// Em localhost o SW fica desligado: cache-first esconderia toda edicao ate
+// alguem trocar a VERSAO, que foi o que travou o Live Server do VS Code.
+ok('index.html nao registra o SW em localhost', fonteIndex.includes("'127.0.0.1'") && fonteIndex.includes('unregister'));
 ok('index.html tem <noscript> — nunca tela branca sem JS', fonteIndex.includes('<noscript>'));
 
 const fontePrincipal = readFileSync(join(RAIZ, 'app', 'principal.js'), 'utf8');

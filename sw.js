@@ -74,9 +74,18 @@ self.addEventListener('install', (evento) => {
       // addAll e atomico: um 404 em qualquer item aborta o install inteiro e o
       // site fica sem offline nenhum. Cacheamos item a item para que um asset
       // renomeado custe apenas aquele asset.
+      //
+      // `cache: 'reload'` NAO e opcional. Sem ele o fetch do precache passa
+      // pelo cache HTTP do navegador, que num servidor estatico sem
+      // Cache-Control (GitHub Pages, http.server, Live Server) guarda os
+      // arquivos por heuristica propria. O resultado e um SW novo, com VERSAO
+      // nova, que precacheia os arquivos VELHOS — e como o app shell e
+      // cache-first, o site fica servindo a versao antiga para sempre, sem
+      // erro nenhum. Foi exatamente isso que segurou a atualizacao no
+      // Live Server do VS Code.
       await Promise.all(
         APP_SHELL.map((caminho) =>
-          cache.add(caminho).catch((erro) => {
+          cache.add(new Request(caminho, { cache: 'reload' })).catch((erro) => {
             console.warn('[sw] nao consegui cachear ' + caminho, erro);
           }),
         ),
