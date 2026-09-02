@@ -1,7 +1,7 @@
 # Tasks: Site de Apoio Operacional — Sou Manaus Passo a Paço 2026
 
 > **Spec:** docs/specs/apoio-operacional-passo-a-paco.md
-> **Status:** 12/13 tasks concluídas | 5/6 ondas concluídas
+> **Status:** 13/13 tasks concluídas | 6/6 ondas concluídas
 > **Criado em:** 01/09/2026
 
 ---
@@ -653,12 +653,12 @@ Registrar o resultado em `docs/validacao-final.md`, com o que passou, o que falh
 **Referência:** nenhuma
 
 **Critério de conclusão:**
-- [ ] Os 15 critérios de aceite da spec percorridos, com resultado registrado
-- [ ] Amostra de 3 linhas × 3 dias conferida contra a coluna VOLTA da planilha, batendo 100%
-- [ ] `node ferramentas/verificar_contrato.mjs` passa
-- [ ] Toda divergência encontrada está registrada como pendência, não silenciada
+- [x] Os 15 critérios de aceite da spec percorridos, com resultado registrado
+- [x] Amostra de 3 linhas × 3 dias conferida contra a coluna VOLTA da planilha, batendo 100%
+- [x] `node ferramentas/verificar_contrato.mjs` passa
+- [x] Toda divergência encontrada está registrada como pendência, não silenciada
 
-**Status:** [ ] Pendente
+**Status:** [x] Concluída
 
 ---
 
@@ -666,22 +666,22 @@ Registrar o resultado em `docs/validacao-final.md`, com o que passou, o que falh
 
 Espelham a §7 da spec. A validação formal é a TASK-13.
 
-- [ ] Abrindo às 01h de 06/09 no fuso de Manaus, o dia selecionado é **05/09**
-- [ ] Digitando `608`, chega-se ao quadro em no máximo 2 toques, com "Ponto de Ônibus 01 — Verde" visível
-- [ ] Linha 604 em 07/09 mostra a primeira passagem às **16:46** (não 15:46)
-- [ ] Linha 214 em 05/09 mostra **06:02** (não 05:20)
-- [ ] Pin do Ponto 03 abre as 14 linhas: 7 com quadro, 7 "sem alteração"
-- [ ] Linha 604 em 07/09 exibe o aviso das 18h; em 05/09 não exibe
-- [ ] Buscar `447` abre a tela reduzida, sem nenhum horário
-- [ ] Linha 305 em 05/09 lista 14 passagens, de `04:30` a `00:23 (+1)`
-- [ ] Última passagem da 227 em 05/09 aparece como `02:18 (+1)`, nunca `26:18`
-- [ ] Linha 113 em 05/09 lista 32 passagens, de `05:19` a `01:52 (+1)`
-- [ ] Nenhuma viagem de continuação aparece na visão simplificada
-- [ ] A tela usa "passagem" e sinaliza que o horário é aproximado
-- [ ] Com modo avião após o primeiro acesso, o site abre e navega
-- [ ] Em 360×640 nenhuma tela rola na horizontal
-- [ ] Trocar de dia na tela de uma linha mantém a mesma linha
-- [ ] Amostra de 3 linhas × 3 dias bate 100% contra a coluna VOLTA
+- [x] Abrindo às 01h de 06/09 no fuso de Manaus, o dia selecionado é **05/09**
+- [x] Digitando `608`, chega-se ao quadro em no máximo 2 toques, com "Ponto de Ônibus 01 — Verde" visível
+- [x] Linha 604 em 07/09 mostra a primeira passagem às **16:46** (não 15:46)
+- [x] Linha 214 em 05/09 mostra **06:02** (não 05:20)
+- [x] Pin do Ponto 03 abre as 14 linhas: 7 com quadro, 7 "sem alteração"
+- [x] Linha 604 em 07/09 exibe o aviso das 18h; em 05/09 não exibe
+- [x] Buscar `447` abre a tela reduzida, sem nenhum horário
+- [x] Linha 305 em 05/09 lista 14 passagens, de `04:30` a `00:23 (+1)`
+- [x] Última passagem da 227 em 05/09 aparece como `02:18 (+1)`, nunca `26:18`
+- [x] Linha 113 em 05/09 lista 32 passagens, de `05:19` a `01:52 (+1)`
+- [x] Nenhuma viagem de continuação aparece na visão simplificada
+- [x] A tela usa "passagem" e sinaliza que o horário é aproximado
+- [x] Com modo avião após o primeiro acesso, o site abre e navega
+- [x] Em 360×640 nenhuma tela rola na horizontal
+- [x] Trocar de dia na tela de uma linha mantém a mesma linha
+- [x] Amostra de 3 linhas × 3 dias bate 100% contra a coluna VOLTA
 
 ## Mapa de ondas
 
