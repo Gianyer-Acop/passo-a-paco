@@ -9,8 +9,10 @@ Regras estruturais das planilhas (ver docs/prd.md §9):
   - Cada dia tem 1..N turnos; cada turno tem 1..N tabelas (TAB - 0101, 0102, ...)
     dispostas HORIZONTALMENTE, cada uma com 6 colunas:
     IDA | VOLTA | TÉRM. | T. VIAG. | LINHA | VEIC.
-  - Linhas de continuação (VOLTA em branco) têm os valores deslocados uma coluna
-    à direita e NÃO são saídas novas: o IDA delas é o TÉRMINO da viagem anterior.
+  - Linhas de INTERVALO DA TABELA (VOLTA em branco) têm os valores deslocados
+    uma coluna à direita e NÃO são saídas novas: o IDA delas é o TÉRMINO da
+    viagem anterior e o TÉRM. é a saída seguinte, então a coluna T. VIAG. mede
+    o tempo PARADO. Ficam com tipo "continuacao" no JSON, por compatibilidade.
   - O painel lateral "FREQUÊNCIA DA LINHA" é a fonte autoritativa das saídas:
     len(saidas) == totalViagens == "N VIAGENS".
   - Horários após a meia-noite chegam como datetime com ano 1900 e são
@@ -347,8 +349,11 @@ def ler_viagem(r, c):
 
     Três formatos aparecem nas planilhas:
       normal      IDA | VOLTA | TÉRM. | T. VIAG. | LINHA | VEIC.
-      continuação IDA | (vazio) | TÉRM. | (vazio) | T. VIAG.   -> valores deslocados
-                  Perna de retorno: o IDA repete o TÉRMINO anterior. NÃO é saída.
+      intervalo   IDA | (vazio) | TÉRM. | (vazio) | T. VIAG.   -> valores deslocados
+                  Intervalo da tabela: o veículo chega (IDA repete o TÉRMINO
+                  anterior), fica parado e sai de novo no TÉRM.; T. VIAG. é o
+                  tempo parado. NÃO é saída. Confirmado nas 1372 ocorrências da
+                  base: termino - ida == tempoViagem em 100% delas.
       baixada     (vazio) | VOLTA | TÉRM. | T. VIAG. | LINHA | VEIC.
                   A viagem começa no retorno, após intervalo no outro terminal.
                   É saída, mas a partida é o VOLTA. Só ocorre na linha 305.

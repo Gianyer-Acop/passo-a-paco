@@ -304,6 +304,29 @@ ok(
 // para a aba Avisos abria a tela nova ja rolada no meio dela.
 ok('estado.js rola ao topo ao trocar de tela', /scrollTo\(\{\s*top: 0/.test(fonteEstado));
 
+// O bloqueio precisa valer no estado, e nao so no botao desabilitado: e a
+// unica porta de entrada da troca de dia.
+ok('estado.js filtra a troca de dia por diasLiberados', /diasLiberados\(\)\.includes\(diaISO\)/.test(fonteEstado));
+{
+  const fonte = readFileSync(join(RAIZ, 'app', 'principal.js'), 'utf8');
+  ok('principal.js desabilita os dias fechados', /botao\.disabled\s*=\s*!liberado/.test(fonte));
+  // Sem reconferencia periodica, uma aba aberta desde as 22h manteria o dia de
+  // ontem liberado e o de hoje fechado depois da virada das 03h.
+  ok('principal.js reconfere o dia periodicamente', /setInterval\(sincronizar/.test(fonte));
+}
+
+secao('quadro — intervalo da tabela');
+{
+  const fonte = fontes.get('quadro.js') ?? '';
+  // Linhas com IDA e TERMINO mas sem VOLTA sao intervalo, nao "perna de
+  // retorno": nas 1372 ocorrencias da base termino - ida == tempoViagem.
+  ok('quadro.js monta a faixa de intervalo', fonte.includes('faixaIntervalo'));
+  ok('quadro.js rotula a faixa em texto', fonte.includes('Intervalo da tabela'));
+  ok('quadro.js nao chama mais de "perna de retorno"', !/perna de retorno/i.test(fonte));
+  const css = readFileSync(join(RAIZ, 'assets', 'css', 'telas', 'quadro.css'), 'utf8');
+  ok('a faixa de intervalo e amarela', /\.linha-viagem--intervalo\s*\{[^}]*background:\s*#FFF3C4/i.test(css));
+}
+
 secao('cabecalho — barra de trabalho fixa');
 
 const fonteBase = readFileSync(join(RAIZ, 'assets', 'css', 'base.css'), 'utf8');
@@ -345,6 +368,24 @@ igual('diaVigente 07/09 23:00', formato.diaVigente?.(new Date('2026-09-07T23:00:
 igual('diaVigente fora do evento -> dia', formato.diaVigente?.(new Date('2026-09-20T10:00:00-04:00'))?.dia, '2026-09-05');
 igual('diaVigente fora do evento -> foraDoEvento', formato.diaVigente?.(new Date('2026-09-20T10:00:00-04:00'))?.foraDoEvento, true);
 igual('diaVigente dentro do evento -> foraDoEvento false', formato.diaVigente?.(new Date('2026-09-06T10:00:00-04:00'))?.foraDoEvento, false);
+
+// Bloqueio de dia (ajuste funcional): na correria do ponto um toque errado no
+// seletor abre o quadro de outro dia sem sinal evidente, e o operador passa a
+// informar horario que nao e o de hoje. Durante o evento so o dia em operacao
+// abre; antes dele os tres, para a preparacao; depois, so o ultimo.
+const liberados = (iso) => JSON.stringify(formato.diasLiberados?.(new Date(iso)));
+
+igual('antes do evento libera os 3 dias', liberados('2026-09-02T10:00:00-04:00'),
+  '["2026-09-05","2026-09-06","2026-09-07"]');
+igual('no dia 05 so o 05 abre', liberados('2026-09-05T14:00:00-04:00'), '["2026-09-05"]');
+igual('no dia 06 so o 06 abre', liberados('2026-09-06T14:00:00-04:00'), '["2026-09-06"]');
+igual('no dia 07 so o 07 abre', liberados('2026-09-07T20:00:00-04:00'), '["2026-09-07"]');
+igual('depois do evento trava no 07', liberados('2026-09-20T10:00:00-04:00'), '["2026-09-07"]');
+
+// A operacao atravessa a madrugada e o dia operacional so vira as 03h. Se este
+// par inverter, o supervisor da noite perde o quadro que ainda esta rodando.
+igual('01:20 do dia 06 ainda e o dia 05', liberados('2026-09-06T01:20:00-04:00'), '["2026-09-05"]');
+igual('03:01 do dia 06 ja e o dia 06', liberados('2026-09-06T03:01:00-04:00'), '["2026-09-06"]');
 
 const p113 = linhas['113']?.dias?.['2026-09-05']?.passagens ?? [];
 igual('proximaPassagem 05/09 06:00 -> hora', formato.proximaPassagem?.(p113, new Date('2026-09-05T06:00:00-04:00'))?.hora, '06:13');

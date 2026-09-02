@@ -185,8 +185,26 @@ input {
   display: flex;
   gap: 8px;
   margin-top: 8px;
-  padding-bottom: 10px;
 }
+
+/* Dia fechado: apagado E sem cursor de clique. A opacidade sozinha seria fraca
+   demais no sol, então a borda também some — o botão deixa de parecer botão. */
+.botao-dia:disabled {
+  opacity: 0.4;
+  border-color: rgba(255, 255, 255, 0.25);
+  cursor: not-allowed;
+}
+
+.dias-nota {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* O respiro embaixo dos controles fica aqui, e não no #dias, para a nota (que
+   aparece e some) não deslocar a barra fixa. */
+#controles .envolve { padding-bottom: 10px; }
 
 /* Data e dia da semana lado a lado, e não empilhados: a mesma informação em
    44px (o mínimo de alvo de toque) em vez de 67px. */

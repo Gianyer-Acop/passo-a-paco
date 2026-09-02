@@ -39,13 +39,58 @@ function celula(texto, classe) {
 }
 
 /**
- * Monta a linha (<tr>) de uma viagem, tratando os edge cases de
- * continuacao (volta null) e baixada (ida null).
+ * Monta a faixa de INTERVALO DA TABELA.
+ *
+ * Sao as linhas com IDA e TERMINO mas sem VOLTA: o veiculo chega (a IDA repete
+ * o termino da viagem anterior), fica parado, e sai de novo no TERMINO. Nas
+ * 1372 ocorrencias da base, `termino - ida == tempoViagem` — a coluna T. VIAG.
+ * mede o tempo PARADO, nao um percurso.
+ *
+ * Ate aqui isso era exibido como uma linha comum, com "—" na VOLTA e um `title`
+ * que a descrevia como trecho de retorno — leitura errada, e invisivel no
+ * celular, que e onde este quadro e lido. Agora a faixa ocupa a largura toda e
+ * diz o que e: quem percorre o quadro precisa distinguir viagem de descanso a
+ * olho, sem contar colunas.
+ *
+ * @param {object} viagem
+ * @returns {HTMLTableRowElement}
+ */
+function faixaIntervalo(viagem) {
+  const tr = document.createElement('tr');
+  tr.className = 'linha-viagem linha-viagem--intervalo';
+
+  const td = document.createElement('td');
+  td.colSpan = 4;
+  td.className = 'quadro__intervalo';
+
+  const marca = document.createElement('span');
+  marca.className = 'quadro__intervalo-marca';
+  marca.textContent = 'Intervalo da tabela';
+  td.append(marca);
+
+  const detalhe = document.createElement('span');
+  detalhe.className = 'quadro__intervalo-detalhe';
+  const partes = [];
+  if (viagem.ida) partes.push('chega ' + hora(viagem.ida));
+  if (viagem.termino) partes.push('sai ' + hora(viagem.termino));
+  if (viagem.tempoViagem) partes.push(viagem.tempoViagem + ' parado');
+  detalhe.textContent = partes.join(' · ');
+  td.append(detalhe);
+
+  tr.append(td);
+  return tr;
+}
+
+/**
+ * Monta a linha (<tr>) de uma viagem, tratando o edge case da baixada
+ * (ida null). O intervalo (volta null) sai por `faixaIntervalo`.
  *
  * @param {object} viagem { ida, volta, termino, tempoViagem, tipo, continuacao }
  * @returns {HTMLTableRowElement}
  */
 function linhaViagem(viagem) {
+  if (viagem.tipo === 'continuacao' || viagem.continuacao) return faixaIntervalo(viagem);
+
   const tr = document.createElement('tr');
   if (viagem.tipo) tr.className = 'linha-viagem linha-viagem--' + viagem.tipo;
 
@@ -65,15 +110,7 @@ function linhaViagem(viagem) {
   }
 
   // VOLTA — passagem pelo ponto.
-  if (viagem.volta == null) {
-    const td = celula('—', 'quadro__vazia');
-    if (viagem.tipo === 'continuacao' || viagem.continuacao) {
-      td.title = 'Perna de retorno (continuacao): nao ha passagem pelo ponto aqui.';
-    }
-    tr.append(td);
-  } else {
-    tr.append(celula(hora(viagem.volta)));
-  }
+  tr.append(viagem.volta == null ? celula('—', 'quadro__vazia') : celula(hora(viagem.volta)));
 
   tr.append(celula(horaOuVazio(viagem.termino)));
   tr.append(celula(viagem.tempoViagem ?? ''));
@@ -215,9 +252,9 @@ function blocoLegenda() {
   const legenda = document.createElement('p');
   legenda.className = 'quadro__legenda';
   legenda.textContent =
-    '(+1) = madrugada do dia seguinte. Em "VOLTA", "—" indica perna de retorno ' +
-    '(continuação, sem passagem no ponto). Em "IDA", "sai do Centro" indica ' +
-    'viagem cortada: começa no retorno, sem vir do bairro.';
+    '(+1) = madrugada do dia seguinte. A faixa amarela é o intervalo da tabela: ' +
+    'o veículo fica parado entre uma viagem e a seguinte. Em "IDA", ' +
+    '"sai do Centro" indica viagem cortada, que começa no retorno, sem vir do bairro.';
   return legenda;
 }
 

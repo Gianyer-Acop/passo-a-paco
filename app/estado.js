@@ -16,7 +16,7 @@
 // opcional, o que nao quebra nenhuma chamada existente.
 
 import { renderizar } from './telas.js';
-import { DIAS_EVENTO } from './formato.js';
+import { DIAS_EVENTO, diasLiberados } from './formato.js';
 
 /** Telas que zeram a pilha: sao pontos de partida, nao destinos. */
 const TELAS_RAIZ = ['mapa', 'avisos'];
@@ -55,7 +55,10 @@ export function diaSelecionado() {
  * @param {string} diaISO
  */
 export function selecionarDia(diaISO) {
-  if (!DIAS_EVENTO.includes(diaISO) || diaISO === dia) return;
+  // O bloqueio mora AQUI, e nao so no botao desabilitado do cabecalho: e a
+  // unica porta de entrada da troca de dia, entao um dia fechado nao passa nem
+  // por chamada direta nem por um botao que tenha escapado da sincronizacao.
+  if (!diasLiberados().includes(diaISO) || diaISO === dia) return;
   dia = diaISO;
   notificar();
   if (atual.chave) renderizar(atual.chave, atual.params);

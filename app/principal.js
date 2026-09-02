@@ -5,7 +5,7 @@
 // registra em telas.js ao ser importado. Tela nova = import novo aqui.
 
 import { carregar } from './dados.js';
-import { diaVigente } from './formato.js';
+import { diaVigente, diasLiberados } from './formato.js';
 import {
   diaSelecionado,
   selecionarDia,
@@ -27,21 +27,65 @@ import './telas/avisos.js';
 
 const TELA_INICIAL = 'mapa';
 
-/** Liga os tres botoes de dia e mantem o aria-pressed em dia com o estado. */
+/** De quanto em quanto tempo o cabecalho reconfere que dia pode ser aberto. */
+const INTERVALO_RECONFERIR_DIA = 60 * 1000;
+
+/**
+ * Liga os tres botoes de dia, mantem o aria-pressed em dia com o estado e
+ * FECHA os dias que nao estao em operacao.
+ *
+ * O fechamento e o ponto desta funcao. Um toque errado no seletor abre o quadro
+ * de outro dia sem sinal evidente, e o operador passa a informar horario de um
+ * dia que nao e o de hoje — o erro que motivou isto.
+ *
+ * A reconferencia periodica nao e detalhe: a operacao atravessa a madrugada e o
+ * dia operacional vira as 03h. Numa aba aberta desde as 22h, sem isto o dia de
+ * ontem continuaria liberado e o de hoje fechado depois da virada, que e pior
+ * do que nao ter bloqueio nenhum.
+ */
 function ligarBotoesDeDia() {
   const botoes = [...document.querySelectorAll('#dias .botao-dia')];
+  const nota = document.getElementById('dias-nota');
 
   for (const botao of botoes) {
     botao.addEventListener('click', () => selecionarDia(botao.dataset.dia));
   }
 
   const sincronizar = () => {
+    const liberados = diasLiberados();
+
     for (const botao of botoes) {
-      botao.setAttribute('aria-pressed', String(botao.dataset.dia === diaSelecionado()));
+      const dia = botao.dataset.dia;
+      const liberado = liberados.includes(dia);
+
+      botao.setAttribute('aria-pressed', String(dia === diaSelecionado()));
+      botao.disabled = !liberado;
+
+      if (liberado) {
+        botao.removeAttribute('title');
+        botao.removeAttribute('aria-label');
+      } else {
+        // Botao desabilitado nao explica nada sozinho, e no celular nao ha
+        // hover para o title: o motivo vai tambem no aria-label.
+        const texto = botao.querySelector('.dia-numero')?.textContent ?? dia;
+        const motivo = 'não está em operação e não pode ser consultado';
+        botao.title = 'Dia ' + texto + ' ' + motivo + '.';
+        botao.setAttribute('aria-label', texto + ' — ' + motivo);
+      }
+    }
+
+    if (nota) nota.hidden = liberados.length === botoes.length;
+
+    // Se a virada das 03h fechou o dia que estava aberto na tela, traz o
+    // operador para o dia em operacao em vez de deixa-lo num quadro fechado.
+    if (!liberados.includes(diaSelecionado())) {
+      selecionarDia(liberados[liberados.length - 1]);
     }
   };
+
   aoMudar(sincronizar);
   sincronizar();
+  setInterval(sincronizar, INTERVALO_RECONFERIR_DIA);
 }
 
 /** Liga as abas Mapa / Avisos e mantem o aria-selected em dia. */
@@ -180,8 +224,12 @@ async function iniciar() {
     return;
   }
 
+  // `diaVigente` grampeia o resultado no primeiro dia do evento quando estamos
+  // fora dele, o que DEPOIS de 07/09 aponta para um dia ja fechado. Nesse caso
+  // vale o ultimo dia liberado.
+  const liberados = diasLiberados();
   const { dia, foraDoEvento } = diaVigente();
-  selecionarDia(dia);
+  selecionarDia(liberados.includes(dia) ? dia : liberados[liberados.length - 1]);
   if (foraDoEvento) avisarForaDoEvento();
 
   montarRodape();

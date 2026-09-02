@@ -99,9 +99,38 @@
   cursor: help;
 }
 
-.linha-viagem--continuacao,
 .linha-viagem--baixada {
   background: var(--cor-superficie);
+}
+
+/* Intervalo da tabela: o veículo fica parado entre uma viagem e a seguinte.
+   Amarelo porque precisa saltar aos olhos de quem percorre o quadro de cima a
+   baixo — a diferença entre viagem e descanso é a leitura mais importante
+   depois do horário em si. O texto "Intervalo da tabela" vai junto: a cor
+   nunca é o único indicador (RNF-06). */
+.linha-viagem--intervalo {
+  background: #FFF3C4;
+}
+
+.quadro__intervalo {
+  /* Anula o nowrap herdado de .quadro__tabela td: esta faixa quebra em duas
+     linhas no celular em vez de esticar a tabela. */
+  white-space: normal;
+  border-left: 4px solid var(--cor-evento-laranja);
+}
+
+.quadro__intervalo-marca {
+  font-weight: 700;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #6B4C00;   /* 6.2:1 sobre #FFF3C4 — aprova AA */
+}
+
+.quadro__intervalo-detalhe {
+  margin-left: 8px;
+  font-size: 0.8125rem;
+  color: #6B4C00;
 }
 
 .quadro__frequencia {

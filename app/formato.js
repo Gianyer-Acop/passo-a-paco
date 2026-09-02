@@ -100,20 +100,59 @@ function paraISO({ ano, mes, dia }) {
  * @returns {{dia: string, foraDoEvento: boolean}}
  */
 export function diaVigente(agora = new Date()) {
+  const dia = diaOperacional(agora);
+
+  return DIAS_EVENTO.includes(dia)
+    ? { dia, foraDoEvento: false }
+    : { dia: DIAS_EVENTO[0], foraDoEvento: true };
+}
+
+/**
+ * Dia operacional corrente em Manaus, SEM limitar aos dias do evento.
+ *
+ * `diaVigente` grampeia o resultado no primeiro dia do evento quando esta fora
+ * dele, o que perde a informacao de "antes" ou "depois" — e e justamente essa
+ * distincao que `diasLiberados` precisa.
+ *
+ * @param {Date} [agora]
+ * @returns {string} 'AAAA-MM-DD'
+ */
+function diaOperacional(agora = new Date()) {
   const partes = partesEmManaus(agora);
 
   // A subtracao e feita em UTC so para nao reintroduzir fuso no calculo de calendario.
   const emUTC = Date.UTC(partes.ano, partes.mes - 1, partes.dia);
   const ajustado = new Date(partes.hora < HORA_VIRADA ? emUTC - 86400000 : emUTC);
-  const dia = paraISO({
+  return paraISO({
     ano: ajustado.getUTCFullYear(),
     mes: ajustado.getUTCMonth() + 1,
     dia: ajustado.getUTCDate(),
   });
+}
 
-  return DIAS_EVENTO.includes(dia)
-    ? { dia, foraDoEvento: false }
-    : { dia: DIAS_EVENTO[0], foraDoEvento: true };
+/**
+ * Dias do evento que o operador pode abrir AGORA.
+ *
+ * Existe por um motivo de seguranca operacional, nao de interface: na correria
+ * do ponto, um toque errado no seletor de dia abre o quadro de outro dia sem
+ * nenhum sinal evidente, e o operador passa a informar horario de um dia que
+ * nao e o de hoje. Fechar os dias que nao estao em operacao elimina o erro.
+ *
+ *   durante o evento  -> so o dia em operacao (passados E futuros fechados)
+ *   antes do evento   -> os tres, para a equipe conferir na preparacao
+ *   depois do evento  -> so o ultimo dia, que foi o ultimo em operacao
+ *
+ * A comparacao de strings basta: 'AAAA-MM-DD' ordena igual a data.
+ *
+ * @param {Date} [agora]
+ * @returns {string[]} subconjunto de DIAS_EVENTO, sempre com pelo menos um dia
+ */
+export function diasLiberados(agora = new Date()) {
+  const dia = diaOperacional(agora);
+
+  if (DIAS_EVENTO.includes(dia)) return [dia];
+  if (dia < DIAS_EVENTO[0]) return [...DIAS_EVENTO];
+  return [DIAS_EVENTO[DIAS_EVENTO.length - 1]];
 }
 
 /**
