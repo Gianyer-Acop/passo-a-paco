@@ -11,8 +11,8 @@
 // `nome` e null em 50 das 77 linhas — exibir so o numero, nunca a string 'null'.
 
 import { registrar } from '../telas.js';
-import { linhas, ponto } from '../dados.js';
-import { irPara } from '../estado.js';
+import { linhas, ponto, temViagemExtra } from '../dados.js';
+import { irPara, diaSelecionado } from '../estado.js';
 
 /**
  * Remove acentos e normaliza para minusculas, para comparacao sem acento e
@@ -58,10 +58,14 @@ function itemLinha(linha) {
   botao.type = 'button';
   botao.className = 'resultado-busca';
 
+  // O ponto de embarque e a primeira coisa que o operador procura ao digitar
+  // um numero. Antes era so um circulo colorido de 14px: ilegivel no sol e
+  // inutil para quem nao decorou o codigo de cores. Agora vem com o texto.
   const p = ponto(linha.pontoId);
   if (p) {
     const marcador = document.createElement('span');
     marcador.className = 'resultado-busca__ponto ponto-' + p.id.toLowerCase();
+    marcador.textContent = 'Ponto ' + String(p.numero).padStart(2, '0');
     botao.append(marcador);
   }
 
@@ -82,12 +86,24 @@ function itemLinha(linha) {
 
   botao.append(textos);
 
+  const marcas = document.createElement('span');
+  marcas.className = 'resultado-busca__marcas';
+
   if (linha.temProgramacaoEvento === false) {
     const marca = document.createElement('span');
     marca.className = 'resultado-busca__sem-alteracao';
     marca.textContent = 'sem alteração';
-    botao.append(marca);
+    marcas.append(marca);
   }
+
+  if (temViagemExtra(linha.numero, diaSelecionado())) {
+    const extra = document.createElement('span');
+    extra.className = 'resultado-busca__extra';
+    extra.textContent = 'extra 00h';
+    marcas.append(extra);
+  }
+
+  if (marcas.childElementCount > 0) botao.append(marcas);
 
   botao.addEventListener('click', () => irPara('linha', { numero: linha.numero }));
 

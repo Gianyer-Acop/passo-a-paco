@@ -19,6 +19,7 @@ Regras estruturais das planilhas (ver docs/prd.md §9):
 Uso:  python ferramentas/gerar_dados.py
 """
 
+import copy
 import datetime
 import json
 import re
@@ -52,8 +53,22 @@ PONTO_POR_LINHA = {
     "P3": ["002", "515", "517", "535", "540", "600", "602", "604", "616", "619", "621",
            "650", "651", "652", "676", "690"],
     "P4": ["315", "319", "330", "340", "356", "357", "422", "439", "440", "442", "443",
-           "447", "448", "454", "455", "457", "461", "500", "560", "640"],
+           "444", "447", "448", "454", "455", "457", "461", "500", "560", "640"],
 }
+
+ENTRADA = RAIZ / "ferramentas" / "entrada"
+ARQ_NOMES = ENTRADA / "nomes_linhas.json"
+ARQ_ESCALAS = ENTRADA / "escalas_evento.json"
+
+# Tipos de escala aceitos em escalas_evento.json.
+ESCALAS_VALIDAS = {"DOMINGO", "SÁBADO", "SÁBADO E DOMINGO"}
+
+# A escala aparece solta numa célula ("DOMINGO") ou enterrada num título
+# ("PROPOSTA QUADRO OPERACIONAL, SÁBADO E DOMINGO, LINHA 123"). As alternativas
+# vão da mais longa para a mais curta, senão "SÁBADO E DOMINGO" casaria só como
+# "SÁBADO".
+ESCALA_NO_TEXTO = re.compile(
+    r"SEGUNDA A DOMINGO|S[ÁA]BADO E DOMINGO|DOMINGO|S[ÁA]BADO")
 
 # Quando a mesma linha aparece em mais de um arquivo (aconteceu com a 219, que
 # ficou nos Grupos 1 e 2 com versões diferentes), vale a aba do grupo cujo número
@@ -76,41 +91,54 @@ PONTOS = [
      "hotspot": {"x": 36.7, "y": 72.5}},
 ]
 
-# Nomes das linhas conforme pág. 3 da OS 057. Ausentes = None (UI mostra só o número).
-NOMES = {
-    "011": None,
-    "101": "SÃO RAIMUNDO / GLÓRIA / T1 / CENTRO",
-    "113": "AV. BRASIL / T1 / CENTRO",
-    "120": "PONTA NEGRA / T1 / CENTRO",
-    "121": "VILA MARINHO / T1 / CENTRO",
-    "126": "SIPAM / AV. BRASIL / T1 / CENTRO",
-    "214": "CONJ. HILÉIA / CENTRO",
-    "219": "A. MONTENEGRO / T1 / CENTRO",
-    "302": None,
-    "305": None,
-    "315": "STA. ETELVINA / E4 / DJ. BATISTA / T1 / CENTRO",
-    "320": None,
-    "321": "COM. SÃO JOÃO / E3-E2-E1 / T1 / CENTRO",
-    "340": "T7 / E3-E2-E1 / T1 / CENTRO",
-    "356": "RESID. VIVER MELHOR / T1 / CENTRO",
-    "357": None,
-    "422": "OSWALDO AMÉRICO / CENTRO",
-    "440": "AMAZ. MENDES II / T1 / CENTRO",
-    "443": "N. CIDADE / EST. 4-3 / DJ. BATISTA / T1 / CENTRO",
-    "448": "CIDADE DE DEUS / T1 / CENTRO",
-    "500": "NOVO ISRAEL / T1 / CENTRO",
-    "535": "ARMANDO MENDES / CENTRO",
-    "540": "OURO VERDE / T1 / CENTRO",
-    "560": "T4 / C. DEUS / NOVA CIDADE / T1 / CENTRO",
-    "604": "ANT. ALEIXO / T2 / CENTRO",
-    "608": "PETROPOLIS / T1 / CENTRO",
-    "612": "JAPIIM / T2 / CENTRO",
-    "640": "T4-3 / C. NOVA / E4-E3-E2-E1 / T1 / CENTRO",
-    "650": "T4 / T5 / TEFÉ / T2 / CENTRO",
-    "652": "T4-T5 / E. SALES / E1 / T1 / CENTRO",
-    "676": "VALPARAÍSO / ALEIXO / DJALMA / CENTRO",
-    "713": "JARDIM MAUÁ / CEASA / T2 / CENTRO",
-}
+# Nomes/itinerários das linhas e escalas declaradas vêm de ferramentas/entrada/,
+# editados à mão (ver ferramentas/entrada/LEIA-ME.md). Ficam fora deste arquivo
+# de propósito: são a parte que muda a cada edição da OS, e quem edita não
+# precisa mexer em Python.
+
+def ler_entrada(caminho):
+    """Lê um JSON de ferramentas/entrada/, com falha explícita e legível."""
+    if not caminho.exists():
+        sys.exit("ERRO: arquivo de entrada ausente: %s. "
+                 "Veja ferramentas/entrada/LEIA-ME.md." % caminho)
+    try:
+        with open(caminho, encoding="utf-8") as f:
+            dados = json.load(f)
+    except json.JSONDecodeError as e:
+        sys.exit("ERRO: %s não é JSON válido (linha %d, coluna %d): %s"
+                 % (caminho.name, e.lineno, e.colno, e.msg))
+    if not isinstance(dados, dict):
+        sys.exit("ERRO: %s deve ser um objeto {\"linha\": ...}" % caminho.name)
+    return dados
+
+
+def ler_nomes():
+    nomes = ler_entrada(ARQ_NOMES)
+    for num, valor in nomes.items():
+        if not re.match(r"^\d{3}$", str(num)):
+            sys.exit("ERRO: nomes_linhas.json: chave %r não é um número de linha "
+                     "de 3 dígitos" % num)
+        if valor is not None and not isinstance(valor, str):
+            sys.exit("ERRO: nomes_linhas.json: %s deve ter texto ou null" % num)
+    return {k: (v.strip() or None) if isinstance(v, str) else None
+            for k, v in nomes.items()}
+
+
+def ler_escalas():
+    escalas = ler_entrada(ARQ_ESCALAS)
+    for num, porDia in escalas.items():
+        if not isinstance(porDia, dict):
+            sys.exit("ERRO: escalas_evento.json: %s deve ser um objeto "
+                     "{dia: tipo}" % num)
+        for dia, tipo in porDia.items():
+            if dia not in DIAS:
+                sys.exit("ERRO: escalas_evento.json: %s tem o dia %r, fora de %s"
+                         % (num, dia, DIAS))
+            if tipo is not None and tipo not in ESCALAS_VALIDAS:
+                sys.exit("ERRO: escalas_evento.json: %s/%s tem %r; aceitos: %s ou null"
+                         % (num, dia, tipo, ", ".join(sorted(ESCALAS_VALIDAS))))
+    return escalas
+
 
 # Concessionárias citadas na OS 057. A célula da planilha mistura
 # "EMPRESA - TIPO DE VEÍCULO" com apenas "TIPO DE VEÍCULO", então a empresa só é
@@ -451,15 +479,16 @@ def ler_notas(linhas):
 
 
 def ler_escala_base(linhas):
-    """Metadados da aba que NAO e do evento: escala regular antiga da linha.
+    """Metadados da aba que NAO e do evento: escala regular da linha.
 
     Essas abas tem um unico bloco, com data de referencia propria (de 2021 a
-    2026) e tipo de dia generico (DOMINGO / SABADO E DOMINGO). Nao servem como
-    horario do evento e por isso nao viram quadro; so o registro fica.
+    2026) e tipo de dia generico (DOMINGO / SABADO E DOMINGO). O QUADRO delas e
+    publicado normalmente (ler_aba replica o bloco nos 3 dias); estes metadados
+    ficam so para o relatorio e para conferir contra escalas_evento.json.
     """
     ref = None
-    tipo = None
-    for i, r in enumerate(linhas[:4], 1):
+    candidatos = []
+    for i, r in enumerate(linhas[:5], 1):
         for c in r:
             if i == 2:
                 if isinstance(c, datetime.datetime) and c.year > 1900:
@@ -467,11 +496,105 @@ def ler_escala_base(linhas):
                 elif isinstance(c, str) and re.match(r"\d{2}/\d{2}/\d{4}", c.strip()):
                     d, m, a = c.strip()[:10].split("/")
                     ref = ref or "%s-%s-%s" % (a, m, d)
-            if i == 3:
-                s = txt(c)
-                if s and "TURNO" not in s.upper() and not re.match(r"^\d{2}:\d{2}", s):
-                    tipo = tipo or s
+            s = txt(c)
+            if not s:
+                continue
+            alto = re.sub(r"\s+", " ", s.upper())
+            # "FREQUÊNCIA DA LINHA 112" é o título do painel lateral, não a
+            # escala: em 5 abas (112, 507, 515, 609, 625) ele cai na mesma
+            # linha e era capturado como se fosse o tipo de dia.
+            # "SEM COBRADOR AOS DOMINGOS" fala do cobrador, não da escala.
+            if "FREQU" in alto or "TURNO" in alto or "COBRADOR" in alto:
+                continue
+            achado = ESCALA_NO_TEXTO.search(alto)
+            if achado:
+                candidatos.append(achado.group(0))
+    # A redação mais completa vence: "SÁBADO E DOMINGO" ganha de "DOMINGO"
+    # quando os dois aparecem na mesma aba.
+    tipo = max(candidatos, key=len) if candidatos else None
     return {"dataReferencia": ref, "tipoDia": tipo}
+
+
+def ler_bloco(linhas, ini, fim, limite, aba, dia):
+    """Le UM bloco de escala — o de um dia do evento ou a aba regular inteira.
+
+    Mesmo formato de saida nos dois casos, para que a UI nao precise distinguir
+    linha com e sem programacao especial.
+    """
+    bloco = linhas[ini:fim]
+
+    freq = ler_painel_frequencia(linhas, ini, fim, limite)
+    turnos, empresa = ler_turnos(bloco, aba, dia)
+
+    total = None
+    tipo_dia = None
+    for r in bloco:
+        for c in r:
+            s = txt(c)
+            if not s:
+                continue
+            if "VIAGENS" in s.upper():
+                m = re.search(r"(\d+)", s)
+                if m:
+                    total = int(m.group(1))
+            if "PASSO A PAÇO" in s.upper():
+                tipo_dia = s
+
+    # PASSAGENS pelo ponto de embarque = coluna VOLTA.
+    # IDA e a saida do terminal de origem, no bairro. VOLTA e o momento em
+    # que o veiculo esta no Centro, que e onde ficam os 4 pontos da Av.
+    # Epaminondas. O operador no ponto precisa da VOLTA, nao da IDA.
+    # O horario e APROXIMADO e a UI deve dizer isso.
+    passagens = sorted(
+        v["volta"] for t in turnos for tb in t["tabelas"] for v in tb["viagens"]
+        if v["tipo"] != "continuacao" and v["volta"])
+
+    # Viagens "cortadas": comecam no retorno, saindo do Centro, sem ter vindo do
+    # bairro (tipo "baixada", IDA vazia). O horario delas E uma passagem pelo
+    # ponto, mas o onibus PARTE dali — a UI precisa marcar isso.
+    passagens_cortadas = sorted(
+        v["volta"] for t in turnos for tb in t["tabelas"] for v in tb["viagens"]
+        if v["tipo"] == "baixada" and v["volta"])
+
+    # Painel de frequencia: partidas do terminal de ORIGEM. Mantido como
+    # referencia e para validar a integridade da planilha. NAO e o que o
+    # site mostra ao operador.
+    saidas_origem = [f["hora"] for f in freq]
+    # Uma partida do painel pode corresponder ao IDA de uma viagem normal ou
+    # ao VOLTA — nas baixadas (viagem que começa no retorno) e, na 305, nas
+    # partidas do outro terminal, que o painel também conta.
+    partidas = set()
+    for t in turnos:
+        for tb in t["tabelas"]:
+            for v in tb["viagens"]:
+                if v["continuacao"]:
+                    continue
+                partidas.update(x for x in (v["ida"], v["volta"]) if x)
+    conflitos = []
+    so_painel = [h for h in saidas_origem if h not in partidas]
+    so_quadro = sorted(
+        v["ida"] for t in turnos for tb in t["tabelas"] for v in tb["viagens"]
+        if v["tipo"] == "normal" and v["ida"] not in set(saidas_origem))
+    if so_painel or so_quadro:
+        conflitos.append({
+            "tipo": "painel-x-quadro",
+            "soNoPainel": so_painel,
+            "soNoQuadro": so_quadro,
+            "nota": "Divergência na planilha de origem. As saídas publicadas seguem "
+                    "o painel de frequência, que bate com o total declarado.",
+        })
+
+    return {
+        "tipoDia": tipo_dia,
+        "totalViagens": total,
+        "passagens": passagens,
+        "passagensCortadas": passagens_cortadas,
+        "saidasOrigem": saidas_origem,
+        "frequencia": freq,
+        "origemMista": any(f["origem"] for f in freq),
+        "turnos": turnos,
+        "conflitos": conflitos,
+    }, empresa
 
 
 def ler_aba(ws, aba):
@@ -479,8 +602,17 @@ def ler_aba(ws, aba):
     blocos = achar_blocos_de_dia(linhas)
 
     if not blocos:
-        # Aba de escala regular, sem programacao do evento.
-        return None, None, [], [], ler_escala_base(linhas)
+        # Aba de escala regular: um unico bloco, sem cabecalho de dia do evento.
+        # A estrutura interna e identica a das abas do evento (turnos, TABs,
+        # painel de frequencia, "N VIAGENS"), entao passa pelo mesmo leitor e o
+        # resultado e replicado nos 3 dias — 05 e 07/09 sao feriados e a linha
+        # roda a mesma escala nos tres.
+        base = ler_escala_base(linhas)
+        bloco, empresa = ler_bloco(linhas, 0, len(linhas), len(linhas), aba,
+                                   "escala regular")
+        observacoes, legenda = ler_notas(linhas)
+        dias = {dia: copy.deepcopy(bloco) for dia in DIAS}
+        return dias, empresa, observacoes, legenda, base
 
     if len(blocos) != 3:
         avisar("%s: %d blocos de dia do evento (esperado 3)" % (aba, len(blocos)))
@@ -513,82 +645,37 @@ def ler_aba(ws, aba):
             if rotulo:
                 break
 
-        freq = ler_painel_frequencia(linhas, ini, fim, limite)
-        turnos, emp = ler_turnos(bloco, aba, dia)
+        dias[dia], emp = ler_bloco(linhas, ini, fim, limite, aba, dia)
         empresa = empresa or emp
 
-        total = None
-        tipo_dia = None
-        for r in bloco:
-            for c in r:
-                s = txt(c)
-                if not s:
-                    continue
-                if "VIAGENS" in s.upper():
-                    m = re.search(r"(\d+)", s)
-                    if m:
-                        total = int(m.group(1))
-                if "PASSO A PAÇO" in s.upper():
-                    tipo_dia = s
-
-        # PASSAGENS pelo ponto de embarque = coluna VOLTA.
-        # IDA e a saida do terminal de origem, no bairro. VOLTA e o momento em
-        # que o veiculo esta no Centro, que e onde ficam os 4 pontos da Av.
-        # Epaminondas. O operador no ponto precisa da VOLTA, nao da IDA.
-        # O horario e APROXIMADO e a UI deve dizer isso.
-        passagens = sorted(
-            v["volta"] for t in turnos for tb in t["tabelas"] for v in tb["viagens"]
-            if v["tipo"] != "continuacao" and v["volta"])
-
-        # Painel de frequencia: partidas do terminal de ORIGEM. Mantido como
-        # referencia e para validar a integridade da planilha. NAO e o que o
-        # site mostra ao operador.
-        saidas_origem = [f["hora"] for f in freq]
-        # Uma partida do painel pode corresponder ao IDA de uma viagem normal ou
-        # ao VOLTA — nas baixadas (viagem que começa no retorno) e, na 305, nas
-        # partidas do outro terminal, que o painel também conta.
-        partidas = set()
-        for t in turnos:
-            for tb in t["tabelas"]:
-                for v in tb["viagens"]:
-                    if v["continuacao"]:
-                        continue
-                    partidas.update(x for x in (v["ida"], v["volta"]) if x)
-        conflitos = []
-        so_painel = [h for h in saidas_origem if h not in partidas]
-        so_quadro = sorted(
-            v["ida"] for t in turnos for tb in t["tabelas"] for v in tb["viagens"]
-            if v["tipo"] == "normal" and v["ida"] not in set(saidas_origem))
-        if so_painel or so_quadro:
-            conflitos.append({
-                "tipo": "painel-x-quadro",
-                "soNoPainel": so_painel,
-                "soNoQuadro": so_quadro,
-                "nota": "Divergência na planilha de origem. As saídas publicadas seguem "
-                        "o painel de frequência, que bate com o total declarado.",
-            })
-
-        dias[dia] = {
-            "tipoDia": tipo_dia,
-            "totalViagens": total,
-            "passagens": passagens,
-            "saidasOrigem": saidas_origem,
-            "frequencia": freq,
-            "origemMista": any(f["origem"] for f in freq),
-            "turnos": turnos,
-            "conflitos": conflitos,
-        }
     observacoes, legenda = ler_notas(linhas)
     return dias, empresa, observacoes, legenda, None
 
 
 # ------------------------------------------------------------------ validações
 
-def validar(linhas_json):
+def validar(linhas_json, escalas):
     erros = []
     for num, L in sorted(linhas_json.items()):
-        if not L["temProgramacaoEvento"]:
+        # Vale para TODA linha publicada com quadro — as de evento e as de
+        # escala regular, que desde a §1.2 tambem entram em dias{}.
+        if not L["dias"]:
+            erros.append("%s: publicada sem nenhum quadro horário" % num)
             continue
+        if not L["temProgramacaoEvento"]:
+            declarado = escalas.get(num)
+            if not declarado:
+                erros.append("%s: sem escala declarada em escalas_evento.json" % num)
+            else:
+                lida = (L["escalaBase"] or {}).get("tipoDia")
+                for dia in DIAS:
+                    tipo = declarado.get(dia)
+                    if not tipo:
+                        erros.append("%s/%s: escala declarada em branco "
+                                     "(escalas_evento.json)" % (num, dia))
+                    elif lida and tipo not in lida.upper():
+                        avisar("%s/%s: escala declarada %s difere da aba (%s); "
+                               "publicado o quadro da aba" % (num, dia, tipo, lida))
         for dia in DIAS:
             b = L["dias"].get(dia)
             if not b:
@@ -637,6 +724,8 @@ def validar(linhas_json):
 def main():
     linhas_json = {}
     ponto_de = {n: p for p, ns in PONTO_POR_LINHA.items() for n in ns}
+    nomes = ler_nomes()
+    escalas = ler_escalas()
 
     for g in GRUPOS:
         wb = openpyxl.load_workbook(PLANILHAS / g, data_only=True)
@@ -654,7 +743,7 @@ def main():
                 avisar("%s: linha sem ponto mapeado (arquivo %s)" % (num, g))
             linhas_json[num] = {
                 "numero": num,
-                "nome": NOMES.get(num),
+                "nome": nomes.get(num),
                 "empresa": empresa,
                 "grupoOrigem": g,
                 "pontoId": ponto_de.get(num),
@@ -667,9 +756,12 @@ def main():
                 "legendaViagens": legenda,
                 "dias": dias or {},
             }
+            if num not in nomes:
+                avisar("%s: linha ausente de nomes_linhas.json; publicada sem "
+                       "itinerário" % num)
             if base is not None:
                 avisar("%s: aba e escala regular (ref. %s, %s), sem programacao do "
-                       "evento; publicada so com o ponto de embarque"
+                       "evento; quadro replicado nos 3 dias"
                        % (num, base["dataReferencia"], base["tipoDia"]))
 
     for p in PONTOS:
@@ -693,7 +785,7 @@ def main():
         "avisos": AVISOS,
     }
 
-    erros = validar(linhas_json)
+    erros = validar(linhas_json, escalas)
 
     SAIDA.parent.mkdir(parents=True, exist_ok=True)
     with open(SAIDA, "w", encoding="utf-8") as f:

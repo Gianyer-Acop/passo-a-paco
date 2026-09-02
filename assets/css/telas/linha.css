@@ -201,3 +201,71 @@
 .linha__quadro-conteudo {
   margin-top: var(--espaco);
 }
+
+/* ------------------------------------------- selos, cortadas e link geral */
+
+/* Selos do cabeçalho: "sem alteração" e "viagem extra após 00h". Os dois
+   carregam texto — a cor nunca é o único indicador (RNF-06). */
+.linha__selos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0 0 0;
+}
+
+.selo {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.selo--sem-alteracao {
+  background: var(--cor-superficie);
+  color: var(--cor-texto-suave);
+  border: 1px solid var(--cor-borda);
+}
+
+/* --ponto-p4 (#E31E24) mede 4.69:1 com branco por cima — aprova AA. */
+.selo--extra {
+  background: var(--ponto-p4);
+  color: #FFFFFF;
+}
+
+/* Viagem cortada: o ônibus parte do Centro. O asterisco é o indicador
+   textual, explicado em .linha__grade-legenda logo abaixo da grade. */
+.badge-passagem--cortada {
+  border-style: dashed;
+  border-color: var(--ponto-p4);
+}
+
+.badge-passagem__marca {
+  margin-left: 2px;
+  color: var(--ponto-p4);
+  font-weight: 700;
+}
+
+.linha__grade-legenda {
+  margin: 8px 0 0 0;
+  font-size: 0.8125rem;
+  color: var(--cor-texto-suave);
+}
+
+.linha__link-avisos {
+  display: block;
+  width: 100%;
+  margin-top: var(--espaco);
+  padding: 10px 16px;
+  min-height: var(--alvo-toque);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  background: var(--cor-superficie);
+  color: var(--cor-evento-azul);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.linha__link-avisos:hover {
+  background: var(--cor-fundo);
+}

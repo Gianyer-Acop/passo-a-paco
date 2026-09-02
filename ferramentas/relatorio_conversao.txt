@@ -1,11 +1,11 @@
-RELATÓRIO DE CONVERSÃO — 2026-09-01T15:30:58-04:00
+RELATÓRIO DE CONVERSÃO — 2026-09-02T08:45:29-04:00
 
 Linhas na base: 77
   com programação do evento: 34 (102 blocos linha-dia)
   só escala regular, sem evento: 43 -> 002, 004, 110, 111, 112, 119, 123, 127, 129, 203, 205, 207, 211, 221, 223, 306, 319, 324, 330, 403, 427, 439, 447, 452, 454, 455, 457, 461, 507, 515, 517, 600, 602, 606, 609, 611, 619, 625, 651, 704, 706, 708, 711
-Passagens pelo ponto (VOLTA, publicadas): 2960
-Saídas do terminal de origem (IDA, referência): 2963
-Viagens no quadro completo: 3695
+Passagens pelo ponto (VOLTA, publicadas): 5507
+Saídas do terminal de origem (IDA, referência): 5510
+Viagens no quadro completo: 6857
 
 LINHA  DIA           DECL  ORIG PASSA  VIAG 1ªPASSAG ÚLTIMA  
 011    2026-09-05      18    18    18    24 05:47    25:27   
@@ -112,53 +112,53 @@ LINHA  DIA           DECL  ORIG PASSA  VIAG 1ªPASSAG ÚLTIMA
 713    2026-09-07      21    21    21    27 05:55    25:29   
 
 AVISOS DE CONVERSÃO (47):
-  004: aba e escala regular (ref. 2024-04-21, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  203: aba e escala regular (ref. 2025-05-10, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  205: aba e escala regular (ref. 2026-04-25, SÁBADO E DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  207: aba e escala regular (ref. 2026-06-14, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  223: aba e escala regular (ref. 2025-03-16, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  403: aba e escala regular (ref. 2024-06-08, SÁBADO E DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  427: aba e escala regular (ref. 2025-11-08, SÁBADO E DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  452: aba e escala regular (ref. 2025-01-18, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  507: aba e escala regular (ref. 2024-01-28, FREQUÊNCIA DA LINHA 507), sem programacao do evento; publicada so com o ponto de embarque
-  606: aba e escala regular (ref. 2025-03-15, SÁBADO E DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  609: aba e escala regular (ref. 2023-06-20, FREQUÊNCIA DA LINHA 609), sem programacao do evento; publicada so com o ponto de embarque
-  611: aba e escala regular (ref. 2024-10-05, SÁBADO E DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  625: aba e escala regular (ref. 2021-05-09, FREQUENCIA DA LINHA  625), sem programacao do evento; publicada so com o ponto de embarque
-  704: aba e escala regular (ref. 2024-01-07, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  706: aba e escala regular (ref. 2026-08-29, SÁBADO E  DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  708: aba e escala regular (ref. 2026-02-15, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  711: aba e escala regular (ref. 2025-03-16, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  110: aba e escala regular (ref. 2025-03-16, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  111: aba e escala regular (ref. 2025-03-01, SÁBADO E DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  112: aba e escala regular (ref. 2025-02-09, FREQUÊNCIA DA LINHA 112), sem programacao do evento; publicada so com o ponto de embarque
-  119: aba e escala regular (ref. 2026-06-20, SÁBADO E DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  123: aba e escala regular (ref. 2026-08-15, SÁBADO E DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  127: aba e escala regular (ref. 2025-04-06, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  129: aba e escala regular (ref. 2025-07-06, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  211: aba e escala regular (ref. 2026-04-25, SÁBADO E DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  221: aba e escala regular (ref. 2024-06-09, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  306: aba e escala regular (ref. 2026-04-12, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  324: aba e escala regular (ref. 2026-06-21, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  002: aba e escala regular (ref. 2022-09-25, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  515: aba e escala regular (ref. 2026-03-29, FREQUÊNCIA DA LINHA 515), sem programacao do evento; publicada so com o ponto de embarque
-  517: aba e escala regular (ref. 2025-03-16, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  600: aba e escala regular (ref. 2026-08-23, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  602: aba e escala regular (ref. 2025-05-17, SÁBADO), sem programacao do evento; publicada so com o ponto de embarque
-  619: aba e escala regular (ref. 2026-06-13, SÁBADO), sem programacao do evento; publicada so com o ponto de embarque
-  651: aba e escala regular (ref. 2024-11-24, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  319: aba e escala regular (ref. 2025-01-12, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  330: aba e escala regular (ref. 2025-09-13, SÁBADO E DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  439: aba e escala regular (ref. 2022-10-02, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  447: aba e escala regular (ref. 2021-01-22, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  454: aba e escala regular (ref. 2025-01-11, SÁBADO E DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  455: aba e escala regular (ref. 2026-08-23, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
-  457: aba e escala regular (ref. 2025-05-18, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  004: aba e escala regular (ref. 2024-04-21, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  203: aba e escala regular (ref. 2025-05-10, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  205: aba e escala regular (ref. 2026-04-25, SÁBADO E DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  207: aba e escala regular (ref. 2026-06-14, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  223: aba e escala regular (ref. 2025-03-16, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  403: aba e escala regular (ref. 2024-06-08, SÁBADO E DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  427: aba e escala regular (ref. 2025-11-08, SÁBADO E DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  452: aba e escala regular (ref. 2025-01-18, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  507: aba e escala regular (ref. 2024-01-28, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  606: aba e escala regular (ref. 2025-03-15, SÁBADO E DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  609: aba e escala regular (ref. 2023-06-20, SEGUNDA A DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  611: aba e escala regular (ref. 2024-10-05, SÁBADO E DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  625: aba e escala regular (ref. 2021-05-09, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  704: aba e escala regular (ref. 2024-01-07, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  706: aba e escala regular (ref. 2026-08-29, SÁBADO E DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  708: aba e escala regular (ref. 2026-02-15, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  711: aba e escala regular (ref. 2025-03-16, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  110: aba e escala regular (ref. 2025-03-16, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  111: aba e escala regular (ref. 2025-03-01, SÁBADO E DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  112: aba e escala regular (ref. 2025-02-09, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  119: aba e escala regular (ref. 2026-06-20, SÁBADO E DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  123: aba e escala regular (ref. 2026-08-15, SÁBADO E DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  127: aba e escala regular (ref. 2025-04-06, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  129: aba e escala regular (ref. 2025-07-06, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  211: aba e escala regular (ref. 2026-04-25, SÁBADO E DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  221: aba e escala regular (ref. 2024-06-09, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  306: aba e escala regular (ref. 2026-04-12, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  324: aba e escala regular (ref. 2026-06-21, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  002: aba e escala regular (ref. 2022-09-25, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  515: aba e escala regular (ref. 2026-03-29, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  517: aba e escala regular (ref. 2025-03-16, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  600: aba e escala regular (ref. 2026-08-23, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  602: aba e escala regular (ref. 2025-05-17, SÁBADO), sem programacao do evento; quadro replicado nos 3 dias
+  619: aba e escala regular (ref. 2026-06-13, SÁBADO), sem programacao do evento; quadro replicado nos 3 dias
+  651: aba e escala regular (ref. 2024-11-24, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  319: aba e escala regular (ref. 2025-01-12, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  330: aba e escala regular (ref. 2025-09-13, SÁBADO E DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  439: aba e escala regular (ref. 2022-10-02, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  447: aba e escala regular (ref. 2021-01-22, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  454: aba e escala regular (ref. 2025-01-11, SÁBADO E DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  455: aba e escala regular (ref. 2026-08-23, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
+  457: aba e escala regular (ref. 2025-05-18, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
   448: bloco 3 rotulado 2026-09-05 na planilha; usando 2026-09-07 (posição)
-  461: aba e escala regular (ref. 2024-02-11, DOMINGO), sem programacao do evento; publicada so com o ponto de embarque
+  461: aba e escala regular (ref. 2024-02-11, DOMINGO), sem programacao do evento; quadro replicado nos 3 dias
   P1: linhas da arte sem aba nenhuma: 209, 502, 610
   P3: linhas da arte sem aba nenhuma: 616, 690
-  P4: linhas da arte sem aba nenhuma: 442
+  P4: linhas da arte sem aba nenhuma: 442, 444
 
 ERROS DE VALIDAÇÃO (0):
   nenhum

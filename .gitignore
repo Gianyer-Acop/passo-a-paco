@@ -4,3 +4,6 @@ Passo a paço/dados/
 # Python
 __pycache__/
 *.pyc
+
+# Arquivos de bloqueio do Excel
+~$*

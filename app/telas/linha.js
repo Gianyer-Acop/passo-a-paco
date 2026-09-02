@@ -7,9 +7,16 @@
 //
 // Params: { numero } — string de 3 digitos ('608').
 //
-// Caso A (temProgramacaoEvento: false): tela reduzida, sem nenhum horario.
-// Caso B (temProgramacaoEvento: true): cabecalho + avisos + observacoes +
-// legenda + grade de passagens + botao "Ver quadro completo".
+// TODA linha tem quadro, inclusive as sem programacao especial: desde que o
+// gerador passou a publicar tambem a escala regular (replicada nos 3 dias do
+// evento), `dias[dia]` tem o mesmo formato para as 77 linhas. A unica diferenca
+// visivel e o selo "sem alteracao" no cabecalho. Nada de tipo de escala nem de
+// data de referencia na tela — decisao de produto: o operador quer o horario,
+// e uma data de 2021 so confunde.
+//
+// Os avisos gerais (`linhas: 'todas'`) NAO entram aqui: eles ja estao na aba
+// Avisos, e repeti-los em toda linha era ruido. So os avisos que citam o numero
+// da linha aparecem, mais um link para os gerais.
 //
 // PROIBIDO ler o campo de partida do bairro (o vizinho de `passagens` dentro
 // de `dias[dia]`). Ele nao e a passagem pelo ponto: na linha 604 mostraria
@@ -17,8 +24,8 @@
 // "passagem prevista pelo ponto" e sinalizado como aproximado.
 
 import { registrar } from '../telas.js';
-import { linha, ponto, avisosDe } from '../dados.js';
-import { diaSelecionado } from '../estado.js';
+import { linha, ponto, avisosEspecificosDe, avisosGeraisDoDia, temViagemExtra } from '../dados.js';
+import { diaSelecionado, irPara } from '../estado.js';
 import { hora, diaVigente, proximaPassagem } from '../formato.js';
 import { renderizarQuadroCompleto } from './quadro.js';
 
@@ -164,12 +171,36 @@ function agruparPorHora(passagens) {
 }
 
 /**
+ * Selo de "viagem extra apos 00h". Texto sempre presente: a cor nunca e o
+ * unico indicador (RNF-06).
+ * @returns {HTMLElement}
+ */
+function seloViagemExtra() {
+  const selo = document.createElement('span');
+  selo.className = 'selo selo--extra';
+  selo.textContent = 'viagem extra após 00h';
+  return selo;
+}
+
+/**
+ * Selo de linha sem programacao especial para o evento.
+ * @returns {HTMLElement}
+ */
+function seloSemAlteracao() {
+  const selo = document.createElement('span');
+  selo.className = 'selo selo--sem-alteracao';
+  selo.textContent = 'sem alteração';
+  return selo;
+}
+
+/**
  * Monta a grade de passagens agrupada por hora.
  * @param {string[]} passagens
  * @param {string|null} destaqueBruto valor bruto da proxima passagem, ou null
+ * @param {string[]} cortadas horarios que sao viagem cortada (saem do Centro)
  * @returns {HTMLElement}
  */
-function gradePassagens(passagens, destaqueBruto) {
+function gradePassagens(passagens, destaqueBruto, cortadas = []) {
   const grade = document.createElement('div');
   grade.className = 'grade-passagens';
 
@@ -192,6 +223,18 @@ function gradePassagens(passagens, destaqueBruto) {
         badge.classList.add('badge-passagem--proxima');
       }
       badge.textContent = item.formatado;
+      // Viagem cortada: o onibus PARTE do Centro, nao chega ao ponto vindo do
+      // bairro. O asterisco (explicado na legenda logo abaixo da grade) e o
+      // indicador textual — a cor sozinha nao serviria (RNF-06).
+      if (cortadas.includes(item.bruto)) {
+        badge.classList.add('badge-passagem--cortada');
+        const marca = document.createElement('span');
+        marca.className = 'badge-passagem__marca';
+        marca.textContent = '*';
+        badge.append(marca);
+        badge.title = 'Viagem cortada: sai do Centro.';
+        badge.setAttribute('aria-label', item.formatado + ' — viagem cortada, sai do Centro');
+      }
       minutos.append(badge);
     }
     linhaHora.append(minutos);
@@ -223,37 +266,13 @@ function destaqueProximaPassagem(passagens) {
 }
 
 /**
- * Renderiza o Caso A — linha sem programacao especial para o evento.
- * Nenhum horario e exibido; `escalaBase.dataReferencia` nunca aparece.
- * @param {HTMLElement} elemento
- * @param {object} objetoLinha
- */
-function renderSemProgramacao(elemento, objetoLinha) {
-  const secao = document.createElement('section');
-  secao.className = 'tela-linha tela-linha--simples';
-
-  secao.append(cabecalhoNumeroNome(objetoLinha));
-  secao.append(cartaoPonto(ponto(objetoLinha.pontoId)));
-
-  const objetoPonto = ponto(objetoLinha.pontoId);
-  const rotuloPonto = objetoPonto ? 'Ponto ' + String(objetoPonto.numero).padStart(2, '0') : 'o ponto indicado';
-
-  const mensagem = document.createElement('p');
-  mensagem.className = 'linha__mensagem-regular';
-  mensagem.textContent =
-    'Esta linha não teve alteração para o Passo a Paço. Embarque no ' + rotuloPonto + ' e siga a escala regular.';
-  secao.append(mensagem);
-
-  elemento.append(secao);
-}
-
-/**
- * Renderiza o Caso B — linha com programacao especial para o evento.
+ * Renderiza a tela de uma linha num dia. Vale para as 77 linhas: as com
+ * programacao especial e as que rodam a escala regular.
  * @param {HTMLElement} elemento
  * @param {object} objetoLinha
  * @param {string} dia 'AAAA-MM-DD'
  */
-function renderComProgramacao(elemento, objetoLinha, dia) {
+function renderLinha(elemento, objetoLinha, dia) {
   const secao = document.createElement('section');
   secao.className = 'tela-linha tela-linha--completa';
 
@@ -272,6 +291,12 @@ function renderComProgramacao(elemento, objetoLinha, dia) {
 
   cabecalho.append(cartaoPonto(ponto(objetoLinha.pontoId)));
 
+  const selos = document.createElement('p');
+  selos.className = 'linha__selos';
+  if (!objetoLinha.temProgramacaoEvento) selos.append(seloSemAlteracao());
+  if (temViagemExtra(objetoLinha.numero, dia)) selos.append(seloViagemExtra());
+  if (selos.childElementCount > 0) cabecalho.append(selos);
+
   const diaTexto = document.createElement('p');
   diaTexto.className = 'linha__dia';
   diaTexto.textContent = rotuloDia(dia);
@@ -280,7 +305,7 @@ function renderComProgramacao(elemento, objetoLinha, dia) {
   secao.append(cabecalho);
 
   // --------------------------------------------------------------- avisos
-  const avisos = avisosDe(objetoLinha.numero, dia);
+  const avisos = avisosEspecificosDe(objetoLinha.numero, dia);
   if (avisos.length > 0) {
     const secaoAvisos = document.createElement('section');
     secaoAvisos.className = 'linha__avisos';
@@ -305,6 +330,7 @@ function renderComProgramacao(elemento, objetoLinha, dia) {
   // ------------------------------------------------------- grade de horario
   const blocoDia = objetoLinha.dias?.[dia];
   const passagens = blocoDia?.passagens ?? [];
+  const cortadas = blocoDia?.passagensCortadas ?? [];
 
   const secaoGrade = document.createElement('section');
   secaoGrade.className = 'linha__grade';
@@ -327,7 +353,13 @@ function renderComProgramacao(elemento, objetoLinha, dia) {
   }
 
   if (passagens.length > 0) {
-    secaoGrade.append(gradePassagens(passagens, destaqueBruto));
+    secaoGrade.append(gradePassagens(passagens, destaqueBruto, cortadas));
+    if (cortadas.length > 0) {
+      const legenda = document.createElement('p');
+      legenda.className = 'linha__grade-legenda';
+      legenda.textContent = '* Viagem cortada: o ônibus sai do Centro, não vem do bairro.';
+      secaoGrade.append(legenda);
+    }
   } else {
     const vazio = document.createElement('p');
     vazio.className = 'estado-vazio';
@@ -369,6 +401,19 @@ function renderComProgramacao(elemento, objetoLinha, dia) {
   secaoQuadro.append(botaoQuadro, contentorQuadro);
   secao.append(secaoQuadro);
 
+  // ---------------------------------------------------------- avisos gerais
+  // Ficam a um toque de distancia, sem ocupar o card: sao os mesmos 6 avisos
+  // em todas as linhas, e a aba Avisos ja os lista por extenso.
+  const gerais = avisosGeraisDoDia(dia);
+  if (gerais.length > 0) {
+    const link = document.createElement('button');
+    link.type = 'button';
+    link.className = 'linha__link-avisos';
+    link.textContent = 'Ver avisos gerais (' + gerais.length + ')';
+    link.addEventListener('click', () => irPara('avisos'));
+    secao.append(link);
+  }
+
   elemento.append(secao);
 }
 
@@ -387,13 +432,7 @@ function render(elemento, params) {
     return;
   }
 
-  const dia = diaSelecionado();
-
-  if (!objetoLinha.temProgramacaoEvento) {
-    renderSemProgramacao(elemento, objetoLinha);
-  } else {
-    renderComProgramacao(elemento, objetoLinha, dia);
-  }
+  renderLinha(elemento, objetoLinha, diaSelecionado());
 }
 
 registrar('linha', { titulo: 'Linha', render });

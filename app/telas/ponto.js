@@ -8,7 +8,7 @@
 // Clique -> irPara('linha', { numero }).
 
 import { registrar } from '../telas.js';
-import { ponto, linha } from '../dados.js';
+import { ponto, linha, temViagemExtra } from '../dados.js';
 import { irPara, diaSelecionado } from '../estado.js';
 
 /**
@@ -26,9 +26,10 @@ function rotuloDia(diaISO) {
 /**
  * Monta o cartao de uma linha.
  * @param {object} lin objeto da linha
+ * @param {string} dia 'AAAA-MM-DD' — decide o selo de viagem extra
  * @returns {HTMLElement}
  */
-function cartaoLinha(lin) {
+function cartaoLinha(lin, dia) {
   const artigo = document.createElement('article');
   artigo.className = 'linha';
   artigo.role = 'button';
@@ -55,12 +56,26 @@ function cartaoLinha(lin) {
   }
   artigo.append(nome);
 
+  const marcadores = document.createElement('span');
+  marcadores.className = 'linha__marcadores';
+
   if (!lin.temProgramacaoEvento) {
     const marcador = document.createElement('span');
     marcador.className = 'linha__marcador';
     marcador.textContent = 'sem alteração';
-    artigo.append(marcador);
+    marcadores.append(marcador);
   }
+
+  // Linhas que rodam viagem extra depois da meia-noite sao as que o operador
+  // mais precisa achar na lista — o selo vem com texto, nunca so cor (RNF-06).
+  if (temViagemExtra(lin.numero, dia)) {
+    const extra = document.createElement('span');
+    extra.className = 'linha__marcador linha__marcador--extra';
+    extra.textContent = 'viagem extra após 00h';
+    marcadores.append(extra);
+  }
+
+  if (marcadores.childElementCount > 0) artigo.append(marcadores);
 
   return artigo;
 }
@@ -115,7 +130,7 @@ function render(elemento, params) {
 
   for (const lin of linhasOrdenadas) {
     const item = document.createElement('li');
-    item.append(cartaoLinha(lin));
+    item.append(cartaoLinha(lin, dia));
     lista.append(item);
   }
 

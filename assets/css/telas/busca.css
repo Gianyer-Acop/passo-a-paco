@@ -35,14 +35,18 @@
   background: var(--cor-superficie);
 }
 
-/* O ponto de embarque nunca e o unico indicador: a cor vem sempre ao lado
-   do numero e do nome da linha (RNF-06). */
+/* O ponto de embarque nunca e o unico indicador: a cor vem sempre com o texto
+   "Ponto NN" (RNF-06). --cor-ponto-sobre escolhe branco ou #1A1A1A conforme o
+   que alcanca AA sobre o preenchimento (base.css). */
 .resultado-busca__ponto {
   flex: 0 0 auto;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
+  padding: 4px 8px;
+  border-radius: var(--raio);
   background: var(--cor-ponto);
+  color: var(--cor-ponto-sobre, #FFFFFF);
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 .resultado-busca__textos {
@@ -69,5 +73,23 @@
   background: var(--cor-superficie);
   color: var(--cor-texto-suave);
   font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.resultado-busca__marcas {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex: 0 0 auto;
+}
+
+.resultado-busca__extra {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--ponto-p4);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 700;
   white-space: nowrap;
 }

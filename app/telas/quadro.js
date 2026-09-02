@@ -51,9 +51,13 @@ function linhaViagem(viagem) {
 
   // IDA — saida do bairro. So aparece aqui, rotulada.
   if (viagem.ida == null) {
-    const td = celula('—', 'quadro__vazia');
-    if (viagem.tipo === 'baixada') {
-      td.title = 'Viagem baixada: comeca direto no retorno, sem saida do bairro.';
+    // Viagem cortada (baixada): comeca no retorno, saindo do Centro. O texto
+    // vai na propria celula — o `title` de antes era invisivel no celular,
+    // que e onde este quadro e lido.
+    const cortada = viagem.tipo === 'baixada';
+    const td = celula(cortada ? 'sai do Centro' : '—', cortada ? 'quadro__cortada' : 'quadro__vazia');
+    if (cortada) {
+      td.title = 'Viagem cortada: começa no retorno, saindo do Centro, sem vir do bairro.';
     }
     tr.append(td);
   } else {
@@ -211,9 +215,9 @@ function blocoLegenda() {
   const legenda = document.createElement('p');
   legenda.className = 'quadro__legenda';
   legenda.textContent =
-    '(+1) = madrugada do dia seguinte. Em "IDA" ou "VOLTA", "—" indica ' +
-    'perna de retorno (continuação, sem passagem no ponto) ou viagem baixada ' +
-    '(começa direto no retorno, sem saída do bairro).';
+    '(+1) = madrugada do dia seguinte. Em "VOLTA", "—" indica perna de retorno ' +
+    '(continuação, sem passagem no ponto). Em "IDA", "sai do Centro" indica ' +
+    'viagem cortada: começa no retorno, sem vir do bairro.';
   return legenda;
 }
 

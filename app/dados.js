@@ -104,6 +104,47 @@ export function avisosDe(numero, diaISO) {
 }
 
 /**
+ * Só os avisos que citam ESTA linha pelo numero — os de `linhas: 'todas'`
+ * ficam de fora.
+ *
+ * A tela da linha usa esta funcao, e nao `avisosDe`, para nao repetir os 6
+ * avisos gerais que a aba Avisos ja mostra. `avisosDe` continua existindo
+ * para quem precisar do conjunto completo.
+ *
+ * @param {string|number} numero
+ * @param {string} diaISO 'AAAA-MM-DD'
+ * @returns {object[]}
+ */
+export function avisosEspecificosDe(numero, diaISO) {
+  const num = String(numero);
+  return avisosDoDia(diaISO).filter((a) => Array.isArray(a.linhas) && a.linhas.includes(num));
+}
+
+/**
+ * Os avisos gerais do dia (`linhas: 'todas'`), que valem para toda a operacao.
+ * @param {string} diaISO
+ * @returns {object[]}
+ */
+export function avisosGeraisDoDia(diaISO) {
+  return avisosDoDia(diaISO).filter((a) => a.linhas === 'todas');
+}
+
+/** Id do aviso que marca as linhas com viagem extra depois da meia-noite. */
+const AVISO_VIAGEM_EXTRA = 'viagem-extra-00h';
+
+/**
+ * A linha faz viagem extra a partir das 00h neste dia?
+ * Lido do proprio aviso, para nao duplicar a lista de linhas em dois lugares.
+ *
+ * @param {string|number} numero
+ * @param {string} diaISO
+ * @returns {boolean}
+ */
+export function temViagemExtra(numero, diaISO) {
+  return avisosEspecificosDe(numero, diaISO).some((a) => a.id === AVISO_VIAGEM_EXTRA);
+}
+
+/**
  * Todos os avisos de um dia, ordenados por severidade.
  * @param {string} diaISO
  * @returns {object[]}

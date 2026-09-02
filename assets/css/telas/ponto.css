@@ -83,3 +83,22 @@
   letter-spacing: 0.04em;
   text-transform: lowercase;
 }
+
+.linha__marcadores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+/* .linha__marcador já traz margin-top próprio para o uso antigo; dentro do
+   contentor flex ele é zerado para os selos ficarem alinhados. */
+.linha__marcadores .linha__marcador {
+  margin-top: 0;
+}
+
+.linha__marcador--extra {
+  background: var(--ponto-p4);
+  color: #FFFFFF;
+  text-transform: none;
+}
