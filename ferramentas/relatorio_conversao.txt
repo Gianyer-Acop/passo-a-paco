@@ -1,4 +1,4 @@
-RELATÓRIO DE CONVERSÃO — 2026-09-02T15:41:49-04:00
+RELATÓRIO DE CONVERSÃO — 2026-09-02T15:56:09-04:00
 
 Linhas na base: 80
   com programação do evento: 37 (111 blocos linha-dia)

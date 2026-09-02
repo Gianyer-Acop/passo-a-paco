@@ -1,5 +1,5 @@
 {
- "versaoDados": "2026-09-02T15:41:49-04:00",
+ "versaoDados": "2026-09-02T15:56:09-04:00",
  "evento": {
   "nome": "Sou Manaus Passo a Paço 2026",
   "dias": [
@@ -2936,6 +2936,7 @@
     "onibus-extras-00h",
     "frota-apoio-t1",
     "orientacao-fiscais",
+    "viagem-extra-00h",
     "opera-ate-centro"
    ],
    "observacoes": [],
@@ -39740,6 +39741,7 @@
     "onibus-extras-00h",
     "frota-apoio-t1",
     "orientacao-fiscais",
+    "viagem-extra-00h",
     "opera-ate-centro",
     "terminal-302-305"
    ],
@@ -45544,6 +45546,7 @@
     "onibus-extras-00h",
     "frota-apoio-t1",
     "orientacao-fiscais",
+    "viagem-extra-00h",
     "opera-ate-centro"
    ],
    "observacoes": [],
@@ -51961,7 +51964,8 @@
     "paradas-inoperantes-00h",
     "onibus-extras-00h",
     "frota-apoio-t1",
-    "orientacao-fiscais"
+    "orientacao-fiscais",
+    "viagem-extra-00h"
    ],
    "observacoes": [],
    "legendaViagens": [],
@@ -57577,6 +57581,7 @@
     "onibus-extras-00h",
     "frota-apoio-t1",
     "orientacao-fiscais",
+    "viagem-extra-00h",
     "opera-ate-centro"
    ],
    "observacoes": [],
@@ -66816,6 +66821,7 @@
     "onibus-extras-00h",
     "frota-apoio-t1",
     "orientacao-fiscais",
+    "viagem-extra-00h",
     "opera-ate-centro"
    ],
    "observacoes": [],
@@ -128450,6 +128456,7 @@
    ],
    "severidade": "alta",
    "linhas": [
+    "011",
     "101",
     "113",
     "120",
@@ -128459,12 +128466,17 @@
     "216",
     "219",
     "227",
+    "305",
     "315",
+    "320",
     "321",
+    "340",
     "356",
+    "357",
     "422",
     "440",
     "443",
+    "444",
     "448",
     "500",
     "535",
@@ -128481,7 +128493,7 @@
     "705",
     "713"
    ],
-   "texto": "Realiza mais uma viagem a partir das 00h."
+   "texto": "Opera depois da meia-noite, com viagem a partir das 00h."
   },
   {
    "id": "opera-ate-centro",

@@ -187,11 +187,12 @@ AVISOS = [
     {"id": "orientacao-fiscais", "dias": DIAS, "linhas": TODAS, "severidade": "info",
      "texto": "Seguir as orientações dos Fiscais de Transportes e Fiscais da ACOP "
               "presentes no local."},
+    # `linhas` fica VAZIA aqui de propósito: quem preenche é
+    # `derivar_linhas_da_madrugada()`, a partir dos horários realmente
+    # publicados. Ver o comentário daquela função para o motivo.
     {"id": "viagem-extra-00h", "dias": DIAS, "severidade": "alta",
-     "linhas": ["101", "113", "120", "121", "126", "214", "216", "219", "227", "315",
-                "321", "356", "422", "440", "443", "448", "500", "535", "540", "560",
-                "604", "608", "612", "621", "640", "650", "652", "676", "705", "713"],
-     "texto": "Realiza mais uma viagem a partir das 00h."},
+     "linhas": [],
+     "texto": "Opera depois da meia-noite, com viagem a partir das 00h."},
     {"id": "opera-ate-centro", "dias": DIAS, "severidade": "alta",
      "linhas": ["011", "216", "302", "305", "320", "321", "357", "444", "560", "621"],
      "texto": "Opera até a área central da cidade durante os dias do evento."},
@@ -774,8 +775,61 @@ def ler_aba(ws, aba):
 
 # ------------------------------------------------------------------ validações
 
+AVISO_MADRUGADA = "viagem-extra-00h"
+
+
+def derivar_linhas_da_madrugada(linhas_json):
+    """Preenche o aviso da madrugada com as linhas que REALMENTE passam das 24h.
+
+    Esta lista era transcrita à mão do PDF da OS 057 (30 linhas) e ficou para
+    trás: seis linhas (011, 305, 320, 340, 357 e 444) ganharam viagem depois da
+    meia-noite nas planilhas para atender o evento e continuaram sem marcação
+    nenhuma no site, embora o horário já aparecesse no quadro. Uma lista fixa ao
+    lado de um dado que muda diverge sempre — então ela passa a sair do dado.
+
+    Critério: existe passagem pelo ponto com hora >= 24:00 em algum dia. É o que
+    o operador precisa saber, e é o mesmo horário que a grade já exibe.
+
+    A lista derivada contém as 30 da OS: nenhuma marcação se perde ao trocar a
+    fonte. `validar()` confere isso e reclama se alguma sumir.
+
+    @returns a lista de números, ordenada, que foi gravada no aviso
+    """
+    numeros = sorted(
+        num for num, L in linhas_json.items()
+        if any(any(int(p[:2]) >= 24 for p in (b.get("passagens") or []))
+               for b in (L.get("dias") or {}).values())
+    )
+    for aviso in AVISOS:
+        if aviso["id"] == AVISO_MADRUGADA:
+            aviso["linhas"] = numeros
+    return numeros
+
+
+# As 30 linhas que a OS 057 cita nominalmente como "realiza mais uma viagem a
+# partir das 00h". Não alimentam mais o aviso — servem de rede de segurança:
+# se a lista derivada dos horários deixar de conter alguma delas, é sinal de que
+# a planilha perdeu viagens, e `validar()` acusa.
+MADRUGADA_NA_OS = [
+    "101", "113", "120", "121", "126", "214", "216", "219", "227", "315",
+    "321", "356", "422", "440", "443", "448", "500", "535", "540", "560",
+    "604", "608", "612", "621", "640", "650", "652", "676", "705", "713",
+]
+
+
 def validar(linhas_json):
     erros = []
+
+    # A lista derivada tem de conter todas as que a OS cita nominalmente. Uma
+    # ausencia aqui significa que a planilha daquela linha perdeu as viagens da
+    # madrugada — o tipo de regressao que ninguem ve olhando a tela.
+    derivadas = set(next(a["linhas"] for a in AVISOS if a["id"] == AVISO_MADRUGADA))
+    publicadas = set(linhas_json)
+    faltando = [n for n in MADRUGADA_NA_OS if n in publicadas and n not in derivadas]
+    if faltando:
+        erros.append("linhas que a OS cita com viagem apos 00h mas que nao tem "
+                     "passagem depois das 24h na planilha: %s" % ", ".join(faltando))
+
     for num, L in sorted(linhas_json.items()):
         # Vale para TODA linha publicada com quadro — as de evento e as de
         # escala regular, que desde a §1.2 tambem entram em dias{}.
@@ -858,9 +912,9 @@ def main():
                 "pontoId": ponto_de.get(num),
                 "temProgramacaoEvento": base is None,
                 "escalaBase": base,
-                "avisos": ([a["id"] for a in AVISOS
-                            if a["linhas"] == TODAS or num in a["linhas"]]
-                           if base is None else []),
+                # Preenchido na segunda passada, abaixo: a lista de linhas
+                # do aviso da madrugada so existe depois de ler todo mundo.
+                "avisos": [],
                 "observacoes": observacoes,
                 "legendaViagens": legenda,
                 "dias": dias or {},
@@ -872,6 +926,15 @@ def main():
                 avisar("%s: aba e escala regular (ref. %s, %s), sem programacao do "
                        "evento; quadro replicado nos 3 dias"
                        % (num, base["dataReferencia"], base["tipoDia"]))
+
+    # Segunda passada: o aviso da madrugada e derivado dos horarios publicados,
+    # entao os avisos por linha so podem ser resolvidos com a base completa.
+    derivar_linhas_da_madrugada(linhas_json)
+    for num, L in linhas_json.items():
+        if not L["temProgramacaoEvento"]:
+            continue
+        L["avisos"] = [a["id"] for a in AVISOS
+                       if a["linhas"] == TODAS or num in a["linhas"]]
 
     for p in PONTOS:
         no_ponto = [n for n in linhas_json if linhas_json[n]["pontoId"] == p["id"]]

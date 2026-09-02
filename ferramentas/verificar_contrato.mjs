@@ -369,6 +369,26 @@ igual('diaVigente fora do evento -> dia', formato.diaVigente?.(new Date('2026-09
 igual('diaVigente fora do evento -> foraDoEvento', formato.diaVigente?.(new Date('2026-09-20T10:00:00-04:00'))?.foraDoEvento, true);
 igual('diaVigente dentro do evento -> foraDoEvento false', formato.diaVigente?.(new Date('2026-09-06T10:00:00-04:00'))?.foraDoEvento, false);
 
+// O aviso da madrugada e DERIVADO dos horarios, nao transcrito da OS. A lista
+// fixa tinha 30 linhas e ficou para tras quando 011, 305, 320, 340, 357 e 444
+// ganharam viagem depois da meia-noite na planilha: o horario aparecia no
+// quadro e a linha continuava sem marcacao nenhuma. Se as duas listas voltarem
+// a divergir, e porque alguem fixou a lista de novo.
+{
+  const aviso = (dados.avisos ?? []).find((a) => a.id === 'viagem-extra-00h');
+  const comMadrugada = numeros.filter((n) =>
+    DIAS.some((d) => (linhas[n].dias?.[d]?.passagens ?? []).some((p) => Number(p.slice(0, 2)) >= 24)));
+
+  igual('o aviso da madrugada casa com quem passa das 24h',
+    JSON.stringify(aviso?.linhas ?? []), JSON.stringify(comMadrugada.sort()));
+
+  // As seis que motivaram a mudanca, nomeadas: se o parser parar de ler a
+  // madrugada delas, some a marcacao e some o horario, sem erro nenhum.
+  for (const n of ['011', '305', '320', '340', '357', '444']) {
+    ok('linha ' + n + ' marcada como madrugada', (aviso?.linhas ?? []).includes(n));
+  }
+}
+
 // Bloqueio de dia (ajuste funcional): na correria do ponto um toque errado no
 // seletor abre o quadro de outro dia sem sinal evidente, e o operador passa a
 // informar horario que nao e o de hoje. Durante o evento so o dia em operacao
