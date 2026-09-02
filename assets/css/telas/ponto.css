@@ -6,9 +6,11 @@
   padding-block: var(--espaco);
 }
 
+/* color usa a variante "-texto" (TASK-11): --ponto-p1/--ponto-p3 puros nao
+   alcancam contraste AA como texto sobre branco. */
 .tela-ponto h2 {
   font-size: 1.25rem;
-  color: var(--cor-ponto, var(--cor-evento-azul));
+  color: var(--cor-ponto-texto, var(--cor-evento-azul));
 }
 
 .tela-ponto__cabecalho {
@@ -59,7 +61,7 @@
 }
 
 .linha__numero {
-  color: var(--cor-ponto, var(--cor-evento-azul));
+  color: var(--cor-ponto-texto, var(--cor-evento-azul));
   margin-bottom: 4px;
 }
 

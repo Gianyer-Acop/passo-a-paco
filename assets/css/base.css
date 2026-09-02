@@ -14,6 +14,22 @@
   --ponto-p3: #F5821F;   /* laranja */
   --ponto-p4: #E31E24;   /* vermelho*/
 
+  /* TASK-11 — variantes escurecidas para USO TIPOGRÁFICO apenas (texto sobre
+     branco). Medidas por luminância relativa WCAG, razão de contraste sobre
+     #FFFFFF:
+       --ponto-p1 (#3FA45B) puro  = 3.15:1  -> reprova AA texto normal (4.5:1)
+       --ponto-p3 (#F5821F) puro  = 2.59:1  -> reprova AA inclusive texto grande (3:1)
+       --ponto-p2 (#2B3990) puro  = 10.05:1 -> já aprova, variante = a própria cor
+       --ponto-p4 (#E31E24) puro  = 4.69:1  -> já aprova, variante = a própria cor
+     --ponto-p1-texto (#2E7A43) = 5.28:1 sobre branco — aprova AA.
+     --ponto-p3-texto (#A34A00) = 5.94:1 sobre branco — aprova AA.
+     O token original (--ponto-pN) continua valendo para preenchimento/borda;
+     só a variante "-texto" deve ser usada onde a cor colore o próprio texto. */
+  --ponto-p1-texto: #2E7A43;
+  --ponto-p2-texto: var(--ponto-p2);
+  --ponto-p3-texto: #A34A00;
+  --ponto-p4-texto: var(--ponto-p4);
+
   --fonte-corpo: 1rem;      /* >= 16px */
   --fonte-linha: 1.5rem;    /* >= 24px, número da linha */
   --alvo-toque: 44px;
@@ -214,10 +230,19 @@ input {
   white-space: nowrap;
 }
 
-.ponto-p1 { --cor-ponto: var(--ponto-p1); }
-.ponto-p2 { --cor-ponto: var(--ponto-p2); }
-.ponto-p3 { --cor-ponto: var(--ponto-p3); }
-.ponto-p4 { --cor-ponto: var(--ponto-p4); }
+/* --cor-ponto: preenchimento/borda (token original, imutável).
+   --cor-ponto-texto: variante para TEXTO colorido sobre fundo branco.
+   --cor-ponto-sobre: cor de texto para escrever EM CIMA do preenchimento
+   --cor-ponto (chip/hotspot cheios) — precisa ser clara (#FFFFFF) ou escura
+   (#1A1A1A) conforme o que passa em AA para cada uma das 4 cores; medido:
+     branco sobre --ponto-p1 (verde)   = 3.15:1 -> reprova; usar #1A1A1A (5.53:1)
+     branco sobre --ponto-p2 (azul)    = 10.05:1 -> aprova; usar branco
+     branco sobre --ponto-p3 (laranja) = 2.59:1 -> reprova; usar #1A1A1A (6.71:1)
+     branco sobre --ponto-p4 (vermelho)= 4.69:1 -> aprova; usar branco */
+.ponto-p1 { --cor-ponto: var(--ponto-p1); --cor-ponto-texto: var(--ponto-p1-texto); --cor-ponto-sobre: #1A1A1A; }
+.ponto-p2 { --cor-ponto: var(--ponto-p2); --cor-ponto-texto: var(--ponto-p2-texto); --cor-ponto-sobre: #FFFFFF; }
+.ponto-p3 { --cor-ponto: var(--ponto-p3); --cor-ponto-texto: var(--ponto-p3-texto); --cor-ponto-sobre: #1A1A1A; }
+.ponto-p4 { --cor-ponto: var(--ponto-p4); --cor-ponto-texto: var(--ponto-p4-texto); --cor-ponto-sobre: #FFFFFF; }
 
 /* --------------------------------------- estados compartilhados de tela
    Usados por app/telas.js e por TODAS as telas. Ficam aqui, e nao no CSS de

@@ -34,8 +34,13 @@
   background: var(--cor-fundo);
 }
 
+/* --cor-severidade-texto: cor do rotulo escrito sobre --cor-severidade.
+   TASK-11 — branco sobre --ponto-p3 (laranja) mede 2.59:1 e reprova AA
+   (precisa 4.5:1 em texto pequeno); as demais (--ponto-p4 vermelho 4.69:1,
+   --ponto-p2 azul 10.05:1) aprovam com branco. Só aviso--media precisa de
+   texto escuro. */
 .aviso--alta  { --cor-severidade: var(--ponto-p4); }
-.aviso--media { --cor-severidade: var(--ponto-p3); }
+.aviso--media { --cor-severidade: var(--ponto-p3); --cor-severidade-texto: #1A1A1A; }
 .aviso--info  { --cor-severidade: var(--ponto-p2); }
 
 .aviso__severidade {
@@ -44,7 +49,7 @@
   padding: 2px 8px;
   border-radius: 999px;
   background: var(--cor-severidade, var(--cor-superficie));
-  color: #FFFFFF;
+  color: var(--cor-severidade-texto, #FFFFFF);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.04em;

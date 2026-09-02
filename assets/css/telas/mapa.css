@@ -65,7 +65,10 @@
   border: 2px solid #FFFFFF;
   border-radius: 50%;
   background: var(--cor-ponto);
-  color: #FFFFFF;
+  /* TASK-11: --cor-ponto-sobre escolhe branco ou #1A1A1A conforme o que
+     passa em AA para cada uma das 4 cores (ver base.css); branco fixo
+     reprovaria para --ponto-p1 (verde, 3.15:1) e --ponto-p3 (laranja, 2.59:1). */
+  color: var(--cor-ponto-sobre, #FFFFFF);
   font-weight: 700;
   font-size: 0.9375rem;
   line-height: 1;
@@ -111,7 +114,8 @@
   height: 40px;
   border-radius: 50%;
   background: var(--cor-ponto);
-  color: #FFFFFF;
+  /* TASK-11: ver comentario equivalente em .mapa-hotspot acima */
+  color: var(--cor-ponto-sobre, #FFFFFF);
   font-weight: 700;
   font-size: 1.0625rem;
   font-variant-numeric: tabular-nums;

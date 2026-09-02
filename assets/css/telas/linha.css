@@ -33,6 +33,8 @@
 
 /* --------------------------------------------------------------- ponto */
 
+/* color usa a variante "-texto" (TASK-11): as cores puras --ponto-p1 (verde)
+   e --ponto-p3 (laranja) nao alcancam 4.5:1 sobre branco como texto. */
 .linha__ponto {
   display: inline-flex;
   align-items: center;
@@ -41,7 +43,7 @@
   padding: 8px 14px;
   border-radius: var(--raio);
   border: 2px solid var(--cor-ponto, var(--cor-borda));
-  color: var(--cor-ponto, var(--cor-texto));
+  color: var(--cor-ponto-texto, var(--cor-texto));
   font-weight: 700;
 }
 
