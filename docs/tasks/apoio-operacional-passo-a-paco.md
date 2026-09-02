@@ -1,7 +1,7 @@
 # Tasks: Site de Apoio Operacional — Sou Manaus Passo a Paço 2026
 
 > **Spec:** docs/specs/apoio-operacional-passo-a-paco.md
-> **Status:** 10/13 tasks concluídas | 4/6 ondas concluídas
+> **Status:** 12/13 tasks concluídas | 5/6 ondas concluídas
 > **Criado em:** 01/09/2026
 
 ---
@@ -551,6 +551,7 @@ Gravar o passo de conversão em `ferramentas/otimizar_imagens.py`, para ser repe
 > **Contrato compartilhado:** nenhum
 > **Pares produtor/consumidor:** nenhum
 > **Verificação de integração:** nenhuma
+> **Exceção aceita (RNF-04):** os hotspots do mapa medem 24–37 px em telas estreitas, não 44 px. Aceita pelo orquestrador em 02/09/2026 — dois alvos de 44 px com os pinos de P3/P4 a ~34 px entre centros se sobrepõem, e tocar o ponto errado é pior que um alvo menor. Passa em WCAG 2.2 AA (SC 2.5.8: piso de 24 px + exceção de alvo equivalente); os cartões abaixo do mapa dão 336×74 para os mesmos quatro destinos. Ver `app/telas/mapa.js:19`.
 
 ### TASK-11 — [EDGE] Passe de acessibilidade e responsividade
 
@@ -576,13 +577,13 @@ Gravar o passo de conversão em `ferramentas/otimizar_imagens.py`, para ser repe
 **Referência:** nenhuma
 
 **Critério de conclusão:**
-- [ ] Em 360×640 nenhuma tela rola na horizontal
-- [ ] Todo alvo interativo mede ≥ 44×44 px
-- [ ] Contraste AA verificado nas 4 cores de ponto sobre o fundo
-- [ ] Percurso completo por teclado, com foco sempre visível
-- [ ] Nenhuma informação depende só de cor
+- [x] Em 360×640 nenhuma tela rola na horizontal — medido: `scrollWidth` 360 = `clientWidth` 360
+- [x] Todo alvo interativo mede ≥ 44×44 px — **com exceção aceita:** hotspots do mapa em 24×24 / 37×37 a 360 px (ver cabeçalho da onda); todos os demais alvos passam, e em 1280×800 os hotspots voltam a 44×44
+- [x] Contraste AA verificado nas 4 cores de ponto sobre o fundo — 10 razões recalculadas por luminância WCAG; p1 puro 3.15:1 e p3 puro 2.59:1 reprovavam como texto, resolvido com `--ponto-pN-texto` (5.28:1 / 5.94:1) e `--cor-ponto-sobre`, sem alterar os tokens funcionais
+- [x] Percurso completo por teclado, com foco sempre visível — Tab real: `outline 3px solid #312783`, offset 2px, `:focus-visible` true
+- [x] Nenhuma informação depende só de cor — hotspot traz o número + `aria-label` com a zona; cartão traz número e zona em texto visível
 
-**Status:** [ ] Pendente
+**Status:** [x] Concluída
 
 ---
 
@@ -610,12 +611,12 @@ Deve cobrir:
 **Referência:** nenhuma
 
 **Critério de conclusão:**
-- [ ] Um leitor que nunca viu o projeto consegue atualizar os dados só com o README
-- [ ] O procedimento de atualização está em comandos copiáveis
-- [ ] A regra `passagens` × `saidasOrigem` está explicada
-- [ ] As pendências abertas estão listadas
+- [x] Um leitor que nunca viu o projeto consegue atualizar os dados só com o README
+- [x] O procedimento de atualização está em comandos copiáveis — com as saídas reais (`Avisos: 47 | Erros: 0`, `73 asserções ok, 0 falha(s)`)
+- [x] A regra `passagens` × `saidasOrigem` está explicada — com os erros de 42 min (214) e 1 h (604) e o canário 604/07-09 = 16:46
+- [x] As pendências abertas estão listadas — P-01, P-02 e as 6 linhas fora de escopo
 
-**Status:** [ ] Pendente
+**Status:** [x] Concluída
 
 ---
 
