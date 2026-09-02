@@ -21,7 +21,19 @@
 //
 //   postMessage({ tipo: MENSAGEM_ATUALIZACAO, versaoDados: '<ISO 8601 com offset>' })
 
-const VERSAO = 'v7';
+// VERSAO nomeia o cache. Trocar de VERSAO e o que faz o navegador instalar um
+// service worker novo, refazer o precache e apagar o antigo — sem isso o app
+// shell, que e cache-first, continua sendo servido do cache velho para sempre,
+// em silencio.
+//
+// ASSINATURA_SHELL e o sha256 (12 primeiros digitos) do conteudo dos arquivos
+// de APP_SHELL, exceto dados.json. Ela nao e lida em tempo de execucao: existe
+// para o teste-guarda comparar. Se o shell mudar e este par nao for atualizado,
+// `node ferramentas/verificar_contrato.mjs` falha e diz qual e a assinatura
+// nova. E a rede que impede o deploy de sair com a VERSAO parada, que e o erro
+// que faz o operador ficar com a versao antiga sem ninguem perceber.
+const VERSAO = 'v8';
+const ASSINATURA_SHELL = 'f5e7b5601b21';
 const CACHE = 'passo-a-paco-' + VERSAO;
 
 const MENSAGEM_ATUALIZACAO = 'dados-atualizados';

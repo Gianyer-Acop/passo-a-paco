@@ -133,10 +133,45 @@
       return;
     }
 
+    // RECARGA AUTOMATICA AO TROCAR DE VERSAO.
+    //
+    // O index.html vem sempre da rede, mas todo o resto (js, css, imagens) e
+    // cache-first. Na primeira visita depois de um deploy isso servia HTML novo
+    // executando codigo e arte ANTIGOS, e o operador so via a versao nova se
+    // apertasse "Atualizar" no rodape. Agora, quando o service worker novo
+    // assume o controle da pagina, ela se recarrega sozinha uma vez.
+    //
+    // As duas travas importam:
+    //   - `controlavaAntes`: numa primeira visita o controle tambem muda (de
+    //     nenhum SW para o primeiro), e recarregar ali seria recarga a toa.
+    //   - `JANELA_RECARGA`: so recarrega logo apos a carga. Um deploy no meio
+    //     do evento nao pode arrancar a tela de um operador que esta lendo um
+    //     quadro no ponto; nesse caso fica o botao "Atualizar" do rodape, que
+    //     e dele a decisao de quando recarregar.
+    var JANELA_RECARGA = 10000;
+    var abertoEm = Date.now();
+    var controlavaAntes = Boolean(navigator.serviceWorker.controller);
+    var recarregando = false;
+
+    navigator.serviceWorker.addEventListener('controllerchange', function () {
+      if (recarregando || !controlavaAntes) return;
+      if (Date.now() - abertoEm > JANELA_RECARGA) return;
+      recarregando = true;
+      window.location.reload();
+    });
+
     window.addEventListener('load', function () {
-      navigator.serviceWorker.register('sw.js').catch(function (erro) {
-        console.warn('Service worker nao registrado:', erro);
-      });
+      // `updateViaCache: 'none'` tira o proprio sw.js do cache HTTP: sem isso o
+      // navegador pode demorar a perceber que ha versao nova, e o deploy fica
+      // preso atras de um arquivo que ninguem revalida.
+      navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).then(
+        function (registro) {
+          registro.update();
+        },
+        function (erro) {
+          console.warn('Service worker nao registrado:', erro);
+        },
+      );
     });
   })();
 </script>

@@ -9,6 +9,7 @@
 //   4. as assinaturas congeladas de app/formato.js.
 
 import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -493,6 +494,56 @@ ok('sw.js prende a revalidacao em waitUntil', /evento\.waitUntil\(daRede\)/.test
 // nova guarda os arquivos VELHOS. Como o app shell e cache-first, o site
 // serve a versao antiga para sempre — sem erro nenhum em lugar nenhum.
 ok("sw.js precacheia com cache: 'reload' (nunca pelo cache HTTP)", /cache:\s*'reload'/.test(fonteSw));
+
+// O app shell e cache-first: enquanto a VERSAO nao muda, o navegador nao
+// reinstala o service worker e continua servindo os arquivos do cache antigo.
+// Um deploy com a VERSAO parada deixa o operador na versao velha sem nenhum
+// sinal — foi o que aconteceu. A assinatura fecha essa porta.
+{
+  const bloco = /const APP_SHELL = \[(.*?)\];/s.exec(fonteSw)?.[1] ?? '';
+  const caminhos = [...bloco.matchAll(/'\.\/([^']*)'/g)].map((m) => m[1]);
+  // './' duplica index.html; dados.json muda a cada geracao e se atualiza
+  // sozinho por stale-while-revalidate, entao nao entra na assinatura.
+  const alvos = caminhos.filter((c) => c && c !== 'dados/dados.json').sort();
+
+  // Arquivo de texto entra com fim de linha NORMALIZADO. Sem isto a assinatura
+  // dependeria do checkout: neste repositorio o working tree e CRLF e o git
+  // guarda LF, entao quem clonasse veria a assinatura falhar sem nada ter
+  // mudado. Binario (png/webp) entra cru — normalizar corromperia o byte 0x0D.
+  const TEXTO = /\.(html|css|js|mjs|json|webmanifest|svg|txt|md)$/i;
+  const soma = createHash('sha256');
+  const ausentes = [];
+  for (const caminho of alvos) {
+    const completo = join(RAIZ, caminho);
+    if (!existsSync(completo)) { ausentes.push(caminho); continue; }
+    const bruto = readFileSync(completo);
+    soma.update(caminho);
+    soma.update(TEXTO.test(caminho) ? bruto.toString('utf8').split('\r\n').join('\n') : bruto);
+  }
+  ok('todo arquivo do APP_SHELL existe', ausentes.length === 0, ausentes.join(', '));
+
+  const assinatura = soma.digest('hex').slice(0, 12);
+  const gravada = /ASSINATURA_SHELL\s*=\s*'([^']+)'/.exec(fonteSw)?.[1];
+  ok(
+    'ASSINATURA_SHELL casa com o conteudo do app shell',
+    assinatura === gravada,
+    'o shell mudou: em sw.js, suba a VERSAO e troque ASSINATURA_SHELL para ' + assinatura,
+  );
+}
+
+// A pagina precisa se recarregar sozinha quando o SW novo assume, senao a
+// primeira visita depois do deploy roda HTML novo com js e arte antigos.
+{
+  const html = readFileSync(join(RAIZ, 'index.html'), 'utf8');
+  ok('index.html recarrega ao trocar de service worker',
+    /addEventListener\('controllerchange'/.test(html) && /location\.reload/.test(html));
+  ok("index.html registra o SW com updateViaCache: 'none'",
+    /updateViaCache:\s*'none'/.test(html));
+  // Recarregar a qualquer momento arrancaria a tela de um operador lendo um
+  // quadro no ponto. So vale logo apos a carga.
+  ok('a recarga automatica so vale logo apos a carga',
+    /JANELA_RECARGA/.test(html) && /controlavaAntes/.test(html));
+}
 
 const caminhoManifesto = join(RAIZ, 'manifest.webmanifest');
 ok('manifest.webmanifest existe', existsSync(caminhoManifesto));
