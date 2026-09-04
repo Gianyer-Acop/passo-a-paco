@@ -1,11 +1,11 @@
-RELATÓRIO DE CONVERSÃO — 2026-09-02T15:56:09-04:00
+RELATÓRIO DE CONVERSÃO — 2026-09-04T14:52:02-04:00
 
 Linhas na base: 80
   com programação do evento: 37 (111 blocos linha-dia)
   só escala regular, sem evento: 43 -> 002, 004, 110, 111, 112, 119, 123, 127, 129, 203, 205, 207, 211, 221, 223, 306, 319, 324, 330, 403, 427, 439, 447, 452, 454, 455, 457, 461, 507, 515, 517, 600, 602, 606, 609, 611, 619, 625, 651, 704, 706, 708, 711
-Passagens pelo ponto (VOLTA, publicadas): 5639
-Saídas do terminal de origem (IDA, referência): 5642
-Viagens no quadro completo: 7011
+Passagens pelo ponto (VOLTA, publicadas): 5615
+Saídas do terminal de origem (IDA, referência): 5618
+Viagens no quadro completo: 6987
 
 LINHA  DIA           DECL  ORIG PASSA  VIAG 1ªPASSAG ÚLTIMA  
 011    2026-09-05      18    18    18    24 05:47    25:27   
@@ -98,9 +98,9 @@ LINHA  DIA           DECL  ORIG PASSA  VIAG 1ªPASSAG ÚLTIMA
 612    2026-09-05      29    29    29    35 05:28    26:00   
 612    2026-09-06      29    29    29    35 05:28    26:00   
 612    2026-09-07      29    29    29    35 05:28    26:00   
-621    2026-09-05      24    24    24    28 05:29    26:20   
-621    2026-09-06      24    24    24    28 05:29    26:20   
-621    2026-09-07      24    24    24    28 05:29    26:20   
+621    2026-09-05      16    16    16    20 05:56    27:02   
+621    2026-09-06      16    16    16    20 05:56    27:02   
+621    2026-09-07      16    16    16    20 05:56    27:02   
 640    2026-09-05      75    75    75    93 05:34    26:55   
 640    2026-09-06      59    59    59    73 05:28    25:33   
 640    2026-09-07      70    70    70    87 05:34    26:01   
